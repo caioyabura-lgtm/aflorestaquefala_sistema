@@ -1275,7 +1275,7 @@
 
   <script>
     // Este login é apenas identificação interna para registro de acesso. Não substitui autenticação segura.
-    const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbxrSJEjVUzXHFnlq57DWcXKHmlqTogBCc7jKnuYbCQQNFgt7dAHUb4KXOxPrFlECGHh4w/exec";
+    const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbx2YHJF2cg1jhWlz3wV5nBFfaFZ8fj1GFcId1LO4tJEgr0VUz_YN3M6u3rWHITpP9tmew/exec";
     const URL_DASHBOARD_GOOGLE = "https://script.google.com/macros/s/AKfycbw11X9Gh749YlHASa11nVrCdcQC1hA6iykcYD_UAx4dBjKfJHQGFFU1XdLSCnDr6NKdqA/exec";
     const CURRENT_DOCUMENT_VERSION = "VCBH-2026.001";
     const USER_STORAGE_KEY = "floresta_usuario";
@@ -1434,8 +1434,6 @@
       const formData = new FormData(taskForm);
       const payload = {
         acao: "registrar_tarefa",
-        planilha: "gestao_site_a_floresta_que_fala",
-        pagina: "tarefas_registro",
         tarefa: formData.get("tarefa").trim(),
         setor: formData.get("setor").trim(),
         etapa: formData.get("etapa").trim(),
