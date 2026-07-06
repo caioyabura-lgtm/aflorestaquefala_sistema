@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071812">
+  <meta name="description" content="Versões do projeto A Floresta que Fala.">
+  <title>Projeto — A Floresta que Fala</title>
+  <style>
+    :root {
+      --floresta-profunda: #071812;
+      --areia: #efe5da;
+      --coral: #ff7862;
+      --branco: #f9f9f8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--branco);
+      background: var(--floresta-profunda);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    main {
+      display: grid;
+      min-height: 100svh;
+      place-items: center;
+      padding: 2rem;
+    }
+
+    .project-menu {
+      width: min(32rem, 100%);
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid rgba(249, 249, 248, .18);
+    }
+
+    nav a {
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem .25rem;
+      border-bottom: 1px solid rgba(249, 249, 248, .18);
+      color: var(--areia);
+      text-align: left;
+      text-decoration: none;
+      transition: color .25s ease, padding .25s ease;
+    }
+
+    nav a span {
+      color: rgba(239, 229, 218, .38);
+      font-size: .65rem;
+      letter-spacing: .12em;
+      transition: color .25s ease;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      padding-left: .75rem;
+      color: var(--coral);
+      outline: none;
+    }
+
+    nav a:hover span,
+    nav a:focus-visible span {
+      color: var(--coral);
+    }
+
+    @media (max-width: 480px) {
+      main {
+        padding: 1.25rem;
+      }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      nav a,
+      nav a span {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="project-menu" aria-label="Versões do projeto">
+      <nav aria-label="Versões do projeto">
+        <a href="novas_dramaturgias.html">
+          <span>01</span>
+          Novas Dramaturgias 2026
+        </a>
+        <a href="viradacultural_bh_2026.html">
+          <span>02</span>
+          Virada Cultural BH 2026
+        </a>
+        <a href="producao.html">
+          <span>03</span>
+          Produção
+        </a>
+      </nav>
+    </section>
+  </main>
+</body>
+</html>

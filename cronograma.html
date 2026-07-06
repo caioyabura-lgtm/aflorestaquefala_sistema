@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b2a">
+  <meta name="description" content="Cronograma interno de execução do projeto A Floresta que Fala.">
+  <title>Cronograma — A Floresta que Fala</title>
+  <style>
+    :root {
+      --forest:#123b2a; --deep:#09271b; --leaf:#647a3a; --earth:#a54812;
+      --sun:#f5ad28; --cream:#f7eddb; --paper:#fffaf0; --ink:#263229;
+      --muted:#687266; --line:rgba(35,48,38,.14); --shadow:0 20px 58px rgba(29,45,31,.1);
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0; color:var(--ink); font-family:"Segoe UI",Arial,sans-serif; line-height:1.62;
+      background:
+        radial-gradient(circle at 8% 8%,rgba(245,173,40,.14),transparent 26rem),
+        radial-gradient(circle at 94% 38%,rgba(100,122,58,.1),transparent 30rem),var(--cream);
+    }
+    a { color:inherit; } button { font:inherit; }
+    .wrap { width:min(1180px,calc(100% - 40px)); margin-inline:auto; }
+    .site-header {
+      position:sticky; top:0; z-index:30; border-bottom:1px solid var(--line);
+      background:rgba(247,237,219,.9); backdrop-filter:blur(14px);
+    }
+    .nav { display:flex; min-height:72px; align-items:center; justify-content:space-between; gap:18px; }
+    .brand { color:var(--forest); font:700 1rem Georgia,serif; text-decoration:none; }
+    .nav-links { display:flex; gap:3px; align-items:center; flex-wrap:wrap; justify-content:flex-end; }
+    .nav-links a,.print-button {
+      padding:8px 9px; border:0; border-radius:999px; color:var(--forest); background:transparent;
+      text-decoration:none; font-size:.65rem; font-weight:800; letter-spacing:.035em; text-transform:uppercase; cursor:pointer;
+    }
+    .nav-links a[aria-current="page"] { color:#fff; background:var(--forest); }
+    .print-button { border:1px solid var(--forest); }
+    .nav-links a:hover,.print-button:hover { background:rgba(18,59,42,.1); }
+
+    .hero { position:relative; padding:clamp(80px,12vw,145px) 0 clamp(60px,8vw,95px); overflow:hidden; }
+    .eyebrow { color:var(--earth); font-size:.72rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+    h1,h2,h3 { font-family:Georgia,serif; line-height:1.08; }
+    h1 { margin:12px 0 20px; color:var(--forest); font-size:clamp(3.4rem,9vw,8rem); letter-spacing:-.055em; }
+    .lead { max-width:780px; margin:0; color:var(--muted); font-size:clamp(1.1rem,2.3vw,1.45rem); }
+    .trail { position:absolute; right:5%; top:25%; width:230px; height:140px; opacity:.15; pointer-events:none; }
+    .trail i { position:absolute; width:13px; height:21px; border-radius:50%; background:var(--forest); transform:rotate(30deg); animation:step 3s ease-in-out infinite; }
+    .trail i:nth-child(1){left:0;bottom:0}.trail i:nth-child(2){left:48px;bottom:32px;animation-delay:.3s}
+    .trail i:nth-child(3){left:96px;bottom:54px;animation-delay:.6s}.trail i:nth-child(4){left:144px;bottom:85px;animation-delay:.9s}
+
+    section { padding:clamp(44px,7vw,80px) 0; }
+    .section-head { max-width:800px; margin-bottom:28px; }
+    .section-head h2 { margin:0 0 10px; color:var(--forest); font-size:clamp(2rem,4.5vw,3.6rem); }
+    .section-head p { margin:0; color:var(--muted); }
+    .overview {
+      padding:clamp(28px,5vw,48px); border:1px solid var(--line); border-radius:28px;
+      background:rgba(255,250,240,.88); box-shadow:var(--shadow); font-size:clamp(1rem,1.8vw,1.16rem);
+    }
+    .overview p { max-width:950px; margin:0; color:var(--muted); }
+    .overview strong { color:var(--forest); }
+
+    .milestones { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .milestone { min-height:180px; padding:23px; border:1px solid var(--line); border-radius:22px; background:var(--paper); box-shadow:var(--shadow); }
+    .milestone time { color:var(--earth); font-size:.7rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+    .milestone strong { display:block; margin-top:34px; color:var(--forest); font:700 1.2rem/1.2 Georgia,serif; }
+    .milestone:nth-child(4),.milestone:nth-child(5) { color:#fff; background:var(--forest); }
+    .milestone:nth-child(4) strong,.milestone:nth-child(5) strong { color:#fff; }
+    .milestone:nth-child(4) time,.milestone:nth-child(5) time { color:var(--sun); }
+
+    .timeline { position:relative; max-width:1020px; }
+    .timeline::before { content:""; position:absolute; top:20px; bottom:20px; left:31px; width:2px; background:linear-gradient(var(--sun),var(--leaf),var(--earth)); }
+    .phase { position:relative; display:grid; grid-template-columns:64px 1fr; gap:24px; margin-bottom:17px; }
+    .phase:last-child { margin-bottom:0; }
+    .phase-number {
+      z-index:1; display:grid; width:64px; height:64px; place-items:center; border:7px solid var(--cream);
+      border-radius:50%; color:#fff; background:var(--forest); font:700 1.3rem Georgia,serif;
+    }
+    .phase-card { padding:clamp(22px,4vw,34px); border:1px solid var(--line); border-radius:24px; background:var(--paper); box-shadow:var(--shadow); }
+    .phase-heading { display:flex; align-items:start; justify-content:space-between; gap:15px; }
+    .phase-card h3 { margin:0; color:var(--forest); font-size:clamp(1.3rem,2.5vw,1.8rem); }
+    .period { flex:none; padding:6px 10px; border-radius:999px; color:#4a3508; background:#f5d890; font-size:.69rem; font-weight:800; }
+    .activities { display:flex; gap:7px; margin-top:17px; flex-wrap:wrap; }
+    .activities span { padding:7px 10px; border-radius:10px; color:var(--muted); background:#f1e7d3; font-size:.76rem; }
+
+    .table-shell { overflow-x:auto; border:1px solid var(--line); border-radius:22px; background:var(--paper); box-shadow:var(--shadow); }
+    table { width:100%; min-width:950px; border-collapse:collapse; font-size:.8rem; }
+    th,td { padding:14px 13px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { color:#fff; background:var(--forest); font-size:.68rem; letter-spacing:.05em; text-transform:uppercase; }
+    td:first-child { color:var(--earth); font-weight:800; }
+    .status { display:inline-flex; padding:5px 9px; border-radius:999px; font-size:.63rem; font-weight:900; text-transform:uppercase; }
+    .planned { color:#31556a; background:#dceaf0; }
+    .preparing { color:#684e0d; background:#f5dfa4; }
+    .running { color:#fff; background:var(--leaf); }
+    .done { color:#fff; background:var(--forest); }
+    .attention { color:#fff; background:var(--earth); }
+
+    .dependencies { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; }
+    .dependency { min-height:190px; padding:20px; border-top:5px solid var(--earth); border-radius:17px; background:var(--paper); box-shadow:0 12px 35px rgba(29,45,31,.07); }
+    .dependency b { color:var(--earth); font-size:.67rem; letter-spacing:.1em; text-transform:uppercase; }
+    .dependency p { margin:18px 0 0; color:var(--muted); font-size:.83rem; }
+
+    .finance,.strategy { padding:clamp(28px,5vw,48px); border-radius:29px; color:#fff; background:var(--forest); box-shadow:var(--shadow); }
+    .finance { display:grid; grid-template-columns:1fr auto; gap:25px; align-items:center; }
+    .finance h2,.strategy h2 { margin:0 0 12px; color:#fff; font-size:clamp(2rem,4vw,3.2rem); }
+    .finance p,.strategy p { max-width:900px; margin:0; color:rgba(255,255,255,.75); }
+    .finance-link { padding:12px 17px; border-radius:999px; color:#3d2a04; background:var(--sun); text-decoration:none; font-size:.75rem; font-weight:900; text-transform:uppercase; white-space:nowrap; }
+    .strategy { background:var(--earth); }
+    footer { padding:35px 20px; color:rgba(255,255,255,.62); background:var(--deep); text-align:center; font-size:.74rem; }
+    .reveal { opacity:0; transform:translateY(20px); transition:opacity .65s ease,transform .65s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+    @keyframes step { 50% { transform:translateY(-7px) rotate(30deg); opacity:.5; } }
+
+    @media (max-width:950px) {
+      .milestones { grid-template-columns:repeat(2,1fr); }
+      .dependencies { grid-template-columns:repeat(3,1fr); }
+    }
+    @media (max-width:700px) {
+      .wrap { width:min(100% - 28px,1180px); }
+      .nav { min-height:64px; }
+      .nav-links a { display:none; }
+      .nav-links a[aria-current="page"] { display:inline-flex; }
+      .milestones,.dependencies { grid-template-columns:1fr; }
+      .phase { grid-template-columns:50px 1fr; gap:12px; }
+      .phase-number { width:50px; height:50px; border-width:5px; }
+      .timeline::before { left:24px; }
+      .phase-heading,.finance { display:block; }
+      .period { display:inline-block; margin-top:10px; }
+      .finance-link { display:inline-block; margin-top:22px; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      * { scroll-behavior:auto!important; animation:none!important; transition:none!important; }
+      .reveal { opacity:1; transform:none; }
+    }
+    @media print {
+      @page { margin:11mm; }
+      body { background:#fff; }
+      .site-header,.print-button,footer { display:none!important; }
+      .hero { padding:0 0 18px; }
+      section { padding:16px 0; break-inside:avoid; }
+      .wrap { width:100%; }
+      .phase-card,.milestone,.table-shell { box-shadow:none; }
+      .reveal { opacity:1; transform:none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Navegação principal">
+      <a class="brand" href="index.html">A Floresta que Fala</a>
+      <div class="nav-links">
+        <a href="index.html">Início</a><a href="edital.html">Edital</a><a href="orcamento.html">Orçamento</a>
+        <a href="fluxo_caixa.html">Fluxo de Caixa</a><a href="sonorizacao.html">Sonorização</a>
+        <a href="dramaturgia.html">Dramaturgia</a><a href="cronograma.html" aria-current="page">Cronograma</a>
+        <button class="print-button" type="button" onclick="window.print()">Imprimir / Exportar PDF</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <span class="eyebrow">Gestão e execução</span>
+      <h1>Cronograma</h1>
+      <p class="lead">Plano de execução do projeto <strong>A Floresta que Fala</strong>.</p>
+      <div class="trail" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="section-head"><h2>Visão geral</h2></div>
+      <div class="overview"><p>O cronograma organiza o projeto em fases estratégicas, considerando os prazos do <strong>Edital Novas Dramaturgias em Cena</strong>, o recebimento das parcelas, o processo de criação artística, a construção técnica, o ensaio aberto gratuito em 2026, a temporada de 8 apresentações em 2027 e a prestação de contas.</p></div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="section-head"><h2>Marcos do edital</h2><p>Datas externas que orientam decisões, entregas e disponibilidade financeira.</p></div>
+      <div class="milestones">
+        <article class="milestone"><time>08/06/2026</time><strong>Abertura das inscrições</strong></article>
+        <article class="milestone"><time>24/07/2026</time><strong>Encerramento das inscrições</strong></article>
+        <article class="milestone"><time>28/07/2026</time><strong>Abertura das propostas</strong></article>
+        <article class="milestone"><time>2026</time><strong>Ensaio aberto gratuito</strong></article>
+        <article class="milestone"><time>2027</time><strong>Estreia e temporada com 8 apresentações</strong></article>
+        <article class="milestone"><time>Até 31/12/2027</time><strong>Vigência prevista do Termo de Compromisso</strong></article>
+      </div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="section-head"><h2>Fases internas do projeto</h2><p>Oito movimentos conectam inscrição, criação, produção, temporada e encerramento.</p></div>
+      <div class="timeline">
+        <article class="phase"><span class="phase-number">1</span><div class="phase-card"><div class="phase-heading"><h3>Concepção e inscrição</h3><span class="period">Junho a julho de 2026</span></div><div class="activities"><span>Proposta artística</span><span>Orçamento</span><span>Anexos</span><span>Currículos</span><span>Documentação da Cooperativa</span><span>Inscrição no Mapa Cultural BH</span></div></div></article>
+        <article class="phase"><span class="phase-number">2</span><div class="phase-card"><div class="phase-heading"><h3>Formalização e contratação</h3><span class="period">Agosto de 2026</span></div><div class="activities"><span>Habilitação</span><span>Termo de Compromisso</span><span>1ª parcela</span><span>Contratos da equipe</span><span>Organização administrativa e jurídica</span></div></div></article>
+        <article class="phase"><span class="phase-number">3</span><div class="phase-card"><div class="phase-heading"><h3>Dramaturgia e pesquisa artística</h3><span class="period">Agosto a setembro de 2026</span></div><div class="activities"><span>Escrita do roteiro</span><span>Leitura de mesa</span><span>Escuta, infância e acessibilidade</span><span>Estrutura dramatúrgica</span><span>Marcações de som, luz e corpo</span></div></div></article>
+        <article class="phase"><span class="phase-number">4</span><div class="phase-card"><div class="phase-heading"><h3>Laboratório de pesquisa cênica</h3><span class="period">Setembro a outubro de 2026</span></div><div class="activities"><span>Corpo e escuta</span><span>Ator, objeto e espaço</span><span>Voz interior de Gaston</span><span>Paisagem sonora distribuída</span><span>Tecnologias artesanais</span></div></div></article>
+        <article class="phase"><span class="phase-number">5</span><div class="phase-card"><div class="phase-heading"><h3>Construção e prototipagem</h3><span class="period">Setembro a novembro de 2026</span></div><div class="activities"><span>Cenografia modular</span><span>Figurinos e adereços</span><span>Manutenção</span><span>Caixas organizadoras</span><span>Sistema sonoro</span><span>Mecanismos cinéticos</span><span>Transporte em Fiorino</span></div></div></article>
+        <article class="phase"><span class="phase-number">6</span><div class="phase-card"><div class="phase-heading"><h3>Ensaios e integração técnica</h3><span class="period">Outubro a novembro de 2026</span></div><div class="activities"><span>Ensaios de cena</span><span>Desenho de luz</span><span>Sonoplastia</span><span>Maquiagem</span><span>Roteiro técnico</span><span>Ensaios com operação</span><span>Passagem geral</span></div></div></article>
+        <article class="phase"><span class="phase-number">7</span><div class="phase-card"><div class="phase-heading"><h3>Ensaio aberto gratuito</h3><span class="period">Novembro ou dezembro de 2026</span></div><div class="activities"><span>Montagem</span><span>Ensaio aberto</span><span>Avaliação artística</span><span>Ajustes finais</span><span>Gatilho da 2ª parcela</span></div></div></article>
+        <article class="phase"><span class="phase-number">8</span><div class="phase-card"><div class="phase-heading"><h3>Estreia, temporada e encerramento</h3><span class="period">2027</span></div><div class="activities"><span>Reunião técnica</span><span>Montagem no Teatro Marília</span><span>Estreia</span><span>8 apresentações</span><span>Desmontagem</span><span>Registro final</span><span>Prestação de contas</span><span>Acervo técnico</span><span>Circulação futura</span></div></div></article>
+      </div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="section-head"><h2>Cronograma resumido</h2><p>Quadro executivo para acompanhamento interno da equipe.</p></div>
+      <div class="table-shell" tabindex="0" role="region" aria-label="Cronograma resumido em tabela">
+        <table>
+          <thead><tr><th>Fase</th><th>Período</th><th>Entregas principais</th><th>Responsáveis</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>1 · Inscrição</td><td>Jun–Jul/26</td><td>Proposta, anexos e protocolo</td><td>Produção, Cooperativa e núcleo artístico</td><td><span class="status preparing">Em preparação</span></td></tr>
+            <tr><td>2 · Formalização</td><td>Ago/26</td><td>Termo, contratos e 1ª parcela</td><td>Produção executiva, jurídico e Cooperativa</td><td><span class="status planned">Planejado</span></td></tr>
+            <tr><td>3 · Dramaturgia</td><td>Ago–Set/26</td><td>Roteiro e estrutura de cena</td><td>Dramaturgia, direção e elenco</td><td><span class="status planned">Planejado</span></td></tr>
+            <tr><td>4 · Laboratório</td><td>Set–Out/26</td><td>Protótipos cênicos e sonoros</td><td>Direção, elenco, som e cenografia</td><td><span class="status planned">Planejado</span></td></tr>
+            <tr><td>5 · Construção</td><td>Set–Nov/26</td><td>Cenário, figurino e sistema sonoro</td><td>Equipes técnicas e produção</td><td><span class="status planned">Planejado</span></td></tr>
+            <tr><td>6 · Integração</td><td>Out–Nov/26</td><td>Roteiro técnico e passagem geral</td><td>Direção, elenco e operação</td><td><span class="status planned">Planejado</span></td></tr>
+            <tr><td>7 · Ensaio aberto</td><td>Nov–Dez/26</td><td>Apresentação, avaliação e ajustes</td><td>Toda a equipe</td><td><span class="status attention">Atenção</span></td></tr>
+            <tr><td>8 · Temporada</td><td>2027</td><td>8 sessões, registro e prestação de contas</td><td>Toda a equipe e Cooperativa</td><td><span class="status planned">Planejado</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="section-head"><h2>Dependências críticas</h2><p>Relações que condicionam o avanço seguro entre as fases.</p></div>
+      <div class="dependencies">
+        <article class="dependency"><b>Documentação</b><p>A inscrição depende da documentação completa da Cooperativa.</p></article>
+        <article class="dependency"><b>Contratação</b><p>A equipe depende da assinatura do Termo e do recebimento da 1ª parcela.</p></article>
+        <article class="dependency"><b>2ª parcela</b><p>O recebimento depende da realização do ensaio aberto gratuito.</p></article>
+        <article class="dependency"><b>Temporada</b><p>Depende da agenda negociada com a FMC e o Teatro Marília.</p></article>
+        <article class="dependency"><b>Prestação de contas</b><p>Depende da organização contínua de notas fiscais e comprovantes.</p></article>
+      </div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="finance">
+        <div><h2>Cronograma físico-financeiro</h2><p>O cronograma dialoga diretamente com o fluxo de caixa. A primeira parcela sustenta pesquisa, contratação, construção, ensaios e ensaio aberto. A segunda parcela complementa ajustes, temporada, gestão e encerramento.</p></div>
+        <a class="finance-link" href="fluxo_caixa.html">Consultar fluxo de caixa →</a>
+      </div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="strategy"><h2>Estratégia de produção</h2><p>O espetáculo será concebido para montagem rápida, equipe enxuta, cenário modular, tecnologias artesanais organizadas em caixas transparentes e transporte em uma Fiorino, ampliando seu potencial de circulação após a temporada.</p></div>
+    </section>
+  </main>
+
+  <footer>Cronograma interno de gestão — A Floresta que Fala</footer>
+  <script>
+    // Revelação progressiva das seções, respeitando a preferência por menos movimento.
+    const items=document.querySelectorAll(".reveal");
+    const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(reduced||!("IntersectionObserver" in window)){items.forEach(item=>item.classList.add("visible"));}
+    else{const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target);}}),{threshold:.1});items.forEach(item=>observer.observe(item));}
+  </script>
+</body>
+</html>

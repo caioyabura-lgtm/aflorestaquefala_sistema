@@ -1,0 +1,3 @@
+Nenhum objeto selecionado.
+
+Selecione as curvas/objetos de uma camada no Blender e execute novamente.

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102d22">
+  <meta name="description" content="Caderno técnico de direção sonora de A Floresta que Fala.">
+  <title>Caderno de Direção Sonora — A Floresta que Fala</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap");
+    :root{--forest:#123b2a;--deep:#071c15;--paper:#f5ead5;--sheet:#fffaf0;--gold:#c99632;--earth:#954818;--ink:#263229;--muted:#697269;--line:rgba(35,48,38,.15);--shadow:0 22px 65px rgba(24,45,31,.1)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:30px}
+    body{margin:0;color:var(--ink);font-family:"DM Sans",Arial,sans-serif;line-height:1.65;background:radial-gradient(circle at 85% 8%,rgba(201,150,50,.14),transparent 28rem),var(--paper)}
+    a{color:inherit}.wrap{width:min(1120px,calc(100% - 42px));margin-inline:auto}
+    h1,h2,h3{font-family:"Fraunces",Georgia,serif;line-height:1.08}
+
+    .side-nav{position:fixed;z-index:30;top:0;left:0;width:210px;height:100vh;padding:28px 22px;overflow:auto;color:#fff;background:var(--deep)}
+    .side-nav .brand{display:block;margin-bottom:35px;color:#fff;text-decoration:none;font:700 1.12rem/1.2 "Fraunces",serif}
+    .side-nav small{display:block;margin-bottom:10px;color:var(--gold);font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+    .side-nav a:not(.brand){display:block;padding:7px 0;color:rgba(255,255,255,.62);text-decoration:none;font-size:.73rem;transition:.2s}
+    .side-nav a:hover,.side-nav a.active{color:#fff;transform:translateX(3px)}
+    .side-actions{margin-top:25px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14)}
+    .print{width:100%;padding:9px;border:1px solid rgba(255,255,255,.28);border-radius:999px;color:#fff;background:transparent;font:700 .64rem "DM Sans";cursor:pointer}
+    .page{margin-left:210px}
+
+    .hero{position:relative;min-height:92vh;display:grid;align-items:end;padding:70px 0 80px;overflow:hidden;color:#fff;background:var(--deep)}
+    .hero-copy{position:relative;z-index:2;max-width:800px}.kicker{color:#e0b762;font-size:.7rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
+    h1{margin:14px 0 20px;font-size:clamp(3.4rem,8vw,7.6rem);letter-spacing:-.055em}
+    .hero-lead{max-width:680px;margin:0;color:rgba(255,255,255,.72);font-size:clamp(1.1rem,2vw,1.38rem)}
+    .sound-art{position:absolute;inset:0;opacity:.8}.sound-art svg{width:100%;height:100%}
+    .sound-art .wave{fill:none;stroke:#d7ab50;stroke-width:1.2;opacity:.35;animation:pulse 6s ease-in-out infinite alternate}
+    .sound-art .wave:nth-child(2){animation-delay:-2s}.sound-art .wave:nth-child(3){animation-delay:-4s}
+
+    section{padding:clamp(60px,8vw,105px) 0}.head{max-width:780px;margin-bottom:32px}.head .num{color:var(--earth);font-size:.65rem;font-weight:800;letter-spacing:.14em}
+    .head h2{margin:8px 0 10px;color:var(--forest);font-size:clamp(2rem,4.5vw,3.6rem)}.head p{margin:0;color:var(--muted)}
+    .manifesto{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}.essay,.note,.profile,.card,.table-box,.diagram-box{border:1px solid var(--line);border-radius:25px;background:rgba(255,250,240,.9);box-shadow:var(--shadow)}
+    .essay{padding:clamp(28px,5vw,48px);font-size:1.08rem}.essay p{margin:0;color:var(--muted)}.essay strong{color:var(--forest)}
+    .principles{display:grid;gap:8px}.principle{padding:18px 20px;border-radius:17px;color:#fff;background:var(--forest);font:600 1.08rem "Fraunces",serif}.principle:nth-child(2){background:#28523d}.principle:nth-child(3){background:var(--earth)}
+
+    .director-note{position:relative;padding:25px 28px;border-left:5px solid var(--gold);border-radius:4px 18px 18px 4px;color:#544725;background:#f8e8b9;box-shadow:0 12px 35px rgba(59,45,14,.08);transform:rotate(-.35deg)}
+    .director-note b{display:block;margin-bottom:8px;color:var(--earth);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase}.director-note p{margin:0;font:italic 1rem/1.6 Georgia,serif}
+
+    .teruggi{display:grid;grid-template-columns:.8fr 1.2fr;gap:16px}.profile{padding:28px}.portrait{aspect-ratio:4/3;display:grid;place-items:center;border-radius:18px;color:#d9b15b;background:linear-gradient(145deg,#173e2e,#081d15);font:700 4rem "Fraunces";overflow:hidden}
+    .profile h3{margin:22px 0 8px;color:var(--forest);font-size:1.8rem}.profile ul{margin:12px 0 0;padding-left:18px;color:var(--muted)}
+    .concept-quote{display:grid;align-content:center;padding:clamp(28px,5vw,52px);border-radius:25px;color:#fff;background:var(--forest)}
+    .concept-quote blockquote{margin:0;font:600 clamp(1.8rem,4vw,3.2rem)/1.2 "Fraunces",serif}.concept-quote small{margin-top:20px;color:#d9c799}
+
+    .influence-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:11px}.influence{padding:17px;border:1px solid var(--line);border-radius:20px;background:var(--sheet)}
+    .mini-portrait{height:115px;display:grid;place-items:center;border-radius:13px;color:#efca75;background:var(--deep);font:700 2.1rem "Fraunces"}.influence h3{margin:17px 0 7px;color:var(--forest);font-size:1.14rem}
+    .influence p{margin:0 0 12px;color:var(--muted);font-size:.76rem}.tags{display:flex;gap:5px;flex-wrap:wrap}.tags span{padding:4px 7px;border-radius:999px;color:#674e14;background:#f1dda5;font-size:.59rem;font-weight:700}
+
+    .listening-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.concepts{display:grid;grid-template-columns:1fr 1fr;gap:9px}.concept{padding:17px;border-radius:16px;background:var(--sheet);box-shadow:0 8px 25px rgba(24,45,31,.05)}
+    .concept b{display:block;color:var(--forest)}.concept span{color:var(--muted);font-size:.76rem}.diagram-box{display:grid;place-items:center;padding:25px;background:var(--deep)}.diagram-box svg{width:100%;height:auto}.diagram-box text{font-family:"DM Sans";font-size:11px;fill:#fff}.diagram-box circle{fill:none;stroke:#d8ad53;stroke-width:1.5}
+
+    .system{padding:clamp(28px,5vw,48px);border-radius:28px;color:#fff;background:var(--deep);box-shadow:var(--shadow)}.system svg{display:block;width:100%;height:auto;max-height:620px}
+    .system text{font-family:"DM Sans";fill:#fff}.system .room{fill:#123b2a;stroke:#d0a247;stroke-width:2}.system .stage{fill:#c99632}.system .audience{fill:#1c4937;stroke:#80a389;stroke-dasharray:6 5}
+    .system .speaker{fill:#a54b18;stroke:#ffe4a1;stroke-width:2}.system .path{fill:none;stroke:#f3c667;stroke-width:3;stroke-dasharray:8 8;animation:dash 3s linear infinite}
+    .cartography-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.map-card{padding:24px;border-radius:25px;color:#fff;background:var(--deep);box-shadow:var(--shadow)}.map-card svg{width:100%;height:auto}.map-card .zone{fill:#164330;stroke:#d8ad53;stroke-width:1.5}.map-card .source{stroke:#fff4cf;stroke-width:2;animation:map-pulse 2.8s ease-in-out infinite alternate}.map-card text{font:10px "DM Sans";fill:#fff}.legend{display:flex;gap:7px;margin-top:14px;flex-wrap:wrap}.legend span{padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.1);font-size:.62rem}.sound-functions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.sound-function{padding:16px;border-radius:15px;background:var(--sheet);box-shadow:0 8px 25px rgba(24,45,31,.05)}.sound-function b{display:block;color:var(--forest)}.sound-function p{margin:5px 0 0;color:var(--muted);font-size:.74rem}
+
+    .strategy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.strategy-card{min-height:175px;padding:22px;border-radius:20px;background:var(--sheet);box-shadow:0 12px 36px rgba(24,45,31,.07)}
+    .strategy-card i{font-style:normal;color:var(--gold);font-size:1.3rem}.strategy-card h3{margin:18px 0 7px;color:var(--forest);font-size:1.2rem}.strategy-card p{margin:0;color:var(--muted);font-size:.8rem}
+
+    .table-box{overflow:auto}table{width:100%;min-width:780px;border-collapse:collapse;font-size:.8rem}th,td{padding:14px 16px;border-bottom:1px solid var(--line);text-align:left}th{color:#fff;background:var(--forest);font-size:.67rem;text-transform:uppercase}td:first-child{color:var(--earth);font-weight:700}
+    .flow{padding:28px;border-radius:27px;background:var(--deep)}.flow svg{width:100%;height:auto}.flow rect{fill:#164330;stroke:#c99632;stroke-width:1.5}.flow text{font-family:"DM Sans";font-size:12px;fill:#fff}.flow path{fill:none;stroke:#d8ad53;stroke-width:2;marker-end:url(#arrow)}
+
+    .philosophy{display:grid;grid-template-columns:1fr 1fr;gap:15px}.philosophy-card{padding:clamp(28px,5vw,48px);border-radius:27px;color:#fff;background:var(--forest)}.philosophy-card h2{margin:0 0 17px;font-size:clamp(2rem,4vw,3rem)}.philosophy-card p{margin:0;color:rgba(255,255,255,.75)}
+    .bibliography{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:0;padding:0;list-style:none}.bibliography li{padding:14px 16px;border-left:3px solid var(--gold);border-radius:4px 13px 13px 4px;background:var(--sheet);font-size:.82rem}
+    footer{margin-left:210px;padding:35px;color:rgba(255,255,255,.6);background:var(--deep);text-align:center;font-size:.72rem}
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+    @keyframes pulse{to{transform:translate(18px,-10px)}}@keyframes dash{to{stroke-dashoffset:-32}}@keyframes map-pulse{to{filter:drop-shadow(0 0 7px #f5c65d);opacity:.72}}
+
+    @media(max-width:1050px){.side-nav{position:sticky;width:100%;height:auto;display:flex;padding:15px 20px;align-items:center;overflow:auto}.side-nav .brand{margin:0 25px 0 0;white-space:nowrap}.side-nav small,.side-actions{display:none}.side-nav a:not(.brand){padding:7px 9px;white-space:nowrap}.page,footer{margin-left:0}.influence-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:720px){.wrap{width:min(100% - 28px,1120px)}.manifesto,.teruggi,.listening-grid,.philosophy,.cartography-grid{grid-template-columns:1fr}.influence-grid,.strategy-grid{grid-template-columns:1fr 1fr}.concepts{grid-template-columns:1fr}.hero{min-height:78vh}.bibliography{grid-template-columns:1fr}}
+    @media(max-width:480px){.influence-grid,.strategy-grid{grid-template-columns:1fr}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+    @media print{@page{margin:12mm}.side-nav{display:none}.page,footer{margin:0}.hero{min-height:auto;padding:25px;background:#fff;color:var(--ink)}.hero-lead{color:var(--muted)}section{padding:25px 0}.reveal{opacity:1;transform:none}.card,.profile,.table-box{box-shadow:none}}
+  </style>
+</head>
+<body>
+  <nav class="side-nav" aria-label="Caderno de direção sonora">
+    <a class="brand" href="novas_dramaturgias.html">A Floresta<br>que Fala</a>
+    <div>
+      <small>Índice do caderno</small>
+      <a href="#introducao">01 · Introdução</a><a href="#referencias">02 · Referências</a>
+      <a href="#influencias">03 · Influências</a><a href="#escuta">04 · Conceito de escuta</a>
+      <a href="#sistema">05 · Sistema sonoro</a><a href="#cartografia">Cartografia sonora</a><a href="#estrategia">06 · Estratégia</a>
+      <a href="#equipamentos">07 · Equipamentos</a><a href="#fluxo">08 · Fluxo do áudio</a>
+      <a href="#filosofia">09 · Filosofia</a><a href="#bibliografia">10 · Bibliografia</a>
+    </div>
+    <div class="side-actions"><button class="print" type="button" onclick="window.print()">Imprimir / PDF</button></div>
+  </nav>
+
+  <main class="page">
+    <header class="hero" id="introducao">
+      <div class="sound-art" aria-hidden="true">
+        <svg viewBox="0 0 1200 700" preserveAspectRatio="none"><path class="wave" d="M680 520 C780 160 940 120 1160 260"/><path class="wave" d="M610 610 C780 270 940 240 1190 390"/><path class="wave" d="M760 650 C870 420 1020 390 1200 500"/></svg>
+      </div>
+      <div class="wrap hero-copy"><span class="kicker">Caderno técnico · Direção sonora</span><h1>O som cria espaço.</h1><p class="hero-lead">A sonorização foi concebida desde o início como parte da dramaturgia. O som não ilustra a cena: cria memória, presença e caminhos dentro da floresta.</p></div>
+    </header>
+
+    <section class="wrap reveal">
+      <div class="head"><span class="num">01 · INTRODUÇÃO</span><h2>Uma floresta construída pela escuta</h2></div>
+      <div class="manifesto"><article class="essay"><p>A experiência sonora aproxima o público da percepção de Heitor sem tentar simulá-la de forma literal. <strong>Vento, água, folhas, respiração e silêncio</strong> tornam-se matéria cênica: orientam ações, alteram distâncias e transformam o espaço.</p></article><div class="principles"><div class="principle">O som cria espaço.</div><div class="principle">O som cria memória.</div><div class="principle">O som cria presença.</div></div></div>
+      <aside class="director-note" style="margin-top:18px"><b>Nota do Diretor Sonoro</b><p>Antes de escolher equipamentos, é preciso decidir o que o público deve perceber — e de onde essa percepção deve nascer.</p></aside>
+    </section>
+
+    <section class="wrap reveal" id="referencias">
+      <div class="head"><span class="num">02 · REFERÊNCIAS CONCEITUAIS</span><h2>Daniel Teruggi e o espaço composto</h2><p>A referência orienta uma prática em que escuta, difusão e documentação fazem parte da própria obra.</p></div>
+      <div class="teruggi"><article class="profile"><div class="portrait" role="img" aria-label="Espaço reservado para fotografia de Daniel Teruggi">DT</div><h3>Daniel Teruggi</h3><ul><li>Compositor franco-argentino.</li><li>Ex-diretor do GRM.</li><li>Pesquisador ligado ao INA.</li><li>Atuação em patrimônio eletroacústico, escuta, espaço e documentação.</li></ul></article><article class="concept-quote"><blockquote>“O espaço sonoro é parte da composição.”</blockquote><small>Síntese conceitual do projeto — não é citação literal atribuída ao autor.</small></article></div>
+    </section>
+
+    <section class="wrap reveal" id="influencias">
+      <div class="head"><span class="num">03 · INFLUÊNCIAS</span><h2>Uma constelação de escutas</h2></div>
+      <div class="influence-grid">
+        <article class="influence"><div class="mini-portrait">PS</div><h3>Pierre Schaeffer</h3><p>Compositor e teórico ligado à música concreta. Inspira a atenção ao objeto sonoro e à escuta reduzida.</p><div class="tags"><span>objeto sonoro</span><span>escuta reduzida</span></div></article>
+        <article class="influence"><div class="mini-portrait">FB</div><h3>François Bayle</h3><p>Compositor associado à música acusmática e ao Acousmonium. Informa a projeção espacial como gesto.</p><div class="tags"><span>acusmática</span><span>imagem sonora</span></div></article>
+        <article class="influence"><div class="mini-portrait">DT</div><h3>Daniel Teruggi</h3><p>Compositor e pesquisador do GRM/INA. Aproxima criação, espacialização e preservação.</p><div class="tags"><span>espaço</span><span>documentação</span></div></article>
+        <article class="influence"><div class="mini-portrait">MC</div><h3>Michel Chion</h3><p>Compositor e teórico audiovisual. Contribui para pensar causalidade, sentido e presença da voz.</p><div class="tags"><span>escutas</span><span>voz</span></div></article>
+        <article class="influence"><div class="mini-portrait">DS</div><h3>Denis Smalley</h3><p>Compositor e teórico da espectromorfologia. Inspira trajetórias, texturas e energia sonora.</p><div class="tags"><span>morfologia</span><span>movimento</span></div></article>
+      </div>
+    </section>
+
+    <section class="wrap reveal" id="escuta">
+      <div class="head"><span class="num">04 · CONCEITO DE ESCUTA</span><h2>O que ouvimos quando ouvimos?</h2></div>
+      <div class="listening-grid">
+        <div class="concepts"><div class="concept"><b>Escuta reduzida</b><span>Atenção às qualidades do som.</span></div><div class="concept"><b>Escuta causal</b><span>Busca pela fonte ou acontecimento.</span></div><div class="concept"><b>Escuta semântica</b><span>Interpretação de códigos e linguagem.</span></div><div class="concept"><b>Paisagem sonora</b><span>Relação entre ouvinte e ambiente.</span></div><div class="concept"><b>Espaço acusmático</b><span>Som cuja fonte não se revela.</span></div><div class="concept"><b>Imagem sonora</b><span>Forma percebida e imaginada.</span></div><div class="concept"><b>Movimento espacial</b><span>Trajetória como parte do gesto.</span></div><div class="concept"><b>Campo sonoro</b><span>Profundidade, direção e envolvimento.</span></div></div>
+        <div class="diagram-box"><svg viewBox="0 0 420 390" aria-label="Diagrama das camadas de escuta"><circle cx="210" cy="195" r="155"/><circle cx="210" cy="195" r="112"/><circle cx="210" cy="195" r="68"/><text x="210" y="45" text-anchor="middle">CAMPO SONORO</text><text x="210" y="102" text-anchor="middle">IMAGEM E MOVIMENTO</text><text x="210" y="165" text-anchor="middle">ESCUTAS</text><text x="210" y="200" text-anchor="middle" fill="#d8ad53">OUVINTE</text></svg></div>
+      </div>
+    </section>
+
+    <section class="wrap reveal" id="sistema">
+      <div class="head"><span class="num">05 · SISTEMA SONORO</span><h2>Paisagem sonora distribuída</h2><p>Diagrama conceitual sujeito à visita técnica e aos testes de cobertura, segurança e inteligibilidade.</p></div>
+      <div class="system"><svg viewBox="0 0 900 560" role="img" aria-label="Palco, plateia, caixas laterais e de fundo, subwoofer e trajetórias sonoras"><rect class="room" x="20" y="20" width="860" height="520" rx="24"/><rect class="stage" x="150" y="48" width="600" height="105" rx="50"/><text x="450" y="108" text-anchor="middle">PALCO</text><rect class="audience" x="210" y="195" width="480" height="255" rx="24"/><text x="450" y="328" text-anchor="middle">PLATEIA</text><g class="speaker"><circle cx="95" cy="125" r="21"/><circle cx="805" cy="125" r="21"/><circle cx="95" cy="260" r="21"/><circle cx="805" cy="260" r="21"/><circle cx="95" cy="410" r="21"/><circle cx="805" cy="410" r="21"/><circle cx="310" cy="495" r="21"/><circle cx="590" cy="495" r="21"/></g><rect class="speaker" x="420" y="130" width="60" height="30" rx="6"/><text x="450" y="151" font-size="10" text-anchor="middle">SUB</text><path class="path" d="M95 260 C250 165 370 410 590 495"/><path class="path" d="M805 260 C640 180 590 380 310 495"/></svg></div>
+      <aside class="director-note" style="margin-top:18px"><b>Nota do Diretor Sonoro</b><p>Espacializar não significa preencher cada instante. A direção do som só ganha força quando também existe repouso.</p></aside>
+    </section>
+
+    <section class="wrap reveal" id="cartografia">
+      <div class="head"><span class="num">CARTOGRAFIA SONORA</span><h2>Cartografia Sonora da Floresta</h2><p>Mapa dramatúrgico que identifica onde os sons nascem, como se movem e qual função narrativa cumprem. Intensidade, textura, direção e momento cênico são tratados como parte da composição — princípio inspirado pela pesquisa espacial de Daniel Teruggi e pela escuta acusmática.</p></div>
+      <div class="cartography-grid">
+        <div class="map-card"><svg viewBox="0 0 520 430" role="img" aria-label="Mapa sonoro do palco e da plateia com fontes distribuídas"><rect class="zone" x="35" y="25" width="450" height="380" rx="22"/><rect x="95" y="48" width="330" height="78" rx="35" fill="#c99632"/><text x="260" y="91" text-anchor="middle">PALCO</text><rect x="125" y="158" width="270" height="190" rx="18" fill="#1e4c39" stroke="#6d957a" stroke-dasharray="6 5"/><text x="260" y="258" text-anchor="middle">PLATEIA</text><circle class="source" cx="85" cy="170" r="17" fill="#4a91ad"/><circle class="source" cx="435" cy="170" r="17" fill="#d6c1a0"/><circle class="source" cx="85" cy="285" r="17" fill="#dca832"/><circle class="source" cx="435" cy="285" r="17" fill="#718b42"/><circle class="source" cx="165" cy="375" r="17" fill="#a45125"/><circle class="source" cx="355" cy="375" r="17" fill="#303a35"/></svg><div class="legend"><span>● Rio</span><span>● Vento</span><span>● Pássaros</span><span>● Folhas</span><span>● Gaston</span><span>● Silêncio</span></div></div>
+        <div class="sound-functions"><article class="sound-function"><b>Rio</b><p>Indica direção; fluxo contínuo que pode atravessar lateralmente a plateia.</p></article><article class="sound-function"><b>Vento</b><p>Confunde distâncias; textura móvel e difusa.</p></article><article class="sound-function"><b>Pássaros</b><p>Desenham rotas; sinais agudos e pontuais.</p></article><article class="sound-function"><b>Folhas</b><p>Revelam proximidade, passagem e presença invisível.</p></article><article class="sound-function"><b>Gaston</b><p>Pensamento íntimo compartilhado somente com o público.</p></article><article class="sound-function"><b>Silêncio</b><p>Suspende o campo e concentra a escuta de Heitor e da plateia.</p></article></div>
+      </div>
+    </section>
+
+    <section class="wrap reveal" id="estrategia">
+      <div class="head"><span class="num">06 · ESTRATÉGIA</span><h2>Nove funções dramatúrgicas</h2></div>
+      <div class="strategy-grid">
+        <article class="strategy-card"><i>≈</i><h3>Ambiência</h3><p>Sustenta a presença viva da floresta.</p></article><article class="strategy-card"><i>⌁</i><h3>Paisagens</h3><p>Definem lugares e transformações.</p></article><article class="strategy-card"><i>“ ”</i><h3>Narrador</h3><p>Organiza proximidade e cumplicidade.</p></article>
+        <article class="strategy-card"><i>●</i><h3>Objeto sonoro</h3><p>Concentra atenção em gesto e matéria.</p></article><article class="strategy-card"><i>∅</i><h3>Silêncio</h3><p>Marca medo, escuta e descoberta.</p></article><article class="strategy-card"><i>→</i><h3>Movimento</h3><p>Conduz a percepção pela plateia.</p></article>
+        <article class="strategy-card"><i>↗</i><h3>Direcionalidade</h3><p>Cria pistas e pontos de vista.</p></article><article class="strategy-card"><i>▂</i><h3>Graves</h3><p>Produzem corpo, chão e ameaça.</p></article><article class="strategy-card"><i>▔</i><h3>Altas frequências</h3><p>Desenham folhas, insetos e distância.</p></article>
+      </div>
+    </section>
+
+    <section class="wrap reveal" id="equipamentos">
+      <div class="head"><span class="num">07 · EQUIPAMENTOS</span><h2>Ferramentas a serviço da cena</h2></div>
+      <div class="table-box"><table><thead><tr><th>Núcleo</th><th>Recurso</th><th>Função</th></tr></thead><tbody><tr><td>Computação</td><td>Notebook</td><td>Playback, roteamento e automação</td></tr><tr><td>Áudio</td><td>Interface multicanal</td><td>Saídas independentes para espacialização</td></tr><tr><td>Controle</td><td>Mesa</td><td>Ganhos, reforço e integração ao teatro</td></tr><tr><td>Difusão</td><td>Caixas e subwoofer</td><td>PA, laterais, fundo e extensão grave</td></tr><tr><td>Captação</td><td>Microfones e gravadores</td><td>Voz, objetos e sons de campo</td></tr><tr><td>Infraestrutura</td><td>Cabos identificados</td><td>Sinal, energia e montagem segura</td></tr><tr><td>Software</td><td>REAPER</td><td>Edição, mixagem, automação e playback</td></tr><tr><td>Software</td><td>Blender / Orca</td><td>Prototipagem visual e lógica generativa</td></tr><tr><td>Software opcional</td><td>QLab</td><td>Disparo de cues, caso necessário</td></tr></tbody></table></div>
+    </section>
+
+    <section class="wrap reveal" id="fluxo">
+      <div class="head"><span class="num">08 · FLUXO DO ÁUDIO</span><h2>Da escuta de campo à escuta do público</h2></div>
+      <div class="flow"><svg viewBox="0 0 1080 190" role="img" aria-label="Fluxo da captação até o público"><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#d8ad53"/></marker></defs><g><rect x="10" y="65" width="110" height="55" rx="12"/><rect x="145" y="65" width="110" height="55" rx="12"/><rect x="280" y="65" width="110" height="55" rx="12"/><rect x="415" y="65" width="110" height="55" rx="12"/><rect x="550" y="65" width="125" height="55" rx="12"/><rect x="700" y="65" width="110" height="55" rx="12"/><rect x="835" y="65" width="110" height="55" rx="12"/><rect x="970" y="65" width="100" height="55" rx="12"/></g><g text-anchor="middle"><text x="65" y="98">Captação</text><text x="200" y="98">Edição</text><text x="335" y="98">Mixagem</text><text x="470" y="98">Master</text><text x="612" y="98">Espacialização</text><text x="755" y="98">Playback</text><text x="890" y="91">Sistema</text><text x="890" y="106">de som</text><text x="1020" y="98">Público</text></g><g><path d="M120 92H145"/><path d="M255 92H280"/><path d="M390 92H415"/><path d="M525 92H550"/><path d="M675 92H700"/><path d="M810 92H835"/><path d="M945 92H970"/></g></svg></div>
+    </section>
+
+    <section class="wrap reveal" id="filosofia">
+      <div class="philosophy"><article class="philosophy-card"><h2>Filosofia sonora</h2><p>O som é elemento dramatúrgico. A espacialização não funciona como ornamento: participa da narrativa. O silêncio tem função própria, e o movimento sonoro acompanha a transformação emocional da floresta.</p></article><aside class="director-note"><b>Nota do Diretor Sonoro</b><p>A floresta não precisa falar o tempo todo. Às vezes, sua resposta mais precisa é deixar Heitor — e a plateia — escutarem juntos.</p></aside></div>
+    </section>
+
+    <section class="wrap reveal" id="bibliografia">
+      <div class="head"><span class="num">10 · BIBLIOGRAFIA DE TRABALHO</span><h2>Estante do laboratório</h2><p>Referências a serem detalhadas por edição durante o desenvolvimento do caderno.</p></div>
+      <ul class="bibliography"><li>Daniel Teruggi — textos sobre música eletroacústica, espaço e preservação</li><li>Pierre Schaeffer — <em>Traité des objets musicaux</em></li><li>François Bayle — textos sobre música acusmática e imagem sonora</li><li>Michel Chion — <em>Audio-Vision</em> e estudos sobre escuta</li><li>Denis Smalley — textos sobre espectromorfologia</li><li>Trevor Wishart — <em>On Sonic Art</em></li><li>Barry Truax — <em>Acoustic Communication</em></li><li>Espaço reservado para futuras referências</li></ul>
+    </section>
+  </main>
+
+  <footer>Caderno de Direção Sonora · A Floresta que Fala</footer>
+  <script>
+    // Revelação progressiva e índice lateral sincronizado.
+    const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reveals=document.querySelectorAll(".reveal");
+    const links=[...document.querySelectorAll(".side-nav a[href^='#']")];
+    if(reduced||!("IntersectionObserver" in window)){reveals.forEach(el=>el.classList.add("visible"))}
+    else{
+      const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");revealObserver.unobserve(entry.target)}}),{threshold:.1});
+      reveals.forEach(el=>revealObserver.observe(el));
+    }
+    const sections=links.map(link=>document.querySelector(link.hash)).filter(Boolean);
+    const navObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){links.forEach(link=>link.classList.toggle("active",link.hash==="#"+entry.target.id))}}),{rootMargin:"-35% 0px -55% 0px"});
+    sections.forEach(section=>navObserver.observe(section));
+  </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+========================================================================
+AUDITORIA DE CENA — A FLORESTA QUE FALA
+========================================================================
+
+1. ESTATÍSTICAS GERAIS
+------------------------------------------------------------------------
+Objetos totais: 98
+Malhas: 3
+Curvas: 88
+Luzes: 6
+Câmeras: 1
+Coleções: 10
+Camadas prováveis SVG/Corel: 0
+
+2. ORGANIZAÇÃO
+------------------------------------------------------------------------
+⚠ Objetos com nomes genéricos: 53
+   - Camera
+   - Curve
+   - Curve.001
+   - Curve.002
+   - Curve.003
+   - Curve.004
+   - Curve.005
+   - Curve.006
+   - Curve.007
+   - Curve.008
+   - Curve.009
+   - Curve.010
+   - Curve.011
+   - Curve.012
+   - Curve.013
+   - Curve.014
+   - Curve.015
+   - Curve.016
+   - Curve.017
+   - Curve.018
+✓ Objetos ocultos no viewport: 0
+✓ Objetos desativados no render: 0
+✓ Objetos sem coleção: 0
+✓ Coleções vazias: 0
+
+3. CAMADAS SVG / COREL
+------------------------------------------------------------------------
+⚠ Nenhuma camada SVG foi identificada pela lista de palavras-chave.
+
+4. PROFUNDIDADE E PARALLAXE
+------------------------------------------------------------------------
+
+5. CÂMERA
+------------------------------------------------------------------------
+✓ Câmera ativa: Camera
+   Localização: (0.000, 0.000, 3.400)
+   Rotação: (0.000°, 0.000°, 90.000°)
+   Lente: 50.000 mm
+   Clip Start: 0.100
+   Clip End: 100.000
+
+6. LUZ
+------------------------------------------------------------------------
+direita_central | tipo=POINT | power=20.000 W | loc=(-0.041, 0.271, 0.760) | sombra=sim
+floor | tipo=POINT | power=100.000 W | loc=(0.450, 0.000, 0.330) | sombra=sim
+geral | tipo=SPOT | power=150.000 W | loc=(-0.007, -0.030, 2.114) | sombra=sim
+Point.002 | tipo=POINT | power=100.000 W | loc=(0.369, -0.030, 0.130) | sombra=sim
+sun | tipo=POINT | power=30.000 W | loc=(-0.106, 0.050, -0.922) | sombra=sim
+topo_esquerdo | tipo=POINT | power=30.000 W | loc=(-0.471, -0.259, 0.760) | sombra=sim
+
+7. RENDER
+------------------------------------------------------------------------
+Engine: BLENDER_EEVEE
+Resolução: 1920 x 1080 px
+FPS: 24
+Frames: 1 - 250
+View Transform: Filmic
+Look: None
+
+8. DIMENSÕES GERAIS / TRANSPORTE
+------------------------------------------------------------------------
+Bounding box geral:
+   Largura X: 1.370 m
+   Profundidade Y: 1.759 m
+   Altura Z: 1.322 m
+   Centro: (0.021, 0.432, -0.455)
+
+Referência Fiorino aproximada:
+   Comprimento útil: 1.8 m
+   Largura útil: 1.3 m
+   Altura útil: 1.2 m
+   Observação: para SVG/site isso é escala visual; para cenário físico, usar medidas reais desmontadas.
+
+9. MATERIAIS
+------------------------------------------------------------------------
+Materiais totais: 12
+✓ Objetos sem material: 0
+
+10. RECOMENDAÇÕES
+------------------------------------------------------------------------
+• Manter todos os SVGs com o mesmo canvas e origem antes da importação.
+• Separar camadas por dramaturgia: fundo, sol, rio, vegetação, Heitor/Gaston, borboleta e título.
+• Usar o eixo Z como profundidade de parallaxe e documentar a ordem.
+• Evitar z-fighting: não deixar camadas exatamente no mesmo Z.
+• Preservar nomes padronizados iguais aos arquivos em assets/svg.
+• Criar uma coleção SOM para as posições futuras das caixas do sistema de paisagem sonora.
+• Criar uma coleção FIORINO com módulos reais de cenografia quando iniciar o desenho físico.
+
+========================================================================
+STATUS FINAL
+========================================================================
+⚠ Cena requer revisão. Foram encontrados 53 pontos de atenção.
+
+Coleção visual criada: AUDITORIA_VISUAL

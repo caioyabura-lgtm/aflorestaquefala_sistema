@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071812">
+  <meta name="description" content="Histórico de versões documentais do projeto A Floresta que Fala.">
+  <title>Registro documental — A Floresta que Fala</title>
+  <style>
+    :root {
+      --fundo: #071812;
+      --verde: #123a2a;
+      --coral: #ff7862;
+      --areia: #efe5da;
+      --branco: #f9f9f8;
+      --linha: rgba(249, 249, 248, .17);
+      --largura: 980px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--branco);
+      background:
+        radial-gradient(circle at 85% 8%, rgba(107, 77, 187, .13), transparent 24rem),
+        var(--fundo);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+
+    a { color: inherit; }
+
+    header,
+    main,
+    footer {
+      width: min(var(--largura), calc(100% - 3rem));
+      margin-inline: auto;
+    }
+
+    header {
+      padding: clamp(4rem, 10vw, 8rem) 0 clamp(3rem, 7vw, 5rem);
+      border-bottom: 1px solid var(--linha);
+    }
+
+    .eyebrow {
+      margin: 0 0 1rem;
+      color: var(--coral);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 9ch;
+      margin: 0;
+      font-size: clamp(3.2rem, 9vw, 7.5rem);
+      letter-spacing: -.065em;
+      line-height: .88;
+    }
+
+    .intro {
+      max-width: 45rem;
+      margin: 2rem 0 0;
+      color: rgba(249, 249, 248, .68);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: 2rem;
+    }
+
+    .action {
+      display: inline-flex;
+      padding: .75rem 1rem;
+      border: 1px solid rgba(255, 120, 98, .5);
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      transition: color .25s ease, background .25s ease;
+    }
+
+    .action:hover,
+    .action:focus-visible {
+      color: var(--fundo);
+      background: var(--coral);
+    }
+
+    main {
+      padding: clamp(4rem, 9vw, 7rem) 0;
+    }
+
+    h2 {
+      margin: 0 0 2.5rem;
+      font-size: clamp(2rem, 5vw, 4rem);
+      letter-spacing: -.05em;
+    }
+
+    .version-list {
+      display: grid;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .version-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(10rem, .45fr) minmax(0, 1.55fr);
+      gap: clamp(1.5rem, 4vw, 4rem);
+      overflow: hidden;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      border: 1px solid var(--linha);
+      border-radius: .35rem 1.5rem;
+      background: rgba(249, 249, 248, .035);
+    }
+
+    .version-card::before {
+      position: absolute;
+      inset: 1rem auto 1rem 0;
+      width: 3px;
+      border-radius: 3px;
+      content: "";
+      background: linear-gradient(var(--coral), #e8458b);
+    }
+
+    .version-number {
+      margin: 0;
+      color: var(--areia);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+    }
+
+    .version-meta {
+      display: grid;
+      gap: .7rem;
+      margin: 1rem 0 0;
+    }
+
+    .version-meta div {
+      display: grid;
+      gap: .15rem;
+    }
+
+    dt {
+      color: rgba(249, 249, 248, .4);
+      font-size: .6rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    dd {
+      margin: 0;
+      color: rgba(249, 249, 248, .64);
+      font-size: .82rem;
+    }
+
+    .version-description {
+      align-self: center;
+      margin: 0;
+      color: rgba(249, 249, 248, .76);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+    }
+
+    .notice {
+      margin-top: 2rem;
+      padding: 1.25rem;
+      border-left: 2px solid var(--coral);
+      color: rgba(249, 249, 248, .58);
+      background: rgba(18, 58, 42, .38);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: .9rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--linha);
+      color: rgba(249, 249, 248, .42);
+      font-size: .65rem;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 620px) {
+      .version-card { grid-template-columns: 1fr; gap: 1rem; }
+      footer { flex-direction: column; }
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 16mm;
+    }
+
+    @media print {
+      body {
+        color: #171717;
+        background: #fff;
+        font-size: 10pt;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      header,
+      main,
+      footer {
+        width: 100%;
+      }
+
+      header {
+        padding: 0 0 10mm;
+        border-color: #999;
+      }
+
+      h1 { color: #111; font-size: 34pt; }
+      h2 { color: #111; font-size: 22pt; }
+      .intro,
+      .version-description,
+      dd,
+      .notice { color: #333; }
+      .actions { display: none; }
+
+      main { padding: 12mm 0; }
+
+      .version-card {
+        break-inside: avoid-page;
+        page-break-inside: avoid;
+        color: #171717;
+        border-color: #999;
+        background: #fff;
+      }
+
+      .version-number { color: #171717; }
+      dt { color: #555; }
+      footer { color: #444; border-color: #999; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="eyebrow">A Floresta que Fala · Controle documental</p>
+    <h1>Histórico de versões</h1>
+    <p class="intro">Registro cronológico das alterações institucionais da página dedicada à proposta para a Virada Cultural de Belo Horizonte.</p>
+    <div class="actions">
+      <a class="action" href="viradacultural_bh_2026.html">Voltar à página pública</a>
+      <a class="action" href="viradacultural_bh_2026.html?registro=true">Abrir modo registro</a>
+    </div>
+  </header>
+
+  <main>
+    <section aria-labelledby="titulo-versoes">
+      <h2 id="titulo-versoes">Versões documentais</h2>
+      <ol class="version-list">
+        <li class="version-card">
+          <div>
+            <p class="version-number">VCBH-2026.001</p>
+            <dl class="version-meta">
+              <div><dt>Data</dt><dd>06/07/2026</dd></div>
+              <div><dt>Responsável</dt><dd>Não informado</dd></div>
+            </dl>
+          </div>
+          <p class="version-description">Criação da proposta para Virada Cultural.</p>
+        </li>
+
+        <li class="version-card">
+          <div>
+            <p class="version-number">VCBH-2026.002</p>
+            <dl class="version-meta">
+              <div><dt>Data</dt><dd>Não informada</dd></div>
+              <div><dt>Responsável</dt><dd>Não informado</dd></div>
+            </dl>
+          </div>
+          <p class="version-description">Inclusão da pesquisa musical.</p>
+        </li>
+
+        <li class="version-card">
+          <div>
+            <p class="version-number">VCBH-2026.003</p>
+            <dl class="version-meta">
+              <div><dt>Data</dt><dd>Não informada</dd></div>
+              <div><dt>Responsável</dt><dd>Não informado</dd></div>
+            </dl>
+          </div>
+          <p class="version-description">Inclusão da identidade visual tropicalista.</p>
+        </li>
+
+        <li class="version-card">
+          <div>
+            <p class="version-number">VCBH-2026.004</p>
+            <dl class="version-meta">
+              <div><dt>Data</dt><dd>Não informada</dd></div>
+              <div><dt>Responsável</dt><dd>Não informado</dd></div>
+            </dl>
+          </div>
+          <p class="version-description">Primeiros estudos tridimensionais.</p>
+        </li>
+      </ol>
+
+      <p class="notice">Os campos ainda não fornecidos permanecem explicitamente identificados como “não informados”. Para preservar a integridade do registro institucional, nenhuma data ou autoria foi presumida.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>A Floresta que Fala</span>
+    <span>Registro documental · VCBH · 2026</span>
+  </footer>
+</body>
+</html>

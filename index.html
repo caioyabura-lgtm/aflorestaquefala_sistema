@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#061a12">
+  <meta name="description" content="A Floresta que Fala — uma dramaturgia da escuta para as infâncias.">
+  <title>A Floresta que Fala</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <div class="loading-screen" id="loading-screen" role="status" aria-live="polite">
+    <div class="loading-content">
+      <p class="loading-title">A FLORESTA QUE FALA</p>
+      <p class="loading-subtitle">Preparando a floresta...</p>
+      <div class="progress-track" aria-hidden="true">
+        <i id="progress-bar"></i>
+      </div>
+      <span class="progress-label" id="progress-label">0%</span>
+    </div>
+  </div>
+
+  <canvas id="forest-canvas" aria-label="Cena tridimensional de abertura do projeto A Floresta que Fala"></canvas>
+
+  <div class="scene-shade" aria-hidden="true"></div>
+  <div class="fps" id="fps" hidden>0 FPS</div>
+
+  <div class="page-dots" aria-label="Navegação das seções">
+    <button class="dot active" type="button" data-page="0" aria-label="Ir para abertura"></button>
+    <button class="dot" type="button" data-page="1" aria-label="Ir para visão geral"></button>
+    <button class="dot" type="button" data-page="2" aria-label="Ir para dramaturgia e som"></button>
+    <button class="dot" type="button" data-page="3" aria-label="Ir para realização"></button>
+  </div>
+
+  <main class="horizontal-rail" id="horizontal-rail" aria-label="Conteúdo principal do site">
+    <section class="page opening" id="inicio" aria-labelledby="titulo-principal">
+      <div class="opening-copy">
+        <p class="eyebrow">Uma dramaturgia da escuta para as infâncias</p>
+
+        <h1 id="titulo-principal" class="sr-only">
+          A Floresta que Fala
+        </h1>
+
+        <p class="opening-line">
+          Alguns caminhos só podem ser encontrados quando aprendemos a escutar.
+        </p>
+
+        <a
+          class="enter-button ready"
+          id="enter-button"
+          href="projeto.html"
+          onclick="window.location.href = this.href; return false;"
+        >
+          Entrar
+        </a>
+      </div>
+    </section>
+
+    <section class="page" aria-labelledby="secao-projeto">
+      <article class="glass-panel">
+        <span class="panel-number">01</span>
+        <p class="panel-kicker">O projeto</p>
+
+        <h2 id="secao-projeto">
+          Uma floresta viva, feita de presença.
+        </h2>
+
+        <p>
+          Heitor e Gaston atravessam uma aventura em que sons, silêncios, luz e tecnologias artesanais revelam caminhos invisíveis aos olhos.
+        </p>
+
+        <a href="apresentacao.html">Conhecer a apresentação →</a>
+      </article>
+    </section>
+
+    <section class="page" aria-labelledby="secao-dramaturgia">
+      <article class="glass-panel">
+        <span class="panel-number">02</span>
+        <p class="panel-kicker">Dramaturgia e som</p>
+
+        <h2 id="secao-dramaturgia">
+          A escuta também conduz a narrativa.
+        </h2>
+
+        <p>
+          A floresta não ilustra a ação: ela responde, orienta, confunde e transforma a percepção do público ao longo da jornada.
+        </p>
+
+        <div class="panel-links">
+          <a href="dramaturgia.html">Dramaturgia →</a>
+          <a href="sonorizacao.html">Cartografia sonora →</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="page" aria-labelledby="secao-realizacao">
+      <article class="glass-panel">
+        <span class="panel-number">03</span>
+        <p class="panel-kicker">Realização</p>
+
+        <h2 id="secao-realizacao">
+          Da pesquisa à temporada.
+        </h2>
+
+        <p>
+          Conheça o planejamento artístico, técnico e financeiro que prepara a montagem para o Teatro Marília e para futuras circulações.
+        </p>
+
+        <div class="panel-links">
+          <a href="cronograma.html">Cronograma →</a>
+          <a href="fluxo_caixa.html">Fluxo de caixa →</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <noscript>
+    <p class="noscript">
+      Ative o JavaScript para visualizar a experiência tridimensional.
+      <a href="projeto.html">Entrar no projeto</a>
+    </p>
+  </noscript>
+
+  <script>
+    // Mantém a entrada acessível mesmo quando WebGL, o modelo 3D ou os módulos
+    // externos não carregam (situação comum ao abrir o HTML via file://).
+    (() => {
+      const delay = location.protocol === "file:" ? 1200 : 4000;
+      const loadingScreen = document.querySelector("#loading-screen");
+      const enterButton = document.querySelector("#enter-button");
+
+      const releasePage = () => {
+        loadingScreen?.classList.add("done");
+        loadingScreen?.setAttribute("aria-hidden", "true");
+        enterButton?.classList.add("ready");
+        enterButton?.removeAttribute("aria-disabled");
+        enterButton?.removeAttribute("tabindex");
+      };
+
+      window.setTimeout(releasePage, delay);
+
+      // O cache de navegação pode restaurar a tela de carregamento sobre o link.
+      window.addEventListener("pageshow", event => {
+        if (event.persisted) releasePage();
+      });
+    })();
+  </script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

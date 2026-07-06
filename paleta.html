@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paleta de Cores - Virada Cultural & Produção</title>
+    <style>
+        :root {
+            /* Cores Primárias (Tons de Rosa/Vinho) */
+            --primary-1: #FB003F;
+            --primary-2: #F00B44;
+            --primary-3: #D32C56;
+            --primary-4: #A8415B;
+            --primary-5: #6D424C;
+
+            /* Cores Secundárias #1 (Tons de Ciano/Verde-Água) */
+            --secondary-1-1: #00ECD3;
+            --secondary-1-2: #09BDAA;
+            --secondary-1-3: #1E9084;
+            --secondary-1-4: #2D726B;
+            --secondary-1-5: #2D4A47;
+
+            /* Cores Secundárias #2 (Tons de Amarelo/Lima) */
+            --secondary-2-1: #E3FE00;
+            --secondary-2-2: #E2FB0C;
+            --secondary-2-3: #CFE22F;
+            --secondary-2-4: #A8B446;
+            --secondary-2-5: #6F7446;
+            
+            /* Fundo escuro baseado na imagem */
+            --bg-dark: #1E1E1E;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: #FFFFFF;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-1);
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            margin-top: 40px;
+            font-size: 1.5rem;
+            color: #E0E0E0;
+        }
+
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .color-card {
+            background: #2D2D2D;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            text-align: center;
+            font-size: 0.85rem;
+            padding-bottom: 10px;
+        }
+
+        .color-block {
+            height: 100px;
+            width: 100%;
+        }
+
+        .color-info {
+            padding: 10px 5px;
+        }
+
+        .hex {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .rgb {
+            color: #AAAAAA;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Guia de Estilo: Paleta de Cores</h1>
+
+        <!-- PRIMARY COLOR -->
+        <div class="section-title">Primary Color (Recomendado para: Virada Cultural)</div>
+        <div class="color-palette">
+            <div class="color-card">
+                <div class="color-block" style="background-color: var(--primary-1);"></div>
+                <div class="color-info"><span class="hex">#FB003F</span><span class="rgb">251, 0, 63</span></div>
+            </div>
+            <div class="color-card">
+                <div class="color-block" style="background-color: var(--primary-2);"></div>
+                <div class="color-info"><span class="hex">#F00B44</span><span class="rgb">240, 11, 68</span></div>
+            </div>
+            <div class="color-card">
+                <div class="color-block" style="background-color: var(--primary-3);"></div>
+                <div class="color-info"><span class="hex">#D32C56</span><span class="rgb">211, 44, 86</span></div>
+            </div>
+            <div class="color-card">
+                <div class="color-block" style="background-color: var(--primary-4);"></div>
+                <div class="color-info"><span class="hex">#A8415B</span><span class="rgb">168, 65, 91</span></div>
+            </div>
+            <div class="color-card">
+                <div class="color-block" style="background-color: var(--primary-5);"></div>
+                <div class="color-info"><span class="hex">#6D424C</span><span class="rgb">109, 66, 76</span></div>
+            </div>
+        </div>
+
+        <!-- SECONDARY COLOR #1 -->
+        <div class="section-title">Secondary Color #1 (Recomendado para: Produção / Destaques)</div>
+        <div class="color-palette">
+            <div class="color-card">
+                <div class="color-block" style="background-color: var(--secondary-1-1);"></div>
+                <div class="color-info"><span class="hex">#00ECD3</span><span class="rgb">0, 236, 211</span></div>
+            </div>
+            <div class="color-card">
+                <div class="color-block" style="background-color: var(--secondary-1-2);"></div>
+                <div class="color-info"><span class="hex">#09BDAA</span><span class="rgb">9, 189, 170</span></div>
+            </div>
+            <div class="color-card">
+                <div class="color-block" style="background-color: var(--secondary-1-3);"></div>
+                <div class="color-info"><span class="hex">#1E9084</span><span class="rgb">30, 144, 132</span></div>
+            </div>
+            <div class="color-card">
+                <div class="color-block" style="background-color: var(--secondary-1-4);"></div>
+                <div class="color-info"><span class="hex">#2D726B</span><span class="rgb">45, 114, 107</span></div>
+            </div>
+            <div class="color-card">
+                <div class="color-block" style="background-color: var(--secondary-1-5);"></div>
+                <div class="color-info"><span class="hex">#2D4A47</span><span class="rgb">45, 74, 71</span></div>
+            </div>
+        </div>
+
+        <!-- SECONDARY COLOR #2 -->
+        <div class="section-title">Secondary Color #2 (Recomendado para: Alertas / Contrastes)</div>
+        <div class="color-palette">
+            <div class="color-card">
+                <div class="color-block" style="background-color: var(--secondary-2-1);"></div>
+                <div class="color-info"><span class="hex">#E3FE00</span><span class="rgb">227, 254, 0</span></div>
+            </div>
+            <div class="color-card">
+                <div class="color-block" style="background-color: var(--secondary-2-2);"></div>
+                <div class="color-info"><span class="hex">#E2FB0C</span><span class="rgb">226, 251, 12</span></div>
+            </div>
+            <div class="color-card">
+                <div class="color-block" style="background-color: var(--secondary-2-3);"></div>
+                <div class="color-info"><span class="hex">#CFE22F</span><span class="rgb">207, 226, 47</span></div>
+            </div>
+            <div class="color-card">
+                <div class="color-block" style="background-color: var(--secondary-2-4);"></div>
+                <div class="color-info"><span class="hex">#A8B446</span><span class="rgb">168, 180, 70</span></div>
+            </div>
+            <div class="color-card">
+                <div class="color-block" style="background-color: var(--secondary-2-5);"></div>
+                <div class="color-info"><span class="hex">#6F7446</span><span class="rgb">111, 116, 70</span></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

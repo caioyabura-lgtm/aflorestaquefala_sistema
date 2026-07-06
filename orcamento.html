@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orçamento — A Floresta que Fala</title>
+  <style>
+    :root {
+      --forest: #123b2a;
+      --forest-deep: #09271b;
+      --earth: #a54812;
+      --cream: #f7eddb;
+      --paper: #fffaf0;
+      --ink: #233026;
+      --muted: #687266;
+      --line: rgba(35, 48, 38, .14);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(135deg, var(--cream), #fffdf7);
+      line-height: 1.6;
+    }
+    main { max-width: 980px; margin: 0 auto; padding: 48px 24px 64px; }
+    .card {
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--paper);
+      box-shadow: 0 16px 42px rgba(9, 39, 27, .08);
+    }
+    h1 { margin: 0 0 12px; color: var(--forest); }
+    p { color: var(--muted); }
+    .meta { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 28px; }
+    .meta span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #f2e0b7;
+      color: #5d4320;
+      font-weight: 700;
+      font-size: .85rem;
+    }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    th, td { padding: 12px 10px; border-bottom: 1px solid var(--line); text-align: left; }
+    th { color: var(--forest); }
+    .total { font-weight: 700; color: var(--forest-deep); }
+    .actions { margin-top: 24px; }
+    a { color: var(--forest); font-weight: 700; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="card">
+      <h1>Orçamento preliminar</h1>
+      <p>Resumo de referência para a montagem do espetáculo, com foco em viabilidade, transporte e organização do processo.</p>
+      <div class="meta">
+        <span>Teatro para Infâncias</span>
+        <span>Transporte em Fiorino</span>
+        <span>Montagem modular</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Descrição</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Desenvolvimento artístico e dramaturgia</td><td>R$ 12.000</td></tr>
+          <tr><td>2</td><td>Pesquisa e criação cênica</td><td>R$ 8.500</td></tr>
+          <tr><td>3</td><td>Cenografia modular e protótipos</td><td>R$ 9.800</td></tr>
+          <tr><td>4</td><td>Figurinos, maquiagem e objetos</td><td>R$ 6.400</td></tr>
+          <tr><td>5</td><td>Som, luz e operação técnica</td><td>R$ 5.700</td></tr>
+          <tr><td>6</td><td>Transporte, montagem e logística</td><td>R$ 4.200</td></tr>
+          <tr class="total"><td colspan="2">Total estimado</td><td>R$ 46.600</td></tr>
+        </tbody>
+      </table>
+
+      <div class="actions">
+        <a href="novas_dramaturgias.html">← Voltar ao menu do projeto</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b2a">
+  <meta name="description" content="Proposta dramatúrgica do espetáculo A Floresta que Fala.">
+  <title>Dramaturgia — A Floresta que Fala</title>
+  <style>
+    :root {
+      --forest:#123b2a; --deep:#09271b; --leaf:#647a3a; --earth:#a54812;
+      --sun:#f5ad28; --cream:#f7eddb; --paper:#fffaf0; --ink:#263229;
+      --muted:#687266; --line:rgba(35,48,38,.14); --shadow:0 20px 58px rgba(29,45,31,.1);
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0; color:var(--ink); font-family:"Segoe UI",Arial,sans-serif; line-height:1.65;
+      background:
+        radial-gradient(circle at 8% 7%,rgba(245,173,40,.14),transparent 26rem),
+        radial-gradient(circle at 94% 38%,rgba(100,122,58,.1),transparent 30rem),var(--cream);
+    }
+    a { color:inherit; } button { font:inherit; }
+    .wrap { width:min(1160px,calc(100% - 40px)); margin-inline:auto; }
+    .site-header {
+      position:sticky; top:0; z-index:30; border-bottom:1px solid var(--line);
+      background:rgba(247,237,219,.9); backdrop-filter:blur(14px);
+    }
+    .nav { display:flex; min-height:72px; align-items:center; justify-content:space-between; gap:18px; }
+    .brand { color:var(--forest); font:700 1rem Georgia,serif; text-decoration:none; }
+    .nav-links { display:flex; gap:3px; align-items:center; flex-wrap:wrap; justify-content:flex-end; }
+    .nav-links a,.print-button {
+      padding:8px 9px; border:0; border-radius:999px; color:var(--forest); background:transparent;
+      text-decoration:none; font-size:.65rem; font-weight:800; letter-spacing:.035em; text-transform:uppercase; cursor:pointer;
+    }
+    .nav-links a[aria-current="page"] { color:#fff; background:var(--forest); }
+    .print-button { border:1px solid var(--forest); }
+    .nav-links a:hover,.print-button:hover { background:rgba(18,59,42,.1); }
+
+    .hero { position:relative; padding:clamp(80px,12vw,145px) 0 clamp(65px,9vw,100px); overflow:hidden; }
+    .eyebrow { color:var(--earth); font-size:.72rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+    h1,h2,h3 { font-family:Georgia,serif; line-height:1.08; }
+    h1 { margin:12px 0 20px; color:var(--forest); font-size:clamp(3.4rem,9vw,8rem); letter-spacing:-.055em; }
+    .lead { max-width:780px; margin:0; color:var(--muted); font-size:clamp(1.1rem,2.3vw,1.45rem); }
+    .leaf { position:absolute; width:32px; height:55px; border-radius:90% 0 90% 0; background:var(--leaf); opacity:.18; animation:leaf-float 8s ease-in-out infinite alternate; }
+    .leaf.one { right:13%; top:24%; transform:rotate(24deg); }
+    .leaf.two { right:5%; top:58%; width:20px; height:36px; background:var(--earth); animation-delay:-3s; }
+
+    section { padding:clamp(44px,7vw,80px) 0; }
+    .section-head { max-width:790px; margin-bottom:28px; }
+    .section-head h2 { margin:0 0 10px; color:var(--forest); font-size:clamp(2rem,4.5vw,3.6rem); }
+    .section-head p { margin:0; color:var(--muted); }
+    .prose {
+      padding:clamp(27px,5vw,48px); border:1px solid var(--line); border-radius:28px;
+      background:rgba(255,250,240,.88); box-shadow:var(--shadow); font-size:clamp(1rem,1.8vw,1.16rem);
+    }
+    .prose p { max-width:920px; margin:0; color:var(--muted); }
+    .prose strong { color:var(--forest); }
+    .principles { display:flex; gap:8px; margin-top:24px; flex-wrap:wrap; }
+    .principles span { padding:8px 12px; border-radius:999px; color:var(--forest); background:#eee1c4; font-size:.76rem; font-weight:800; }
+
+    .synopsis {
+      position:relative; padding:clamp(32px,6vw,58px); overflow:hidden; border-radius:30px;
+      color:#fff; background:var(--forest); box-shadow:var(--shadow);
+    }
+    .synopsis::after { content:"“"; position:absolute; right:25px; bottom:-70px; color:rgba(255,255,255,.07); font:700 15rem Georgia,serif; }
+    .synopsis h2 { margin:0 0 20px; color:var(--sun); font-size:clamp(2rem,4vw,3rem); }
+    .synopsis p { position:relative; z-index:1; max-width:930px; margin:0; color:rgba(255,255,255,.84); font:italic clamp(1.12rem,2.3vw,1.5rem)/1.7 Georgia,serif; }
+
+    .character-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:15px; }
+    .character {
+      min-height:330px; padding:clamp(25px,4vw,38px); border:1px solid var(--line);
+      border-radius:26px; background:var(--paper); box-shadow:var(--shadow);
+    }
+    .character:nth-child(2) { color:#fff; background:var(--earth); }
+    .character:nth-child(3) { color:#fff; background:var(--forest); }
+    .character-tag { color:var(--earth); font-size:.67rem; font-weight:900; letter-spacing:.14em; text-transform:uppercase; }
+    .character:nth-child(2) .character-tag,.character:nth-child(3) .character-tag { color:var(--sun); }
+    .character h3 { margin:22px 0 16px; color:var(--forest); font-size:2rem; }
+    .character:nth-child(2) h3,.character:nth-child(3) h3 { color:#fff; }
+    .character ul { display:grid; gap:8px; margin:0; padding-left:19px; color:var(--muted); }
+    .character:nth-child(2) ul,.character:nth-child(3) ul { color:rgba(255,255,255,.78); }
+
+    .journey { position:relative; display:grid; gap:0; max-width:940px; }
+    .journey::before { content:""; position:absolute; top:15px; bottom:15px; left:22px; width:2px; background:linear-gradient(var(--sun),var(--leaf),var(--earth)); }
+    .step { position:relative; display:grid; grid-template-columns:46px 180px 1fr; gap:17px; padding-bottom:27px; align-items:start; }
+    .step:last-child { padding-bottom:0; }
+    .step-number {
+      z-index:1; display:grid; width:30px; height:30px; margin-left:8px; place-items:center;
+      border:3px solid var(--cream); border-radius:50%; color:#fff; background:var(--earth);
+      box-shadow:0 0 0 2px var(--earth); font-size:.65rem; font-weight:900;
+    }
+    .step strong { color:var(--forest); font-family:Georgia,serif; }
+    .step p { margin:0; color:var(--muted); }
+
+    .voice-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:15px; }
+    .voice-copy,.quotes { padding:clamp(26px,4vw,42px); border-radius:27px; box-shadow:var(--shadow); }
+    .voice-copy { color:#fff; background:var(--earth); }
+    .voice-copy h2 { margin:0 0 15px; color:#fff; font-size:clamp(2rem,4vw,3rem); }
+    .voice-copy p { margin:0; color:rgba(255,255,255,.8); }
+    .quotes { display:grid; gap:13px; background:var(--paper); }
+    blockquote { margin:0; padding:19px; border-left:4px solid var(--sun); border-radius:5px 16px 16px 5px; color:var(--forest); background:#f2e5ca; font:italic 1.05rem/1.6 Georgia,serif; }
+
+    .listening-panel { padding:clamp(29px,5vw,50px); border-radius:30px; color:#fff; background:var(--deep); box-shadow:var(--shadow); }
+    .listening-panel h2 { margin:0 0 13px; color:#fff; font-size:clamp(2rem,4vw,3.4rem); }
+    .listening-panel > p { max-width:900px; margin:0; color:rgba(255,255,255,.72); }
+    .sound-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:28px; }
+    .sound { padding:17px; border-radius:15px; background:rgba(255,255,255,.08); }
+    .sound::before { content:"◉"; margin-right:8px; color:var(--sun); }
+
+    .craft-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:16px; }
+    .craft-copy,.directions { padding:clamp(26px,4vw,42px); border-radius:27px; background:var(--paper); box-shadow:var(--shadow); }
+    .craft-copy h2 { margin:0 0 15px; color:var(--forest); font-size:clamp(2rem,4vw,3rem); }
+    .craft-copy p { margin:0 0 15px; color:var(--muted); }
+    .craft-term { display:inline-block; padding:8px 13px; border-radius:999px; color:#fff; background:var(--earth); font-weight:900; }
+    .directions { display:flex; gap:8px; align-content:flex-start; flex-wrap:wrap; }
+    .directions span { padding:10px 13px; border-radius:12px; color:var(--forest); background:#f0e3c7; font-size:.82rem; font-weight:700; }
+
+    .acts { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .act { min-height:205px; padding:25px; border-radius:23px; color:#fff; background:var(--forest); box-shadow:var(--shadow); }
+    .act:nth-child(2) { background:var(--earth); }
+    .act:nth-child(3) { color:var(--ink); background:var(--sun); }
+    .act small { font-weight:900; letter-spacing:.12em; text-transform:uppercase; opacity:.7; }
+    .act h3 { margin:32px 0 9px; font-size:1.4rem; }
+    .act p { margin:0; opacity:.75; }
+
+    .script-marks { display:flex; gap:9px; flex-wrap:wrap; }
+    .script-marks code {
+      padding:12px 15px; border:1px solid var(--line); border-radius:13px; color:var(--earth);
+      background:var(--paper); box-shadow:0 8px 25px rgba(29,45,31,.05); font:700 .83rem "Courier New",monospace;
+    }
+    .tones { display:flex; gap:9px; flex-wrap:wrap; }
+    .tones span { padding:11px 15px; border-radius:999px; color:#fff; background:var(--forest); font-weight:800; }
+    .tones span:nth-child(3n+2) { background:var(--earth); }
+    .tones span:nth-child(3n) { color:#3b2905; background:var(--sun); }
+    .tone-note { margin:24px 0 0; color:var(--muted); }
+
+    .summary { padding:clamp(30px,5vw,52px); border-radius:30px; color:#fff; background:var(--forest); box-shadow:var(--shadow); }
+    .summary h2 { margin:0 0 15px; color:var(--sun); font-size:clamp(2rem,4vw,3.2rem); }
+    .summary p { max-width:960px; margin:0; color:rgba(255,255,255,.8); font-size:1.06rem; }
+    footer { padding:35px 20px; color:rgba(255,255,255,.62); background:var(--deep); text-align:center; font-size:.74rem; }
+    .reveal { opacity:0; transform:translateY(20px); transition:opacity .65s ease,transform .65s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+    @keyframes leaf-float { to { transform:translate(16px,-28px) rotate(65deg); } }
+
+    @media (max-width:850px) {
+      .sound-grid,.acts { grid-template-columns:1fr 1fr; }
+      .craft-grid,.voice-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width:700px) {
+      .wrap { width:min(100% - 28px,1160px); }
+      .nav { min-height:64px; }
+      .nav-links a { display:none; }
+      .nav-links a[aria-current="page"] { display:inline-flex; }
+      .character-grid,.sound-grid,.acts { grid-template-columns:1fr; }
+      .step { grid-template-columns:46px 1fr; gap:10px; }
+      .step strong,.step p { grid-column:2; }
+      .character { min-height:0; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      * { scroll-behavior:auto!important; animation:none!important; transition:none!important; }
+      .reveal { opacity:1; transform:none; }
+    }
+    @media print {
+      @page { margin:12mm; }
+      body { background:#fff; }
+      .site-header,.print-button,footer { display:none!important; }
+      .hero { padding:0 0 20px; }
+      section { padding:18px 0; break-inside:avoid; }
+      .wrap { width:100%; }
+      .reveal { opacity:1; transform:none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Navegação principal">
+      <a class="brand" href="index.html">A Floresta que Fala</a>
+      <div class="nav-links">
+        <a href="index.html">Início</a><a href="edital.html">Edital</a>
+        <a href="orcamento.html">Orçamento</a><a href="cronograma.html">Cronograma</a>
+        <a href="fluxo_caixa.html">Fluxo de Caixa</a><a href="sonorizacao.html">Sonorização</a>
+        <a href="dramaturgia.html" aria-current="page">Dramaturgia</a>
+        <button class="print-button" type="button" onclick="window.print()">Imprimir / Exportar PDF</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <span class="eyebrow">Proposta artística</span>
+      <h1>Dramaturgia</h1>
+      <p class="lead">A escuta como caminho, personagem e experiência teatral.</p>
+      <i class="leaf one" aria-hidden="true"></i><i class="leaf two" aria-hidden="true"></i>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="section-head"><h2>Conceito dramatúrgico</h2></div>
+      <div class="prose">
+        <p><strong>A Floresta que Fala</strong> é uma aventura teatral para as infâncias. A peça acompanha Heitor, um menino cego, e Gaston, seu cão-guia, que se perdem em uma floresta durante um passeio escolar. A floresta parece falar por meio dos sons, dos ventos, dos rios, das folhas, dos animais e dos silêncios.</p>
+        <div class="principles"><span>Não é apenas sobre deficiência visual</span><span>Escuta</span><span>Confiança</span><span>Amizade</span><span>Autonomia</span><span>Imaginação</span><span>Perceber além da visão</span></div>
+      </div>
+    </section>
+
+    <section class="wrap reveal">
+      <article class="synopsis">
+        <h2>Sinopse</h2>
+        <p>Durante um passeio escolar, Heitor, um menino cego, e seu inseparável cão-guia Gaston se perdem em uma floresta onde árvores, rios, ventos e animais parecem comunicar-se através dos sons. Para encontrar o caminho de volta, os dois precisarão aprender a confiar um no outro, escutar os sinais da floresta e descobrir que coragem, amizade e imaginação podem revelar caminhos invisíveis aos olhos.</p>
+      </article>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="section-head"><h2>Personagens principais</h2><p>Quatro presenças organizam o cotidiano, a aventura e o retorno.</p></div>
+      <div class="character-grid">
+        <article class="character"><span class="character-tag">Personagem 01</span><h3>Heitor</h3><ul><li>Menino cego, curioso, sensível e ativo.</li><li>Percebe por sons, texturas, cheiros, ritmo e presença.</li><li>Não é vítima nem herói de superação.</li><li>Conduz a narrativa por sua forma singular de perceber.</li></ul></article>
+        <article class="character"><span class="character-tag">Personagem 02</span><h3>Gaston</h3><ul><li>Cão-guia de Heitor.</li><li>O público ouve seus pensamentos, mas Heitor não.</li><li>Comunica-se por corpo, ritmo, respiração e hesitação.</li><li>Percebe tensão, confiança, medo e alegria no corpo do menino.</li></ul></article>
+        <article class="character"><span class="character-tag">Personagem 03</span><h3>A Floresta</h3><ul><li>Personagem coletivo.</li><li>Fala por sons, luzes, objetos, sombras, ventos e movimentos.</li><li>Manifesta-se como rio, árvore, coruja, pássaros, folhas e silêncio.</li></ul></article>
+        <article class="character"><span class="character-tag">Personagem 04</span><h3>Professor / turma</h3><ul><li>Representam o mundo cotidiano.</li><li>Estabelecem o ponto de partida da aventura.</li><li>Reaparecem no retorno para casa.</li></ul></article>
+      </div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="section-head"><h2>Jornada do Herói</h2><p>A confiança se transforma: deixa de ser dependência e passa a significar parceria.</p></div>
+      <div class="journey">
+        <div class="step"><span class="step-number">1</span><strong>Mundo comum</strong><p>Heitor e Gaston no passeio escolar.</p></div>
+        <div class="step"><span class="step-number">2</span><strong>Chamado à aventura</strong><p>Um som desconhecido os afasta da trilha.</p></div>
+        <div class="step"><span class="step-number">3</span><strong>Travessia do limiar</strong><p>Entrada na floresta.</p></div>
+        <div class="step"><span class="step-number">4</span><strong>Provas</strong><p>Rio, vento, árvores e sons confundem ou orientam.</p></div>
+        <div class="step"><span class="step-number">5</span><strong>Crise</strong><p>Gaston acredita ter falhado como guia.</p></div>
+        <div class="step"><span class="step-number">6</span><strong>Revelação</strong><p>Heitor entende que não precisa ser carregado, mas caminhar junto.</p></div>
+        <div class="step"><span class="step-number">7</span><strong>Retorno</strong><p>Os dois reencontram o caminho.</p></div>
+        <div class="step"><span class="step-number">8</span><strong>Transformação</strong><p>A confiança deixa de ser dependência e vira parceria.</p></div>
+      </div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="voice-grid">
+        <article class="voice-copy"><h2>A voz interior de Gaston</h2><p>Gaston não conversa diretamente com Heitor. Seus pensamentos são compartilhados apenas com o público, criando humor, emoção e cumplicidade. Heitor o percebe por sinais corporais e afetivos.</p></article>
+        <div class="quotes">
+          <blockquote>“Ele apertou a guia. Quando ele aperta assim, o mundo fica mais estreito. Vou andar mais devagar.”</blockquote>
+          <blockquote>“Ele disse ‘vamos’. Gosto quando ele diz ‘vamos’. Nunca sei exatamente para onde. Mas sempre vamos juntos.”</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="listening-panel">
+        <h2>Dramaturgia da escuta</h2>
+        <p>O som não será apenas trilha sonora. Ele orienta a ação, constrói espaço, revela personagens invisíveis e aproxima o público da experiência perceptiva de Heitor.</p>
+        <div class="sound-grid"><div class="sound">O rio indica direção.</div><div class="sound">O vento confunde.</div><div class="sound">Os pássaros desenham caminhos.</div><div class="sound">O silêncio marca medo e atenção.</div><div class="sound">A respiração de Gaston se torna guia.</div><div class="sound">A floresta fala sem aparecer por completo.</div></div>
+      </div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="craft-grid">
+        <article class="craft-copy"><h2>Ator, corpo e tecnologias artesanais</h2><p>A relação entre ator e tecnologia será pensada desde o roteiro e os ensaios. A paisagem sonora distribuída e a cenografia cinética não substituem o ator: ampliam a ação cênica.</p><span class="craft-term">tecnologias artesanais</span><p>Recursos simples, discretos e poéticos usados para fazer a floresta respirar, mover-se e responder aos personagens.</p></article>
+        <div class="directions"><span>Indicações de escuta</span><span>Pausas</span><span>Respiração</span><span>Deslocamento</span><span>Reação do corpo ao som</span><span>Manipulação de objetos</span><span>Interação com elementos móveis</span></div>
+      </div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="section-head"><h2>Estrutura sugerida da peça</h2><p>Duração total aproximada: 50 a 60 minutos.</p></div>
+      <div class="acts">
+        <article class="act"><small>Ato 1 · 10 a 12 min</small><h3>O mundo de Heitor e Gaston</h3><p>Cotidiano, vínculo e partida.</p></article>
+        <article class="act"><small>Ato 2 · 30 a 35 min</small><h3>A floresta que fala</h3><p>Travessia, provas, crise e revelação.</p></article>
+        <article class="act"><small>Ato 3 · 10 a 15 min</small><h3>O caminho de volta</h3><p>Retorno e transformação.</p></article>
+      </div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="section-head"><h2>Indicações de roteiro</h2><p>Marcações que incorporam escuta, corpo, espaço, luz e movimento à escrita.</p></div>
+      <div class="script-marks"><code>[escuta]</code><code>[pausa]</code><code>[silêncio]</code><code>[Gaston pensa]</code><code>[som desloca-se pela plateia]</code><code>[árvore se move discretamente]</code><code>[Heitor reage antes de falar]</code><code>[luz transforma o espaço]</code><code>[floresta respira]</code></div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="section-head"><h2>Tom da obra</h2></div>
+      <div class="tones"><span>Aventura</span><span>Encantamento</span><span>Humor</span><span>Emoção</span><span>Suspense leve</span><span>Poesia</span><span>Amizade</span><span>Final esperançoso</span></div>
+      <p class="tone-note">A peça deve ser divertida, emocionante e acessível para crianças e famílias.</p>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="summary"><h2>Resumo estratégico</h2><p><strong>A Floresta que Fala</strong> propõe uma dramaturgia em que a escuta é caminho, linguagem e experiência coletiva. Ao acompanhar Heitor e Gaston, o público não apenas assiste a uma aventura: ele aprende a imaginar uma floresta pelos sons, pelos silêncios, pelos corpos e pela presença viva do teatro.</p></div>
+    </section>
+  </main>
+
+  <footer>A Floresta que Fala · Proposta dramatúrgica</footer>
+  <script>
+    // Revela as seções durante a leitura, respeitando a preferência por menos movimento.
+    const items=document.querySelectorAll(".reveal");
+    const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(reduced||!("IntersectionObserver" in window)){items.forEach(item=>item.classList.add("visible"));}
+    else{const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target);}}),{threshold:.1});items.forEach(item=>observer.observe(item));}
+  </script>
+</body>
+</html>

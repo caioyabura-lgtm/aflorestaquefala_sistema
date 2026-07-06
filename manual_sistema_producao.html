@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071812">
+  <meta name="description" content="Documento de referência técnica e institucional do Sistema de Produção de A Floresta que Fala.">
+  <title>Manual do Sistema de Produção — A Floresta que Fala</title>
+  <style>
+    :root {
+      --fundo: #071812;
+      --painel: #0d241b;
+      --painel-claro: #123226;
+      --texto: #f5f3e9;
+      --suave: #bdc9bd;
+      --destaque: #00ecd3;
+      --secundaria: #a8b446;
+      --linha: rgba(245, 243, 233, .15);
+      --largura: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--texto);
+      background:
+        radial-gradient(circle at 90% 4%, rgba(0, 236, 211, .09), transparent 26rem),
+        var(--fundo);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+    code {
+      color: var(--destaque);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: .92em;
+    }
+
+    .container {
+      width: min(var(--largura), calc(100% - 2.5rem));
+      margin-inline: auto;
+    }
+
+    header {
+      padding: clamp(3.5rem, 9vw, 7rem) 0 3.5rem;
+      border-bottom: 1px solid var(--linha);
+    }
+
+    .eyebrow, .section-number {
+      color: var(--destaque);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: .65rem 0 1rem;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      letter-spacing: -.065em;
+      line-height: .92;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--secundaria);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.15rem, 2.4vw, 1.65rem);
+    }
+
+    .actions { margin-top: 2rem; }
+
+    button {
+      padding: .75rem 1.1rem;
+      border: 1px solid var(--destaque);
+      border-radius: 999px;
+      color: var(--fundo);
+      background: var(--destaque);
+      cursor: pointer;
+      font: inherit;
+      font-size: .82rem;
+      font-weight: 700;
+    }
+
+    button:hover, button:focus-visible { filter: brightness(1.08); }
+
+    nav {
+      margin: 2rem 0;
+      padding: 1.5rem;
+      border: 1px solid var(--linha);
+      border-radius: 1rem;
+      background: var(--painel);
+    }
+
+    nav h2 { margin-top: 0; }
+    nav ol {
+      columns: 2;
+      margin-bottom: 0;
+      padding-left: 1.3rem;
+    }
+    nav a {
+      color: var(--suave);
+      text-decoration-color: rgba(0, 236, 211, .45);
+      text-underline-offset: .2em;
+    }
+    nav a:hover, nav a:focus-visible { color: var(--destaque); }
+
+    main { padding-bottom: 4rem; }
+
+    section {
+      scroll-margin-top: 1.5rem;
+      margin-top: 1.25rem;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      border: 1px solid var(--linha);
+      border-radius: 1rem;
+      background: var(--painel);
+    }
+
+    h2 {
+      margin: .2rem 0 1.25rem;
+      font-size: clamp(1.5rem, 3vw, 2.15rem);
+      letter-spacing: -.025em;
+    }
+
+    h3 {
+      margin: 1.5rem 0 .35rem;
+      color: var(--secundaria);
+      font-size: 1rem;
+    }
+
+    p { max-width: 850px; }
+    ul, ol { padding-left: 1.35rem; }
+    li + li { margin-top: .42rem; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .item {
+      padding: 1rem;
+      border-left: 3px solid var(--destaque);
+      background: var(--painel-claro);
+    }
+    .item strong { display: block; margin-bottom: .25rem; }
+
+    .rule {
+      margin-top: 1.5rem;
+      padding: 1rem 1.15rem;
+      border: 1px solid rgba(168, 180, 70, .4);
+      border-radius: .6rem;
+      color: var(--texto);
+      background: rgba(168, 180, 70, .08);
+    }
+
+    .incremental-highlight {
+      margin-top: 1.5rem;
+      padding: 1rem 1.15rem;
+      border: 1px solid rgba(0, 236, 211, .28);
+      border-radius: .6rem;
+      background: rgba(0, 236, 211, .06);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.08rem;
+    }
+
+    .warning {
+      border-color: rgba(0, 236, 211, .55);
+      background:
+        linear-gradient(135deg, rgba(0, 236, 211, .12), transparent),
+        var(--painel-claro);
+    }
+    .warning p {
+      margin: .7rem 0 0;
+      font-size: 1.08rem;
+    }
+
+    .review {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 3rem;
+    }
+    .review p { margin: 0; }
+
+    footer {
+      padding: 2rem 0 3rem;
+      border-top: 1px solid var(--linha);
+      color: var(--suave);
+      font-size: .82rem;
+    }
+
+    @media (max-width: 680px) {
+      nav ol { columns: 1; }
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      :root {
+        --fundo: #fff;
+        --painel: #fff;
+        --painel-claro: #f3f6f3;
+        --texto: #152019;
+        --suave: #46554a;
+        --destaque: #08796d;
+        --linha: #c9d1cb;
+      }
+      body { background: #fff; font-size: 10.5pt; }
+      .container { width: 100%; }
+      header { padding: 0 0 1.5rem; }
+      h1 { font-size: 34pt; }
+      .actions, nav { display: none; }
+      section {
+        break-inside: avoid;
+        margin-top: .7rem;
+        padding: 1rem;
+      }
+      footer { padding-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <p class="eyebrow">A Floresta que Fala</p>
+      <h1>Manual do Sistema de Produção</h1>
+      <p class="subtitle">Padrões, procedimentos e objetivos finais.</p>
+      <div class="actions">
+        <button type="button" onclick="window.print()">Imprimir / salvar PDF</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav aria-labelledby="titulo-indice">
+      <h2 id="titulo-indice">Índice</h2>
+      <ol>
+        <li><a href="#principio-central">Princípio central</a></li>
+        <li><a href="#principio-evolucao-incremental">Princípio da Evolução Incremental</a></li>
+        <li><a href="#arquitetura-oficial">Arquitetura oficial</a></li>
+        <li><a href="#abas-oficiais">Abas oficiais da planilha</a></li>
+        <li><a href="#arquivos-oficiais">Arquivos oficiais do Apps Script</a></li>
+        <li><a href="#funcoes-centrais">Funções centrais</a></li>
+        <li><a href="#regras-obrigatorias">Regras obrigatórias</a></li>
+        <li><a href="#procedimento">Procedimento antes de nova implementação</a></li>
+        <li><a href="#objetivos-finais">Objetivos finais</a></li>
+        <li><a href="#aviso">Aviso para futuras IAs / colaboradores</a></li>
+        <li><a href="#ultima-revisao">Última revisão</a></li>
+      </ol>
+    </nav>
+
+    <section id="principio-central">
+      <span class="section-number">01</span>
+      <h2>Princípio central</h2>
+      <p>O Sistema de Produção é uma infraestrutura leve de gestão do projeto A Floresta que Fala. Ele integra site, Apps Script, Google Sheets, Google Drive e, futuramente, Google Calendar, mantendo simplicidade operacional para a equipe.</p>
+    </section>
+
+    <section id="principio-evolucao-incremental">
+      <span class="section-number">02</span>
+      <h2>Princípio da Evolução Incremental</h2>
+      <p>O sistema deverá ser desenvolvido em pequenas etapas operacionais.</p>
+      <p>Cada nova funcionalidade deve ser útil por si só, testável e documentada antes da próxima implementação.</p>
+      <p>Devem ser evitadas grandes refatorações ou funcionalidades extensas que aumentem a complexidade sem gerar benefício imediato para a equipe.</p>
+      <h3>Aplicação prática</h3>
+      <ul>
+        <li>Implementar uma função de cada vez.</li>
+        <li>Testar antes de avançar.</li>
+        <li>Documentar cada mudança relevante.</li>
+        <li>Registrar marcos temporais quando houver avanço significativo.</li>
+        <li>Evitar duplicação de código.</li>
+        <li>Preservar compatibilidade com o sistema já existente.</li>
+        <li>Priorizar clareza para usuários não técnicos.</li>
+      </ul>
+      <div class="incremental-highlight">
+        <strong>Antes de crescer, o sistema precisa continuar funcionando.</strong>
+      </div>
+    </section>
+
+    <section id="arquitetura-oficial">
+      <span class="section-number">03</span>
+      <h2>Arquitetura oficial</h2>
+      <div class="grid">
+        <div class="item"><strong>Frontend</strong><code>producao.html</code></div>
+        <div class="item"><strong>Backend</strong>Google Apps Script</div>
+        <div class="item"><strong>Banco de dados</strong>Google Sheets</div>
+        <div class="item"><strong>Arquivo</strong>Google Drive</div>
+      </div>
+    </section>
+
+    <section id="abas-oficiais">
+      <span class="section-number">04</span>
+      <h2>Abas oficiais da planilha</h2>
+      <ul>
+        <li><code>calendario_producao</code></li>
+        <li><code>tarefas_registro</code></li>
+        <li><code>auditoria_planilha</code></li>
+        <li><code>dashboard</code></li>
+        <li><code>configuracoes</code></li>
+        <li><code>registros_fotograficos</code></li>
+      </ul>
+      <p class="rule"><strong>Regra:</strong> Não criar novas abas sem antes verificar se uma destas já atende à necessidade.</p>
+    </section>
+
+    <section id="arquivos-oficiais">
+      <span class="section-number">05</span>
+      <h2>Arquivos oficiais do Apps Script</h2>
+      <ul>
+        <li><code>api.gs</code></li>
+        <li><code>agenda.gs</code></li>
+        <li><code>tarefas.gs</code></li>
+        <li><code>dashboard.gs</code></li>
+        <li><code>auditoria.gs</code></li>
+        <li><code>drive.gs</code></li>
+        <li><code>util.gs</code></li>
+        <li><code>configuracao.gs</code></li>
+        <li><code>Código.gs</code></li>
+      </ul>
+      <p class="rule"><strong>Regra:</strong> Não duplicar funções entre arquivos.</p>
+    </section>
+
+    <section id="funcoes-centrais">
+      <span class="section-number">06</span>
+      <h2>Funções centrais</h2>
+      <div class="grid">
+        <div class="item">
+          <strong><code>api.gs</code></strong>
+          <code>doGet()</code><br>
+          <code>doPost()</code><br>
+          <code>doOptions()</code><br>
+          <code>responderJson_()</code>
+        </div>
+        <div class="item">
+          <strong><code>agenda.gs</code></strong>
+          <code>configurarAgenda()</code><br>
+          <code>registrarAgendaSite()</code><br>
+          <code>listarAgenda()</code>
+        </div>
+        <div class="item">
+          <strong><code>tarefas.gs</code></strong>
+          <code>registrarTarefaSite()</code><br>
+          <code>listarTarefas()</code>
+        </div>
+        <div class="item">
+          <strong><code>auditoria.gs</code></strong>
+          <code>registrarAuditoriaSite()</code><br>
+          <code>realizarAuditoria()</code>
+        </div>
+        <div class="item">
+          <strong><code>drive.gs</code></strong>
+          <code>registrarImagem()</code><br>
+          <code>salvarNoDrive()</code>
+        </div>
+        <div class="item">
+          <strong><code>util.gs</code></strong>
+          <code>localizarPlanilha_()</code><br>
+          <code>safeString_()</code><br>
+          <code>formatarData_()</code>
+        </div>
+      </div>
+    </section>
+
+    <section id="regras-obrigatorias">
+      <span class="section-number">07</span>
+      <h2>Regras obrigatórias</h2>
+      <ul>
+        <li>Deve existir apenas um <code>doGet()</code>.</li>
+        <li>Deve existir apenas um <code>doPost()</code>.</li>
+        <li>A planilha é a fonte oficial dos dados.</li>
+        <li>O site apenas envia e consulta dados.</li>
+        <li>Não apagar histórico sem autorização.</li>
+        <li>Auditorias devem ser acumulativas.</li>
+        <li>Formulários simples antes de painéis complexos.</li>
+        <li>Não implementar login complexo nesta fase.</li>
+        <li>Não criar dashboards antes de existir histórico suficiente.</li>
+        <li>Toda nova função deve indicar qual aba usa.</li>
+        <li>Toda nova função deve indicar se grava, consulta ou audita dados.</li>
+      </ul>
+    </section>
+
+    <section id="procedimento">
+      <span class="section-number">08</span>
+      <h2>Procedimento antes de nova implementação</h2>
+      <p>Antes de criar algo novo, verificar:</p>
+      <ol>
+        <li>Já existe função parecida?</li>
+        <li>Já existe aba para esse tipo de dado?</li>
+        <li>A função deve ficar em qual módulo?</li>
+        <li>Ela precisa gravar dados?</li>
+        <li>Ela precisa retornar JSON?</li>
+        <li>Ela altera histórico?</li>
+        <li>Ela será usada pelo site?</li>
+        <li>Ela precisa aparecer no dashboard?</li>
+      </ol>
+    </section>
+
+    <section id="objetivos-finais">
+      <span class="section-number">09</span>
+      <h2>Objetivos finais</h2>
+      <ul>
+        <li>Registrar entradas da equipe.</li>
+        <li>Registrar agenda de produção.</li>
+        <li>Registrar tarefas realizadas.</li>
+        <li>Emitir registros documentais em PDF.</li>
+        <li>Catalogar registros fotográficos.</li>
+        <li>Organizar marcos temporais.</li>
+        <li>Apoiar administração e jurídico.</li>
+        <li>Gerar indicadores de produção.</li>
+        <li>Manter histórico institucional do projeto.</li>
+      </ul>
+    </section>
+
+    <section id="aviso" class="warning">
+      <span class="section-number">10</span>
+      <h2>Aviso para futuras IAs / colaboradores</h2>
+      <p><strong>Antes de implementar qualquer nova função neste sistema, leia este manual.</strong></p>
+      <p>Não duplique funções existentes.</p>
+      <p>Não crie novas abas sem necessidade.</p>
+      <p>Não altere nomes oficiais sem atualizar este documento.</p>
+      <p>Preserve simplicidade, histórico e rastreabilidade.</p>
+    </section>
+
+    <section id="ultima-revisao">
+      <span class="section-number">11</span>
+      <h2>Última revisão</h2>
+      <div class="review">
+        <p><strong>Data:</strong> <time datetime="2026-07-06">06/07/2026</time></p>
+        <p><strong>Responsável:</strong> Caio Rodrigues</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Documento-guia para VS Code, ChatGPT, equipe técnica, administração e jurídico.</div>
+  </footer>
+</body>
+</html>

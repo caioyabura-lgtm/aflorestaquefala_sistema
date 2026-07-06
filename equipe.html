@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b2a">
+  <meta name="description" content="Equipe e estrutura de realização do projeto A Floresta que Fala.">
+  <title>Equipe — A Floresta que Fala</title>
+  <style>
+    :root {
+      --forest: #123b2a;
+      --deep: #071b14;
+      --earth: #9f4317;
+      --sun: #f5ad28;
+      --cream: #f5ead5;
+      --paper: #fffaf0;
+      --ink: #263128;
+      --muted: #687168;
+      --line: rgba(18, 59, 42, .16);
+      --shadow: 0 20px 55px rgba(31, 48, 34, .09);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at 8% 9%, rgba(245, 173, 40, .16), transparent 27rem),
+        radial-gradient(circle at 92% 42%, rgba(18, 59, 42, .09), transparent 34rem),
+        var(--cream);
+    }
+
+    a { color: inherit; }
+    button { font: inherit; }
+    .shell { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--earth);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
+    h2 { margin: 0; color: var(--forest); font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.05; }
+
+    .site-header {
+      position: relative;
+      z-index: 5;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 250, 240, .82);
+      backdrop-filter: blur(12px);
+    }
+    .header-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { color: var(--forest); font: 700 1.05rem Georgia, serif; text-decoration: none; white-space: nowrap; }
+    .header-title { display: block; color: var(--earth); font: 700 .67rem Arial, sans-serif; letter-spacing: .13em; text-transform: uppercase; }
+    nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 5px; }
+    nav a {
+      padding: 7px 9px;
+      border-radius: 999px;
+      color: var(--forest);
+      font-size: .65rem;
+      font-weight: 800;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    nav a:hover, nav a:focus-visible, nav a[aria-current="page"] { color: white; background: var(--forest); outline: none; }
+
+    .hero { padding: clamp(70px, 12vw, 145px) 0 clamp(65px, 10vw, 115px); }
+    .hero h1 {
+      max-width: 950px;
+      margin: 10px 0 24px;
+      color: var(--forest);
+      font-size: clamp(3.8rem, 10vw, 8rem);
+      line-height: .84;
+      letter-spacing: -.065em;
+    }
+    .subtitle { margin: 0 0 34px; color: var(--earth); font: 700 clamp(1.1rem, 2.4vw, 1.65rem) Georgia, serif; }
+    .lead { max-width: 810px; margin: 0 0 32px; color: var(--muted); font-size: clamp(1rem, 1.8vw, 1.23rem); }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .button {
+      display: inline-flex;
+      min-height: 44px;
+      padding: 11px 18px;
+      border: 1px solid var(--forest);
+      border-radius: 999px;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      background: var(--forest);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .button.secondary { color: var(--forest); background: transparent; }
+
+    section.content { padding: clamp(60px, 9vw, 100px) 0; }
+    section.alt { background: rgba(255, 250, 240, .66); border-block: 1px solid var(--line); }
+    .section-head { display: grid; grid-template-columns: 1fr minmax(260px, 470px); margin-bottom: 35px; align-items: end; gap: 32px; }
+    .section-head p { margin: 0; color: var(--muted); }
+
+    .core-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .core-card {
+      min-height: 340px;
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      background: rgba(255, 250, 240, .9);
+      box-shadow: var(--shadow);
+    }
+    .core-card:nth-child(2) { background: #eef0dc; }
+    .core-card:nth-child(3) { background: #f8e1c0; }
+    .core-card:nth-child(4) { color: white; background: var(--forest); }
+    .core-card h3 { margin: 36px 0 16px; font-size: 1.45rem; line-height: 1.1; }
+    .core-card ul { margin: 0; padding-left: 18px; font-size: .87rem; }
+    .core-card .number { color: var(--earth); font-size: .68rem; font-weight: 800; letter-spacing: .14em; }
+    .core-card:nth-child(4) .number { color: var(--sun); }
+
+    .filters { display: flex; margin: 28px 0 18px; flex-wrap: wrap; gap: 8px; }
+    .filter {
+      padding: 8px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--forest);
+      background: var(--paper);
+      font-size: .68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .filter.active { border-color: var(--forest); color: white; background: var(--forest); }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 22px; background: var(--paper); box-shadow: var(--shadow); }
+    table { width: 100%; min-width: 1120px; border-collapse: collapse; font-size: .78rem; }
+    th, td { padding: 14px 13px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: var(--forest); background: #ece7d4; font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; }
+    tr:last-child td { border-bottom: 0; }
+    tbody tr:hover { background: rgba(245, 173, 40, .07); }
+    .status {
+      display: inline-block;
+      padding: 5px 8px;
+      border-radius: 999px;
+      color: #5c4611;
+      background: #f8df9e;
+      font-size: .62rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .status.confirmado, .status.aprovado { color: #fff; background: #39704d; }
+    .status.contratar { color: #702e18; background: #f2c4ad; }
+    .status.negociacao, .status.desenvolvimento { color: #433e6f; background: #d8d4ef; }
+    tr[hidden] { display: none; }
+
+    .legal-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; }
+    .legal-copy, .legal-list, .text-card {
+      padding: clamp(26px, 5vw, 50px);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+    .legal-copy { color: white; background: var(--deep); }
+    .legal-copy h2 { color: var(--sun); }
+    .legal-copy p { color: rgba(255, 255, 255, .74); }
+    .legal-list h3 { margin-top: 0; color: var(--forest); font-size: 1.4rem; }
+    .legal-list ul { margin: 0; padding-left: 20px; }
+
+    .governance {
+      display: flex;
+      max-width: 760px;
+      margin: 38px auto 0;
+      flex-direction: column;
+      align-items: center;
+    }
+    .gov-node {
+      width: min(100%, 610px);
+      padding: 16px 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      color: var(--forest);
+      background: var(--paper);
+      box-shadow: 0 10px 25px rgba(31, 48, 34, .06);
+      text-align: center;
+      font-weight: 800;
+    }
+    .gov-node.primary { color: white; background: var(--forest); }
+    .gov-arrow { height: 36px; color: var(--earth); font-size: 1.5rem; line-height: 36px; }
+    .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .text-card h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+    .text-card p { margin-bottom: 0; color: var(--muted); }
+
+    footer { padding: 36px 20px; color: rgba(255, 255, 255, .68); background: var(--deep); text-align: center; font-size: .78rem; }
+
+    @media (max-width: 950px) {
+      .header-row, .section-head { display: block; }
+      nav { margin-top: 18px; justify-content: flex-start; }
+      .section-head p { margin-top: 14px; }
+      .core-grid { grid-template-columns: repeat(2, 1fr); }
+      .legal-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .shell { width: min(100% - 28px, 1180px); }
+      .site-header { padding-top: 15px; }
+      nav { flex-wrap: nowrap; margin-inline: -14px; padding: 0 14px 5px; overflow-x: auto; justify-content: flex-start; }
+      nav a { flex: 0 0 auto; }
+      .hero h1 { font-size: clamp(3.4rem, 22vw, 5.6rem); }
+      .core-grid, .duo { grid-template-columns: 1fr; }
+      .core-card { min-height: 0; }
+      .filters { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 5px; }
+      .filter { flex: 0 0 auto; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+    @media print {
+      body { background: white; font-size: 10pt; }
+      .site-header, .actions, .filters { display: none !important; }
+      .shell { width: 100%; }
+      .hero, section.content { padding: 25px 0; }
+      .hero h1 { font-size: 48pt; }
+      .core-grid { grid-template-columns: repeat(2, 1fr); }
+      .core-card, .legal-copy, .legal-list, .text-card, .table-wrap { box-shadow: none; break-inside: avoid; }
+      .legal-copy { color: var(--ink); background: white; }
+      .legal-copy h2 { color: var(--forest); }
+      .legal-copy p { color: var(--ink); }
+      .table-wrap { overflow: visible; }
+      table { min-width: 0; font-size: 7pt; }
+      th, td { padding: 6px 4px; }
+      tr[hidden] { display: table-row; }
+      footer { color: var(--ink); background: white; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-row">
+      <a class="brand" href="index.html">A Floresta que Fala <span class="header-title">Equipe</span></a>
+      <nav aria-label="Navegação principal">
+        <a href="index.html">Início</a>
+        <a href="apresentacao.html">Apresentação</a>
+        <a href="dramaturgia.html">Dramaturgia</a>
+        <a href="sonorizacao.html">Sonorização</a>
+        <a href="equipe.html" aria-current="page">Equipe</a>
+        <a href="orcamento.html">Orçamento</a>
+        <a href="cronograma.html">Cronograma</a>
+        <a href="edital.html">Edital</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <p class="eyebrow">Estrutura de realização</p>
+      <h1>Equipe</h1>
+      <p class="subtitle">Criação, produção, gestão e assessoria jurídica</p>
+      <p class="lead">A Floresta que Fala será realizada por uma equipe multidisciplinar que reúne criação teatral, pesquisa sonora, produção executiva, confecção, acessibilidade, comunicação, administração e assessoria jurídica.</p>
+      <div class="actions">
+        <a class="button" href="#estrutura">Ver composição da equipe</a>
+        <button class="button secondary" type="button" id="print-button">Imprimir / Exportar PDF</button>
+      </div>
+    </section>
+
+    <section class="content alt" id="estrutura">
+      <div class="shell">
+        <div class="section-head">
+          <div><p class="eyebrow">Organização multidisciplinar</p><h2>Estrutura da Equipe</h2></div>
+          <p>Quatro núcleos complementares articulam criação, operação, produção e segurança institucional.</p>
+        </div>
+        <div class="core-grid">
+          <article class="core-card"><span class="number">01 — CRIAÇÃO</span><h3>Núcleo Artístico</h3><ul><li>Dramaturgia</li><li>Direção</li><li>Elenco</li><li>Direção musical / sonoplastia</li><li>Iluminação</li><li>Cenografia</li><li>Figurino</li><li>Maquiagem</li></ul></article>
+          <article class="core-card"><span class="number">02 — OPERAÇÃO</span><h3>Núcleo Técnico</h3><ul><li>Paisagem sonora distribuída</li><li>Tecnologias artesanais aplicadas à cena</li><li>Operação de som</li><li>Operação de luz</li><li>Registro audiovisual</li><li>Montagem e desmontagem</li></ul></article>
+          <article class="core-card"><span class="number">03 — REALIZAÇÃO</span><h3>Núcleo de Produção</h3><ul><li>Produção executiva</li><li>Assistência de produção</li><li>Logística</li><li>Comunicação e divulgação</li><li>Organização de materiais e acervo</li></ul></article>
+          <article class="core-card"><span class="number">04 — GOVERNANÇA</span><h3>Núcleo de Gestão</h3><ul><li>Cooperativa proponente</li><li>Administração</li><li>Prestação de contas</li><li>Assessoria jurídica</li><li>Contratos</li><li>Direitos autorais e de imagem</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content shell" id="funcoes">
+      <div class="section-head">
+        <div><p class="eyebrow">Quadro editável</p><h2>Funções e Atribuições</h2></div>
+        <p>Os filtros organizam a leitura por núcleo. Na impressão, todas as funções são exibidas.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filtrar funções por núcleo">
+        <button class="filter active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+        <button class="filter" type="button" data-filter="artistico" aria-pressed="false">Artístico</button>
+        <button class="filter" type="button" data-filter="tecnico" aria-pressed="false">Técnico</button>
+        <button class="filter" type="button" data-filter="producao" aria-pressed="false">Produção</button>
+        <button class="filter" type="button" data-filter="gestao" aria-pressed="false">Gestão</button>
+        <button class="filter" type="button" data-filter="juridico" aria-pressed="false">Jurídico</button>
+      </div>
+      <div class="table-wrap" tabindex="0" aria-label="Tabela de funções; role horizontalmente em telas pequenas">
+        <table>
+          <thead><tr><th>Núcleo</th><th>Função</th><th>Profissional</th><th>Atribuições</th><th>Período</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr data-core="artistico"><td>Artístico</td><td>Dramaturgia</td><td>Caio Rodrigues</td><td>Desenvolvimento do roteiro, pesquisa dramatúrgica, indicações de escuta, corpo, som e tecnologias artesanais</td><td>Pesquisa e criação</td><td><span class="status confirmado">Confirmado</span></td></tr>
+            <tr data-core="artistico"><td>Artístico</td><td>Direção Teatral</td><td>Caio Rodrigues</td><td>Concepção artística, direção de elenco, integração entre atuação, luz, som e cenografia</td><td>Ensaios e montagem</td><td><span class="status confirmado">Confirmado</span></td></tr>
+            <tr data-core="artistico"><td>Artístico</td><td>Elenco — Heitor</td><td>A definir</td><td>Interpretação do protagonista e desenvolvimento corporal da escuta</td><td>Ensaios e temporada</td><td><span class="status contratar">A contratar</span></td></tr>
+            <tr data-core="artistico"><td>Artístico</td><td>Elenco — Gaston</td><td>A definir</td><td>Interpretação corporal do cão-guia, relação com Heitor e voz interior percebida pelo público</td><td>Ensaios e temporada</td><td><span class="status contratar">A contratar</span></td></tr>
+            <tr data-core="artistico"><td>Artístico</td><td>Personagens da Floresta</td><td>A definir</td><td>Construção de vozes, corpos e presenças da floresta</td><td>Ensaios e temporada</td><td><span class="status contratar">A contratar</span></td></tr>
+            <tr data-core="tecnico"><td>Técnico</td><td>Paisagem Sonora Distribuída</td><td>Caio Rodrigues / equipe</td><td>Pesquisa, composição, espacialização sonora, montagem e operação do sistema</td><td>Pesquisa, ensaios e temporada</td><td><span class="status desenvolvimento">Em desenvolvimento</span></td></tr>
+            <tr data-core="tecnico"><td>Técnico</td><td>Tecnologias Artesanais</td><td>Caio Rodrigues / equipe</td><td>Arduino, motores de passo, pequenos mecanismos cinéticos e integração com a cena</td><td>Laboratório e montagem</td><td><span class="status desenvolvimento">Em desenvolvimento</span></td></tr>
+            <tr data-core="artistico"><td>Figurino</td><td>Produção e Manutenção de Figurino</td><td>Lucimar</td><td>Confecção, ajustes, conservação, passadoria e manutenção durante temporada</td><td>Criação e temporada</td><td><span class="status">Previsto</span></td></tr>
+            <tr data-core="artistico"><td>Artístico</td><td>Maquiagem</td><td>A definir</td><td>Caracterização dos personagens, ensaios gerais e apresentações</td><td>Montagem e temporada</td><td><span class="status contratar">A contratar</span></td></tr>
+            <tr data-core="tecnico"><td>Técnico</td><td>Iluminação</td><td>A definir</td><td>Desenho de luz, programação e operação</td><td>Ensaios técnicos e temporada</td><td><span class="status contratar">A contratar</span></td></tr>
+            <tr data-core="producao"><td>Produção</td><td>Produção Executiva</td><td>A definir</td><td>Cronograma, contratações, fornecedores, comunicação entre equipe e Cooperativa</td><td>Todo o projeto</td><td><span class="status contratar">A contratar</span></td></tr>
+            <tr data-core="producao"><td>Produção</td><td>Assistência de Produção</td><td>A definir</td><td>Apoio logístico, montagem, desmontagem, organização de materiais e temporada</td><td>Produção e temporada</td><td><span class="status contratar">A contratar</span></td></tr>
+            <tr data-core="producao"><td>Comunicação</td><td>Comunicação e Divulgação</td><td>A definir</td><td>Identidade visual, redes, peças gráficas, releases e apoio de mídia</td><td>Pré-produção e temporada</td><td><span class="status contratar">A contratar</span></td></tr>
+            <tr data-core="producao"><td>Registro</td><td>Registro Audiovisual</td><td>A definir</td><td>Fotografia e vídeo para documentação, divulgação e prestação de contas</td><td>Ensaios e temporada</td><td><span class="status contratar">A contratar</span></td></tr>
+            <tr data-core="producao"><td>Acessibilidade</td><td>Libras e Audiodescrição</td><td>A definir</td><td>Recursos acessíveis, apoio à comunicação inclusiva e adequações</td><td>Temporada</td><td><span class="status contratar">A contratar</span></td></tr>
+            <tr data-core="gestao"><td>Gestão</td><td>Administração / Prestação de Contas</td><td>João</td><td>Controle financeiro, documentação, organização de comprovantes e apoio administrativo</td><td>Todo o projeto</td><td><span class="status">Previsto</span></td></tr>
+            <tr data-core="juridico"><td>Jurídico</td><td>Assessoria Jurídica</td><td>Fernando</td><td>Contratos, direitos autorais, direitos de imagem, relação com a Cooperativa e acompanhamento jurídico</td><td>Todo o projeto</td><td><span class="status negociacao">Em negociação</span></td></tr>
+            <tr data-core="gestao"><td>Institucional</td><td>Cooperativa Proponente</td><td>Cooperativa dos Empreendedores de Belo Horizonte</td><td>Proponente jurídica, gestão institucional, recebimento de recursos e acompanhamento administrativo</td><td>Todo o projeto</td><td><span class="status aprovado">Aprovado</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="content alt" id="juridico">
+      <div class="shell legal-grid">
+        <article class="legal-copy"><p class="eyebrow">Segurança institucional</p><h2>Assessoria Jurídica</h2><p>A assessoria jurídica será responsável por garantir segurança contratual e institucional ao projeto, acompanhando a relação entre equipe, Cooperativa, edital, direitos autorais, direitos de imagem, cessões de uso, contratos de prestação de serviço e documentação necessária à execução e prestação de contas.</p></article>
+        <article class="legal-list"><h3>Pauta para assessoria</h3><ul><li>Contratos de equipe</li><li>Termos de cessão de imagem</li><li>Direitos autorais do texto, trilha e materiais visuais</li><li>Relação jurídica com a Cooperativa proponente</li><li>Conferência de obrigações previstas no edital</li><li>Apoio à prestação de contas documental</li><li>Prevenção de riscos trabalhistas, autorais e administrativos</li></ul></article>
+      </div>
+    </section>
+
+    <section class="content shell" id="governanca">
+      <div class="section-head"><div><p class="eyebrow">Fluxo de responsabilidade</p><h2>Governança do Projeto</h2></div><p>Uma cadeia clara conecta a representação institucional à execução e ao encerramento documental.</p></div>
+      <div class="governance" aria-label="Diagrama de governança">
+        <div class="gov-node primary">Cooperativa Proponente</div><div class="gov-arrow" aria-hidden="true">↓</div>
+        <div class="gov-node">Coordenação Geral</div><div class="gov-arrow" aria-hidden="true">↓</div>
+        <div class="gov-node">Produção Executiva</div><div class="gov-arrow" aria-hidden="true">↓</div>
+        <div class="gov-node">Núcleos Artístico / Técnico / Comunicação / Acessibilidade</div><div class="gov-arrow" aria-hidden="true">↓</div>
+        <div class="gov-node primary">Prestação de Contas e Relatório Final</div>
+      </div>
+    </section>
+
+    <section class="content alt">
+      <div class="shell duo">
+        <article class="text-card"><p class="eyebrow">Responsabilidade profissional</p><h2>Critérios de contratação</h2><p>A contratação da equipe observará a coerência com o orçamento aprovado, a experiência profissional, a adequação às necessidades da montagem e a regularidade documental exigida para pagamento e prestação de contas.</p></article>
+        <article class="text-card"><p class="eyebrow">Construção compartilhada</p><h2>Equipe como parte da pesquisa</h2><p>A equipe não será organizada apenas como força de execução, mas como parte do processo de investigação artística. A relação entre ator, escuta, sonorização distribuída, iluminação, figurino, tecnologias artesanais e produção será desenvolvida de forma integrada, permitindo que cada função participe da construção da linguagem da montagem.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>Equipe e estrutura de realização — A Floresta que Fala</footer>
+
+  <script>
+    // Filtros da tabela: cada linha declara seu núcleo em data-core.
+    const filters = [...document.querySelectorAll(".filter")];
+    const rows = [...document.querySelectorAll("tbody tr[data-core]")];
+
+    filters.forEach(button => button.addEventListener("click", () => {
+      const selected = button.dataset.filter;
+      filters.forEach(item => {
+        const active = item === button;
+        item.classList.toggle("active", active);
+        item.setAttribute("aria-pressed", String(active));
+      });
+      rows.forEach(row => {
+        row.hidden = selected !== "todos" && row.dataset.core !== selected;
+      });
+    }));
+
+    document.querySelector("#print-button").addEventListener("click", () => window.print());
+  </script>
+</body>
+</html>
