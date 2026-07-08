@@ -1,15 +1,504 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap");
 
-:root{--deep:#061a12;--forest:#123b2a;--paper:#fff4dc;--sun:#f5ad28;--earth:#a54812;--pages:4}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;overflow:hidden;color:#fff;background:var(--deep);font-family:"DM Sans",Arial,sans-serif}
-a{color:inherit}button{font:inherit}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-#forest-canvas{position:fixed;inset:0;z-index:0;width:100%;height:100%;display:block;outline:0}
-.scene-shade{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at 68% 34%,rgba(255,196,91,.08),transparent 28%),linear-gradient(90deg,rgba(3,16,11,.46),transparent 48%,rgba(3,16,11,.08)),linear-gradient(0deg,rgba(3,16,11,.29),transparent 38%),radial-gradient(ellipse at center,transparent 48%,rgba(2,13,9,.2) 100%)}
-.loading-screen{position:fixed;inset:0;z-index:100;display:grid;place-items:center;color:var(--paper);background:var(--deep);transition:opacity .8s ease,visibility .8s ease}.loading-screen.done{opacity:0;visibility:hidden;pointer-events:none}.loading-content{width:min(430px,calc(100% - 48px));text-align:center}.loading-title{margin:0;font:700 clamp(1.5rem,5vw,2.8rem) "Fraunces",Georgia,serif;letter-spacing:.08em}.loading-subtitle{margin:10px 0 24px;color:rgba(255,255,255,.62);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase}.progress-track{height:3px;overflow:hidden;border-radius:999px;background:rgba(255,255,255,.16)}.progress-track i{display:block;width:0;height:100%;background:var(--sun);transition:width .2s ease}.progress-label{display:block;margin-top:9px;color:rgba(255,255,255,.55);font-size:.67rem}
-.site-header{position:fixed;z-index:20;top:0;left:50%;display:flex;width:min(1240px,calc(100% - 48px));padding:22px 0;align-items:center;justify-content:space-between;transform:translateX(-50%)}.brand{font:700 1rem "Fraunces",Georgia,serif;text-decoration:none}.site-header nav{display:flex;gap:7px}.site-header nav a{padding:8px 12px;border:1px solid rgba(255,255,255,.24);border-radius:999px;text-decoration:none;font-size:.67rem;font-weight:800;text-transform:uppercase;backdrop-filter:blur(8px)}
-.horizontal-rail{position:relative;z-index:3;display:flex;width:100vw;height:100vh;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none}.horizontal-rail::-webkit-scrollbar{display:none}.page{position:relative;flex:0 0 100vw;width:100vw;height:100vh;display:flex;padding:clamp(24px,5vw,72px);align-items:center;scroll-snap-align:start}.opening{align-items:flex-end}.opening-copy{position:relative;z-index:5;max-width:680px;margin-bottom:4vh;pointer-events:auto}.eyebrow{margin:0 0 12px;color:#f4d18b;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.opening-line{margin:0 0 27px;text-shadow:0 3px 25px rgba(0,0,0,.4);font:600 clamp(1.7rem,4vw,3.5rem)/1.18 "Fraunces",Georgia,serif}.enter-button{position:relative;z-index:6;display:inline-flex;padding:12px 20px;border:1px solid rgba(255,255,255,.6);border-radius:999px;color:var(--deep);background:rgba(255,244,220,.94);text-decoration:none;font-size:.72rem;font-weight:900;letter-spacing:.17em;text-transform:uppercase;opacity:0;transform:translateY(14px);pointer-events:none;cursor:pointer;transition:opacity .8s ease,transform .8s ease,background .2s ease}.enter-button.ready{opacity:1;transform:none;pointer-events:auto}.enter-button:hover,.enter-button:focus-visible{background:#fff;outline:2px solid var(--sun);outline-offset:3px}
-.glass-panel{position:relative;width:min(670px,calc(100% - 20px));margin-left:auto;padding:clamp(27px,5vw,52px);overflow:hidden;border:1px solid rgba(255,255,255,.2);border-radius:30px;background:rgba(7,28,20,.55);box-shadow:0 28px 80px rgba(0,0,0,.22);backdrop-filter:blur(18px) saturate(1.1)}.panel-number{position:absolute;right:18px;bottom:-38px;color:rgba(255,255,255,.07);font:700 9rem/1 "Fraunces"}.panel-kicker{margin:0 0 12px;color:var(--sun);font-size:.7rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}.glass-panel h2{position:relative;margin:0 0 18px;font:700 clamp(2rem,4vw,3.6rem)/1.05 "Fraunces";letter-spacing:-.035em}.glass-panel>p:not(.panel-kicker){position:relative;max-width:540px;margin:0 0 25px;color:rgba(255,255,255,.72)}.glass-panel a{position:relative;color:#f7d58f;font-size:.76rem;font-weight:800;text-decoration:none}.panel-links{display:flex;gap:18px;flex-wrap:wrap}
-.page-dots{position:fixed;z-index:20;right:18px;top:50%;display:grid;gap:9px;transform:translateY(-50%)}.dot{width:10px;height:10px;padding:0;border:1px solid rgba(255,255,255,.48);border-radius:50%;background:transparent;cursor:pointer}.dot.active{background:var(--sun);border-color:var(--sun);transform:scale(1.2)}.fps{position:fixed;z-index:90;left:10px;bottom:10px;padding:5px 7px;color:#9effb4;background:#001b08;font:11px monospace}.noscript{position:fixed;z-index:110;inset:auto 20px 20px;padding:15px;color:var(--deep);background:var(--paper)}
-@media(max-width:700px){.site-header{width:calc(100% - 30px);padding-top:15px}.site-header nav a:not(:first-child){display:none}.page{padding:22px;align-items:flex-end}.opening-copy{margin-bottom:8vh}.glass-panel{margin:0 0 5vh;padding:25px;border-radius:22px}.scene-shade{background:linear-gradient(0deg,rgba(3,16,11,.75),transparent 62%)}.page-dots{right:9px}}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.enter-button{transform:none}}
-@media print{body{overflow:visible;background:#fff}.loading-screen,#forest-canvas,.scene-shade,.site-header,.page-dots{display:none}.horizontal-rail{display:block;height:auto;overflow:visible}.page{height:auto;min-height:95vh;color:#222;break-after:page}.glass-panel{margin:auto;color:#222;background:#fff;border:1px solid #bbb;box-shadow:none}.glass-panel>p:not(.panel-kicker){color:#555}}
+/* Base visual compartilhada pela abertura 3D e pelas paginas horizontais. */
+:root {
+  --deep: #061a12;
+  --forest: #123b2a;
+  --footer-deep: rgba(3, 18, 12, .82);
+  --paper: #fff4dc;
+  --sun: #f5ad28;
+  --sun-bright: #ffd071;
+  --earth: #a54812;
+  --pages: 4;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  overflow: hidden;
+  color: #fff;
+  background: var(--deep);
+  font-family: "DM Sans", Arial, sans-serif;
+}
+
+a { color: inherit; }
+button { font: inherit; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* O canvas fica atras do conteudo e nunca captura eventos do rodape. */
+#forest-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  outline: 0;
+  pointer-events: none;
+}
+
+.scene-shade {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 68% 34%, rgba(255, 196, 91, .08), transparent 28%),
+    linear-gradient(90deg, rgba(3, 16, 11, .46), transparent 48%, rgba(3, 16, 11, .08)),
+    linear-gradient(0deg, rgba(3, 16, 11, .29), transparent 38%),
+    radial-gradient(ellipse at center, transparent 48%, rgba(2, 13, 9, .2) 100%);
+}
+
+/* Tela de carregamento dos recursos 3D. */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  color: var(--paper);
+  background: var(--deep);
+  transition: opacity .8s ease, visibility .8s ease;
+}
+
+.loading-screen.done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loading-content {
+  width: min(430px, calc(100% - 48px));
+  text-align: center;
+}
+
+.loading-title {
+  margin: 0;
+  font: 700 clamp(1.5rem, 5vw, 2.8rem) "Fraunces", Georgia, serif;
+  letter-spacing: .08em;
+}
+
+.loading-subtitle {
+  margin: 10px 0 24px;
+  color: rgba(255, 255, 255, .62);
+  font-size: .76rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.progress-track {
+  height: 3px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .16);
+}
+
+.progress-track i {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--sun);
+  transition: width .2s ease;
+}
+
+.progress-label {
+  display: block;
+  margin-top: 9px;
+  color: rgba(255, 255, 255, .55);
+  font-size: .67rem;
+}
+
+/* Trilho horizontal da experiencia narrativa. */
+.horizontal-rail {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.horizontal-rail::-webkit-scrollbar { display: none; }
+
+.page {
+  position: relative;
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  padding: clamp(24px, 5vw, 72px);
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+.opening { align-items: flex-end; }
+
+.opening-copy {
+  position: relative;
+  z-index: 5;
+  width: min(680px, 100%);
+  max-width: 680px;
+  min-width: 0;
+  margin-bottom: clamp(130px, 16vh, 170px);
+  pointer-events: auto;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #f4d18b;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.opening-line {
+  margin: 0;
+  text-shadow: 0 3px 25px rgba(0, 0, 0, .4);
+  font: 600 clamp(1.7rem, 4vw, 3.5rem) / 1.18 "Fraunces", Georgia, serif;
+  overflow-wrap: break-word;
+}
+
+/* Rodape fixo: entrada institucional sobreposta ao palco 3D. */
+.site-footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 40;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  min-height: 104px;
+  padding: 18px clamp(22px, 5vw, 72px);
+  align-items: center;
+  gap: clamp(18px, 4vw, 48px);
+  border-top: 1px solid rgba(245, 173, 40, .48);
+  color: rgba(255, 244, 220, .9);
+  background: var(--footer-deep);
+  box-shadow: 0 -10px 28px rgba(0, 0, 0, .16);
+  -webkit-backdrop-filter: blur(14px) saturate(1.08);
+  backdrop-filter: blur(14px) saturate(1.08);
+}
+
+.footer-left,
+.footer-right {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  font-size: clamp(.72rem, 1.2vw, .82rem);
+  line-height: 1.35;
+}
+
+.footer-left strong {
+  color: #fff6df;
+  font: 700 clamp(1rem, 1.8vw, 1.25rem) "Fraunces", Georgia, serif;
+}
+
+.footer-left span,
+.footer-right span {
+  color: rgba(255, 244, 220, .68);
+}
+
+.footer-center {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-right {
+  justify-items: end;
+  text-align: right;
+}
+
+/* Botao de entrada liberado apenas apos recursos e animacao inicial. */
+.enter-button {
+  position: relative;
+  display: inline-flex;
+  width: min(220px, 58vw);
+  min-height: 56px;
+  padding: 0 22px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 235, 173, .72);
+  border-radius: 999px;
+  color: #102015;
+  background: linear-gradient(180deg, var(--sun-bright), var(--sun));
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .18);
+  text-align: center;
+  text-decoration: none;
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  opacity: .56;
+  transform: translateY(12px) scale(.96);
+  pointer-events: none;
+  cursor: default;
+  transition:
+    opacity .7s ease,
+    transform .7s cubic-bezier(.22, 1, .36, 1),
+    background .22s ease,
+    box-shadow .22s ease,
+    filter .22s ease;
+}
+
+.enter-button.ready {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  cursor: pointer;
+  animation: button-breathe 4.8s ease-in-out infinite;
+}
+
+.enter-button.ready:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 13px 30px rgba(0, 0, 0, .22);
+}
+
+.enter-button:focus-visible {
+  outline: 3px solid #fff4dc;
+  outline-offset: 4px;
+  box-shadow: 0 0 0 6px rgba(245, 173, 40, .35), 0 13px 30px rgba(0, 0, 0, .24);
+}
+
+@keyframes button-breathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-1px) scale(1.015); }
+}
+
+/* Paineis informativos das secoes seguintes. */
+.glass-panel {
+  position: relative;
+  width: min(670px, calc(100% - 20px));
+  margin-left: auto;
+  padding: clamp(27px, 5vw, 52px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 30px;
+  background: rgba(7, 28, 20, .55);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, .22);
+  backdrop-filter: blur(18px) saturate(1.1);
+}
+
+.panel-number {
+  position: absolute;
+  right: 18px;
+  bottom: -38px;
+  color: rgba(255, 255, 255, .07);
+  font: 700 9rem / 1 "Fraunces";
+}
+
+.panel-kicker {
+  margin: 0 0 12px;
+  color: var(--sun);
+  font-size: .7rem;
+  font-weight: 900;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.glass-panel h2 {
+  position: relative;
+  margin: 0 0 18px;
+  font: 700 clamp(2rem, 4vw, 3.6rem) / 1.05 "Fraunces";
+  letter-spacing: -.035em;
+}
+
+.glass-panel > p:not(.panel-kicker) {
+  position: relative;
+  max-width: 540px;
+  margin: 0 0 25px;
+  color: rgba(255, 255, 255, .72);
+}
+
+.glass-panel a {
+  position: relative;
+  color: #f7d58f;
+  font-size: .76rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.panel-links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* Navegacao lateral e utilidades tecnicas. */
+.page-dots {
+  position: fixed;
+  z-index: 20;
+  right: 18px;
+  top: 50%;
+  display: grid;
+  gap: 9px;
+  transform: translateY(-50%);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, .48);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: var(--sun);
+  border-color: var(--sun);
+  transform: scale(1.2);
+}
+
+.fps {
+  position: fixed;
+  z-index: 90;
+  left: 10px;
+  bottom: 10px;
+  padding: 5px 7px;
+  color: #9effb4;
+  background: #001b08;
+  font: 11px monospace;
+}
+
+.noscript {
+  position: fixed;
+  z-index: 110;
+  inset: auto 20px 20px;
+  padding: 15px;
+  color: var(--deep);
+  background: var(--paper);
+}
+
+/* Ajustes para tablet. */
+@media (max-width: 900px) {
+  .site-footer {
+    grid-template-columns: minmax(0, .9fr) auto minmax(0, .9fr);
+    min-height: 96px;
+    padding: 16px 22px;
+    gap: 16px;
+  }
+
+  .enter-button {
+    width: 190px;
+    min-height: 52px;
+    font-size: .72rem;
+  }
+}
+
+/* Ajustes para celular: titulo, botao e assinatura em eixo vertical. */
+@media (max-width: 700px) {
+  .page {
+    padding: 22px;
+    align-items: flex-end;
+  }
+
+  .opening-copy {
+    width: min(346px, calc(100vw - 44px));
+    margin-bottom: 238px;
+  }
+
+  .opening-line {
+    font-size: clamp(1.35rem, 6.6vw, 1.82rem);
+  }
+
+  .glass-panel {
+    margin: 0 0 210px;
+    padding: 25px;
+    border-radius: 22px;
+  }
+
+  .scene-shade {
+    background: linear-gradient(0deg, rgba(3, 16, 11, .75), transparent 62%);
+  }
+
+  .page-dots { right: 9px; }
+
+  .site-footer {
+    grid-template-columns: 1fr;
+    min-height: 220px;
+    padding: 16px 20px 18px;
+    gap: 12px;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-right {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .enter-button {
+    width: min(220px, calc(100vw - 48px));
+    min-height: 54px;
+  }
+}
+
+/* Pessoas com reducao de movimento mantem a entrada sem pulsacao. */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .enter-button { transform: none; }
+}
+
+/* Impressao limpa, sem WebGL nem controles fixos. */
+@media print {
+  body {
+    overflow: visible;
+    background: #fff;
+  }
+
+  .loading-screen,
+  #forest-canvas,
+  .scene-shade,
+  .site-footer,
+  .page-dots {
+    display: none;
+  }
+
+  .horizontal-rail {
+    display: block;
+    height: auto;
+    overflow: visible;
+  }
+
+  .page {
+    height: auto;
+    min-height: 95vh;
+    color: #222;
+    break-after: page;
+  }
+
+  .glass-panel {
+    margin: auto;
+    color: #222;
+    background: #fff;
+    border: 1px solid #bbb;
+    box-shadow: none;
+  }
+
+  .glass-panel > p:not(.panel-kicker) { color: #555; }
+}

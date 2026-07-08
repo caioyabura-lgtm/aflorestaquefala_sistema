@@ -207,6 +207,10 @@ export function animateOpening(camera, delta) {
   return !state.openingComplete;
 }
 
+export function isOpeningComplete() {
+  return state.openingComplete;
+}
+
 export function updateCamera(camera, delta) {
   if (!state.openingComplete) return true;
   return state.controls?.update() || false;

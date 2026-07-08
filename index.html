@@ -56,13 +56,6 @@
           Alguns caminhos só podem ser encontrados quando aprendemos a escutar.
         </p>
 
-        <a
-          class="enter-button ready"
-          id="enter-button"
-          href="projeto.html"
-        >
-          Entrar
-        </a>
       </div>
     </section>
 
@@ -124,6 +117,31 @@
     </section>
   </main>
 
+  <footer class="site-footer" aria-label="Entrada do projeto">
+    <div class="footer-left">
+      <strong>A Floresta que Fala</strong>
+      <span>Uma dramaturgia da escuta para as infâncias</span>
+    </div>
+
+    <div class="footer-center">
+      <a
+        class="enter-button"
+        id="enter-button"
+        href="projeto.html"
+        aria-label="Entrar no projeto A Floresta que Fala"
+        aria-disabled="true"
+        tabindex="-1"
+      >
+        Preparando a floresta...
+      </a>
+    </div>
+
+    <div class="footer-right">
+      <span>Projeto em desenvolvimento</span>
+      <span>Cooperativa dos Empreendedores de Belo Horizonte</span>
+    </div>
+  </footer>
+
   <noscript>
     <p class="noscript">
       Ative o JavaScript para visualizar a experiência tridimensional.
@@ -132,10 +150,8 @@
   </noscript>
 
   <script>
-    // Mantém a entrada acessível mesmo quando WebGL, o modelo 3D ou os módulos
-    // externos não carregam (situação comum ao abrir o HTML via file://).
+    // Preserva o estado visual correto ao retornar pelo cache de navegação.
     (() => {
-      const delay = location.protocol === "file:" ? 1200 : 4000;
       const loadingScreen = document.querySelector("#loading-screen");
       const enterButton = document.querySelector("#enter-button");
 
@@ -145,13 +161,13 @@
         enterButton?.classList.add("ready");
         enterButton?.removeAttribute("aria-disabled");
         enterButton?.removeAttribute("tabindex");
+        if (enterButton) enterButton.textContent = "Entrar";
       };
 
-      window.setTimeout(releasePage, delay);
-
-      // O cache de navegação pode restaurar a tela de carregamento sobre o link.
       window.addEventListener("pageshow", event => {
-        if (event.persisted) releasePage();
+        if (event.persisted && enterButton?.classList.contains("ready")) {
+          releasePage();
+        }
       });
     })();
   </script>

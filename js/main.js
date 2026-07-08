@@ -3,7 +3,7 @@ import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
 import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
 import { ForestScene } from "./scene.js";
-import { animateOpening, createCamera, fitCamera, resizeCamera, updateCamera } from "./camera.js";
+import { animateOpening, createCamera, fitCamera, isOpeningComplete, resizeCamera, updateCamera } from "./camera.js";
 import { ensureLighting } from "./lighting.js";
 import { setupHorizontalNavigation } from "./interaction.js";
 import { createLoadingController } from "./loading.js";
@@ -34,6 +34,13 @@ const clock = new THREE.Clock();
 const fps = document.querySelector("#fps");
 let frameCount = 0, fpsTime = performance.now();
 let cameraHelper = null;
+let entranceWaiting = false;
+
+function releaseEntranceWhenReady() {
+  if (!entranceWaiting || !isOpeningComplete()) return;
+  loading.releaseEntrance();
+  entranceWaiting = false;
+}
 
 function configureComposer() {
   composer = new EffectComposer(renderer);
@@ -63,6 +70,8 @@ async function init() {
     configureComposer();
     installDebugHelpers();
     await loading.finish();
+    entranceWaiting = true;
+    releaseEntranceWhenReady();
   } catch (error) {
     console.error("Não foi possível iniciar a floresta 3D.", error);
     // Mantém o site utilizável mesmo se WebGL ou o modelo falharem.
@@ -85,6 +94,7 @@ function render(time) {
   const animated = forest.update(delta, clock.elapsedTime);
   const opening = animateOpening(camera, delta);
   const moving = updateCamera(camera, delta);
+  releaseEntranceWhenReady();
   cameraHelper?.update();
   composer?.render();
 
