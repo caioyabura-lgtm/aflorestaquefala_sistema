@@ -51,6 +51,8 @@
     }
 
     body:not(.access-granted) > .site-header,
+    body:not(.access-granted) > .production-menu,
+    body:not(.access-granted) > .year-calendar,
     body:not(.access-granted) > main,
     body:not(.access-granted) > footer {
       display: none;
@@ -216,11 +218,37 @@
       border-color: rgba(255, 120, 98, .5);
     }
 
-    .header-actions {
-      display: grid;
-      flex: 0 0 auto;
-      justify-items: end;
+    .proposal-access {
+      color: var(--fundo);
+      border-color: var(--coral);
+      background: var(--coral);
+      font-weight: 800;
+    }
+
+    .proposal-access:hover,
+    .proposal-access:focus-visible {
+      color: var(--fundo);
+      border-color: var(--coral);
+      filter: brightness(1.08);
+      outline: 2px solid var(--texto);
+      outline-offset: 3px;
+    }
+
+    .production-menu {
+      display: flex;
+      width: min(var(--largura), calc(100% - 3rem));
+      align-items: center;
+      flex-wrap: wrap;
       gap: .65rem;
+      margin: 1.25rem auto;
+      padding: .85rem;
+      border: 1px solid var(--linha);
+      border-radius: 1rem;
+      background: var(--painel);
+    }
+
+    .production-menu .access-registered {
+      margin-right: auto;
     }
 
     /* Year calendar (2026) shown at the top of the page */
@@ -902,7 +930,8 @@
 
     @media (max-width: 580px) {
       .site-header { flex-direction: column-reverse; }
-      .header-actions { justify-items: start; }
+      .production-menu { align-items: flex-start; }
+      .production-menu .access-registered { width: 100%; margin-right: 0; }
       .dashboard-grid { grid-template-columns: 1fr; }
       .dashboard-card-large { grid-column: auto; }
       .dashboard-bar-row { grid-template-columns: 1fr 2.5rem; }
@@ -956,13 +985,16 @@
       <p class="subtitle">Central de acompanhamento administrativo do projeto.</p>
       <p class="header-copy">Esta página reúne informações essenciais para orientar a equipe sobre prazos, entregas, documentos e próximos passos.</p>
     </div>
-    <div class="header-actions">
-      <p class="access-registered" id="usuarioLogado"></p>
-      <button class="change-user" id="btnSair" type="button">Trocar usuário</button>
-      <a class="back-link" href="manual_sistema_producao.html">Manual do Sistema</a>
-      <a class="back-link" href="projeto.html">Voltar ao projeto</a>
-    </div>
   </header>
+
+  <nav class="production-menu" aria-label="Acessos da área de produção">
+    <p class="access-registered" id="usuarioLogado"></p>
+    <button class="change-user" id="btnSair" type="button">Trocar usuário</button>
+    <a class="back-link" href="sescoop.html">Projeto SESCOOP</a>
+    <a class="back-link proposal-access" href="proposta_teatro_fumec.html">Laboratório</a>
+    <a class="back-link" href="manual_sistema_producao.html">Manual do Sistema</a>
+    <a class="back-link" href="projeto.html">Voltar ao projeto</a>
+  </nav>
 
   <!-- Calendário anual 2026 -->
   <div class="year-calendar" id="yearCalendar" data-year="2026" aria-label="Calendário 2026"></div>
@@ -998,6 +1030,26 @@
         <article class="dashboard-card dashboard-chart">
           <p class="dashboard-card-label">Registros por atividade</p>
           <div class="dashboard-bars" id="dashboardAtividadesGrafico" role="img" aria-label="Gráfico de registros por atividade"></div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="titulo-projetos-desenvolvimento">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Projetos em desenvolvimento</p>
+          <h2 id="titulo-projetos-desenvolvimento">Frentes de criação</h2>
+        </div>
+        <p>Propostas vinculadas à pesquisa, à produção e à circulação de A Floresta que Fala.</p>
+      </div>
+      <div class="delivery-list">
+        <article class="document-card">
+          <div>
+            <h3>Ocupação Teatro FUMEC</h3>
+            <p><strong>Laboratório de criação de A Floresta que Fala</strong></p>
+            <p>Primeira ação laboratorial do Núcleo de Arte e Tecnologia do Espetáculo, em formação dentro da cooperativa, dedicada ao desenvolvimento coletivo de A Floresta que Fala.</p>
+          </div>
+          <a class="back-link proposal-access" href="proposta_teatro_fumec.html">Conhecer a proposta</a>
         </article>
       </div>
     </section>
@@ -1476,7 +1528,8 @@
         data: document.querySelector("#agendaData").value,
         hora: document.querySelector("#agendaHora").value,
         titulo: document.querySelector("#agendaTitulo").value.trim(),
-        descricao: document.querySelector("#agendaDescricao").value.trim()
+        descricao: document.querySelector("#agendaDescricao").value.trim(),
+        registradoEm: new Date().toISOString()
       };
 
       if (!dados.nome || !dados.data || !dados.hora || !dados.titulo) {

@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Proposta de formação do Núcleo de Arte e Tecnologia do Espetáculo e ocupação laboratorial do Teatro Professor Ney Soares." />
+  <title>Núcleo de Arte e Tecnologia do Espetáculo | Ocupação Teatro FUMEC</title>
+
+  <style>
+    :root {
+      --bg: #0d1512;
+      --surface: #15211c;
+      --surface-2: #1d2d25;
+      --text: #f1f4ef;
+      --muted: #bdc8c0;
+      --accent: #d9a441;
+      --accent-2: #8ebf73;
+      --line: rgba(255,255,255,.12);
+      --shadow: 0 18px 45px rgba(0,0,0,.28);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(142,191,115,.14), transparent 28rem),
+        radial-gradient(circle at 90% 25%, rgba(217,164,65,.10), transparent 24rem),
+        var(--bg);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 999;
+      background: #fff;
+      color: #111;
+      padding: .8rem 1rem;
+    }
+
+    .skip-link:focus { left: 1rem; top: 1rem; }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      align-items: end;
+      padding: 88px 0 56px;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(13,21,18,.96), rgba(13,21,18,.34)),
+        repeating-linear-gradient(
+          115deg,
+          transparent 0 48px,
+          rgba(255,255,255,.025) 49px 50px
+        );
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: .5rem;
+      align-items: center;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-weight: 800;
+      font-size: .78rem;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.12;
+      margin: 0 0 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 8vw, 6.7rem);
+      max-width: 11ch;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.45rem);
+    }
+
+    h3 {
+      font-size: 1.35rem;
+    }
+
+    .lead {
+      max-width: 760px;
+      color: #e4ebe5;
+      font-size: clamp(1.08rem, 2vw, 1.35rem);
+      margin: 1.3rem 0 2rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      border-radius: 999px;
+      padding: .55rem .85rem;
+      color: var(--muted);
+      backdrop-filter: blur(8px);
+    }
+
+    main section {
+      padding: 76px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-intro {
+      max-width: 790px;
+      margin-bottom: 2.1rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015)),
+        var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card p:last-child { margin-bottom: 0; }
+
+    .card strong { color: var(--accent); }
+
+    .number {
+      display: inline-grid;
+      place-items: center;
+      width: 2.35rem;
+      height: 2.35rem;
+      border-radius: 50%;
+      color: #172018;
+      background: var(--accent-2);
+      font-weight: 900;
+      margin-bottom: .9rem;
+    }
+
+    .quote {
+      margin: 0;
+      padding: 1.6rem;
+      background: linear-gradient(135deg, rgba(217,164,65,.14), rgba(142,191,115,.08));
+      border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+    }
+
+    .institution-flow {
+      display: grid;
+      max-width: 780px;
+      gap: 0;
+      margin-top: 2rem;
+    }
+
+    .flow-step {
+      position: relative;
+      padding: 1.15rem 1.3rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      text-align: center;
+    }
+
+    .flow-step + .flow-step {
+      margin-top: 2.3rem;
+    }
+
+    .flow-step + .flow-step::before {
+      content: "↓";
+      position: absolute;
+      top: -2.15rem;
+      left: 50%;
+      color: var(--accent);
+      font-size: 1.45rem;
+      font-weight: 900;
+      transform: translateX(-50%);
+    }
+
+    .flow-step strong {
+      display: block;
+      color: var(--accent-2);
+    }
+
+    .flow-step span {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .external-link {
+      display: inline-flex;
+      margin-top: 1rem;
+      padding: .7rem 1rem;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      color: #172018;
+      background: var(--accent);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .external-link:hover,
+    .external-link:focus-visible {
+      filter: brightness(1.08);
+      outline: 3px solid var(--accent-2);
+      outline-offset: 3px;
+    }
+
+    .reference-note {
+      margin-top: 1.25rem;
+      padding: 1rem 1.15rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--muted);
+      background: rgba(255,255,255,.035);
+      font-size: .9rem;
+    }
+
+    .roles .card {
+      min-height: 255px;
+    }
+
+    .role-name {
+      color: var(--accent-2);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: .8rem;
+      margin-bottom: .4rem;
+    }
+
+    .role-list {
+      padding-left: 1.15rem;
+      margin: .8rem 0 0;
+      color: var(--muted);
+    }
+
+    .role-list li + li { margin-top: .4rem; }
+
+    .timeline {
+      display: grid;
+      gap: .9rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 84px 1fr;
+      gap: 1rem;
+      align-items: start;
+      padding: 1.1rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline-item:first-child { border-top: 0; }
+
+    .time {
+      color: var(--accent);
+      font-weight: 900;
+      font-size: .95rem;
+    }
+
+    .cycle {
+      counter-reset: encontro;
+    }
+
+    .cycle .card {
+      position: relative;
+      padding-top: 3.5rem;
+    }
+
+    .cycle .card::before {
+      counter-increment: encontro;
+      content: counter(encontro, decimal-leading-zero);
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      color: rgba(255,255,255,.18);
+      font-size: 2rem;
+      font-weight: 900;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #d9a441, #9dbf70);
+      color: #132018;
+      border-radius: calc(var(--radius) + 6px);
+      padding: clamp(1.5rem, 4vw, 3rem);
+      box-shadow: var(--shadow);
+    }
+
+    .highlight h2,
+    .highlight h3 { color: #132018; }
+
+    .highlight p { color: rgba(19,32,24,.84); }
+
+    .checklist {
+      columns: 2;
+      column-gap: 2rem;
+      padding-left: 1.2rem;
+    }
+
+    .checklist li {
+      break-inside: avoid;
+      margin-bottom: .6rem;
+    }
+
+    .signature {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .signature-line {
+      padding-top: 3.2rem;
+      border-bottom: 1px solid var(--muted);
+      text-align: center;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    footer {
+      padding: 42px 0 60px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 820px) {
+      .grid-2,
+      .grid-3,
+      .signature {
+        grid-template-columns: 1fr;
+      }
+
+      .roles .card { min-height: 0; }
+
+      .checklist { columns: 1; }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: .2rem;
+      }
+
+      .hero {
+        min-height: 70vh;
+        padding-top: 72px;
+      }
+    }
+
+    @media print {
+      :root {
+        --bg: #fff;
+        --surface: #fff;
+        --surface-2: #fff;
+        --text: #111;
+        --muted: #444;
+        --line: #bbb;
+        --shadow: none;
+      }
+
+      body { background: #fff; }
+      .hero { min-height: auto; padding: 42px 0; }
+      .hero::before { display: none; }
+      .card, .highlight, .flow-step, .reference-note { break-inside: avoid; }
+      main section { padding: 42px 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="eyebrow">Cooperativa dos Empreendedores de Belo Horizonte · Núcleo em formação</div>
+      <h1>Núcleo de Arte e Tecnologia do Espetáculo</h1>
+      <p class="lead">
+        Ocupação laboratorial do Teatro Professor Ney Soares para o desenvolvimento de <strong>A Floresta que Fala</strong>.
+      </p>
+      <div class="hero-meta" aria-label="Informações principais">
+        <span class="tag">Terças-feiras</span>
+        <span class="tag">14h30 às 16h30</span>
+        <span class="tag">Ciclo piloto: 8 encontros</span>
+        <span class="tag">Som, luz, atuação, cenografia e figurino</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section>
+      <div class="container">
+        <div class="eyebrow">Síntese</div>
+        <h2>O teatro como espaço de pesquisa e criação</h2>
+        <p class="section-intro">
+          A proposta é ocupar o Teatro Professor Ney Soares em formato de laboratório, utilizando sua infraestrutura para pesquisar, experimentar e construir coletivamente uma versão performática de <em>A Floresta que Fala</em>.
+        </p>
+
+        <blockquote class="quote">
+          A contrapartida da ocupação será uma apresentação pública de processo: uma performance curta, criada a partir das decisões artísticas e técnicas amadurecidas pelo grupo ao longo dos encontros.
+        </blockquote>
+      </div>
+    </section>
+
+    <section id="nucleo-cooperativa">
+      <div class="container">
+        <div class="eyebrow">Estrutura institucional</div>
+        <h2>Um núcleo de pesquisa dentro da cooperativa</h2>
+        <p class="section-intro">
+          A ocupação do Teatro Professor Ney Soares constitui a primeira ação prática de um Núcleo de Arte e Tecnologia do Espetáculo em formação no âmbito da Cooperativa dos Empreendedores de Belo Horizonte.
+        </p>
+        <p>
+          O núcleo pretende reunir artistas, técnicos, jovens criadores e pesquisadores em processos de formação, experimentação e criação coletiva, articulando teatro, som, iluminação, cenografia, figurino, audiovisual, música e tecnologias interativas.
+        </p>
+        <p>
+          O desenvolvimento da performance <em>A Floresta que Fala</em> será o primeiro projeto laboratorial do grupo. A ocupação semanal permitirá investigar relações entre dramaturgia, corpo, espaço, paisagem sonora, luz e dispositivos tecnológicos, produzindo conhecimento aplicável a futuras criações e ações formativas.
+        </p>
+
+        <div class="institution-flow" aria-label="Hierarquia institucional e prática da proposta">
+          <div class="flow-step"><strong>Cooperativa dos Empreendedores de Belo Horizonte</strong><span>Instituição proponente e ambiente organizacional</span></div>
+          <div class="flow-step"><strong>Núcleo de Arte e Tecnologia do Espetáculo</strong><span>Pesquisa, formação, experimentação e criação coletiva</span></div>
+          <div class="flow-step"><strong>Ocupação do Teatro Professor Ney Soares</strong><span>Primeiro campo prático e laboratorial</span></div>
+          <div class="flow-step"><strong>Pesquisa e performance A Floresta que Fala</strong><span>Primeiro projeto de pesquisa e criação</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="eyebrow">Objetivos</div>
+        <h2>Formação, experimentação e entrega pública</h2>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <div class="number">1</div>
+            <h3>Formação prática</h3>
+            <p>Introduzir os participantes aos processos de criação, montagem e operação de um espetáculo, aproximando arte, técnica e responsabilidade coletiva.</p>
+          </article>
+
+          <article class="card">
+            <div class="number">2</div>
+            <h3>Criação integrada</h3>
+            <p>Desenvolver atuação, cenografia, figurino, maquiagem, desenho sonoro, iluminação e direção como partes de uma mesma dramaturgia.</p>
+          </article>
+
+          <article class="card">
+            <div class="number">3</div>
+            <h3>Contrapartida</h3>
+            <p>Realizar uma performance de <em>A Floresta que Fala</em>, acompanhada de registro do processo e breve apresentação dos aprendizados.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="roles">
+      <div class="container">
+        <div class="eyebrow">Equipe inicial</div>
+        <h2>Funções definidas, decisões compartilhadas</h2>
+        <p class="section-intro">
+          Cada participante possui responsabilidades principais dentro de uma dinâmica de laboratório e decisões coletivas. As funções orientam o trabalho sem impedir que todos participem da construção artística geral.
+        </p>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <div class="role-name">Túlio</div>
+            <h3>Ator e cenógrafo</h3>
+            <ul class="role-list">
+              <li>Pesquisa corporal e criação de personagem;</li>
+              <li>Experimentação de ações no palco;</li>
+              <li>Criação e montagem de elementos cenográficos;</li>
+              <li>Participação nas decisões de espaço, ritmo e narrativa.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="role-name">Júlia</div>
+            <h3>Figurinista e maquiadora</h3>
+            <ul class="role-list">
+              <li>Pesquisa visual dos personagens e da floresta;</li>
+              <li>Desenvolvimento de figurino com materiais acessíveis;</li>
+              <li>Criação de maquiagem cênica;</li>
+              <li>Integração da imagem do corpo com luz e cenografia.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="role-name">Caio Rodrigues</div>
+            <h3>Diretor, operador e criador de som e iluminação</h3>
+            <ul class="role-list">
+              <li>Condução metodológica e organização dos encontros;</li>
+              <li>Operação e criação de som e iluminação;</li>
+              <li>Direção da performance;</li>
+              <li>Mediação das decisões e preservação da segurança técnica.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="referencia-pesquisa">
+      <div class="container">
+        <div class="eyebrow">Referência de pesquisa</div>
+        <h2>IRCAM como referência conceitual e metodológica</h2>
+        <p class="section-intro">
+          Como referência conceitual e metodológica, o núcleo observa experiências de instituições dedicadas à integração entre arte, pesquisa e tecnologia, especialmente o IRCAM — Institut de Recherche et Coordination Acoustique/Musique.
+        </p>
+        <p>
+          Essa referência contribui para pensar o teatro não apenas como local de apresentação, mas como laboratório de criação, formação, documentação e produção de conhecimento.
+        </p>
+        <p>
+          A menção ao IRCAM indica um horizonte de pesquisa e organização do trabalho. Não representa parceria, apoio, participação, chancela ou vínculo institucional formal.
+        </p>
+
+        <div class="grid grid-2">
+          <article class="card"><h3>Arte e investigação</h3><ul class="role-list"><li>Criação artística associada à pesquisa;</li><li>Experimentação sonora e musical;</li><li>Produção artística como forma de investigação.</li></ul></article>
+          <article class="card"><h3>Ambiente laboratorial</h3><ul class="role-list"><li>Integração entre artistas, técnicos e pesquisadores;</li><li>Desenvolvimento e uso criativo de tecnologias;</li><li>Formação prática em ambiente laboratorial;</li><li>Documentação e compartilhamento dos processos.</li></ul></article>
+        </div>
+
+        <a class="external-link" href="https://www.ircam.fr/" target="_blank" rel="noopener noreferrer">Conhecer o IRCAM</a>
+        <p class="reference-note"><strong>Referência conceitual independente.</strong> Não existe parceria institucional formalizada com o IRCAM.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="eyebrow">Metodologia</div>
+        <h2>Laboratório de criação coletiva</h2>
+
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Princípios de trabalho</h3>
+            <ul class="role-list">
+              <li>Experimentar antes de definir;</li>
+              <li>Registrar as escolhas e os resultados;</li>
+              <li>Alternar momentos técnicos e criativos;</li>
+              <li>Avaliar cada experiência em conjunto;</li>
+              <li>Construir soluções compatíveis com os recursos disponíveis;</li>
+              <li>Respeitar as normas do teatro e a integridade dos equipamentos.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Dinâmica das decisões</h3>
+            <p>
+              As propostas de cena serão testadas no espaço. Após cada experimento, o grupo registra o que funcionou, o que deve ser alterado e quais escolhas serão mantidas.
+            </p>
+            <p>
+              A direção organiza o processo e garante unidade artística, mas não elimina a autoria dos participantes. Figurino, maquiagem, cenografia, atuação, som e luz serão construídos em diálogo.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="eyebrow">Encontro semanal</div>
+        <h2>Estrutura sugerida para as duas horas</h2>
+
+        <div class="card timeline">
+          <div class="timeline-item">
+            <div class="time">14h30</div>
+            <div>
+              <h3>Abertura, segurança e organização</h3>
+              <p>Checagem do espaço, definição do objetivo do dia e distribuição de responsabilidades.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">14h45</div>
+            <div>
+              <h3>Pesquisa técnica ou artística</h3>
+              <p>Estudo de atuação, cenografia, figurino, maquiagem, microfonação, sonorização, iluminação ou projeção.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">15h15</div>
+            <div>
+              <h3>Experimento de cena</h3>
+              <p>Aplicação prática do conteúdo em uma passagem curta de <em>A Floresta que Fala</em>.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">16h00</div>
+            <div>
+              <h3>Apresentação e avaliação</h3>
+              <p>Execução do trecho, conversa sobre resultados e tomada de decisões.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">16h20</div>
+            <div>
+              <h3>Registro e encerramento</h3>
+              <p>Fotos, diário de bordo, salvamento de arquivos, organização e desligamento dos equipamentos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="eyebrow">Ciclo piloto</div>
+        <h2>Oito encontros para construir a performance</h2>
+
+        <div class="grid grid-2 cycle">
+          <article class="card">
+            <h3>O teatro como floresta</h3>
+            <p>Reconhecimento do palco, cabine, plateia e bastidores. Experimentação de distâncias, sombras, sons e trajetórias.</p>
+          </article>
+
+          <article class="card">
+            <h3>Corpo, personagem e espaço</h3>
+            <p>Pesquisa de atuação de Túlio, deslocamentos, ações físicas e relação do personagem com o ambiente.</p>
+          </article>
+
+          <article class="card">
+            <h3>Cenografia em movimento</h3>
+            <p>Criação de elementos cenográficos leves, seguros, modulares e capazes de transformar o palco.</p>
+          </article>
+
+          <article class="card">
+            <h3>Figurino e maquiagem</h3>
+            <p>Testes de materiais, formas, cores e maquiagem sob diferentes condições de iluminação.</p>
+          </article>
+
+          <article class="card">
+            <h3>A floresta sonora</h3>
+            <p>Criação de paisagens sonoras, vozes, ruídos, música e efeitos articulados à ação do ator.</p>
+          </article>
+
+          <article class="card">
+            <h3>A luz como dramaturgia</h3>
+            <p>Construção de atmosferas, contrastes e mudanças de estado para conduzir a percepção do público.</p>
+          </article>
+
+          <article class="card">
+            <h3>Integração e roteiro técnico</h3>
+            <p>Organização de entradas, transições, cenas, marcações, luz, som, figurino e cenografia.</p>
+          </article>
+
+          <article class="card">
+            <h3>Ensaio geral e mostra</h3>
+            <p>Passagem completa, ajustes finais, organização do espaço e realização da performance de contrapartida.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="highlight">
+          <div class="eyebrow" style="color:#263c2d">Contrapartida cultural</div>
+          <h2>Performance de A Floresta que Fala</h2>
+          <p>
+            Ao final do ciclo piloto, o grupo realizará uma apresentação pública de processo, com duração estimada entre 15 e 30 minutos, demonstrando a integração entre atuação, cenografia, figurino, maquiagem, som, luz e direção.
+          </p>
+
+          <div class="grid grid-2">
+            <div>
+              <h3>Entregas</h3>
+              <ul>
+                <li>Performance aberta a convidados ou público definido pela instituição;</li>
+                <li>Registro fotográfico e audiovisual;</li>
+                <li>Diário resumido dos encontros;</li>
+                <li>Roteiro técnico da apresentação;</li>
+                <li>Relatório de avaliação do ciclo piloto.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3>Valor para a instituição</h3>
+              <ul>
+                <li>Ativação educativa do teatro;</li>
+                <li>Formação de jovens em arte e tecnologia;</li>
+                <li>Produção de conteúdo artístico próprio;</li>
+                <li>Fortalecimento da relação entre formação, cultura e comunidade;</li>
+                <li>Possibilidade de continuidade em novos ciclos.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="eyebrow">Infraestrutura</div>
+        <h2>Recursos do Teatro Professor Ney Soares</h2>
+        <p class="section-intro">
+          A ocupação poderá aproveitar, mediante autorização e acompanhamento institucional, recursos já existentes no teatro, incluindo palco italiano, cabine técnica, sistema profissional de sonorização e iluminação, tela de projeção, camarins e áreas de apoio.
+        </p>
+
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Recursos especialmente relevantes</h3>
+            <ul class="role-list">
+              <li>Mesa digital Behringer X32;</li>
+              <li>Sistema de PA, subwoofers e monitores de palco;</li>
+              <li>Microfones e multicabos entre palco e cabine;</li>
+              <li>Refletores cênicos e consoles de iluminação;</li>
+              <li>Tela de projeção de grande formato;</li>
+              <li>Palco, camarins, foyer e acessibilidade.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Uso responsável</h3>
+            <p>
+              A utilização de equipamentos dependerá das regras da instituição e da disponibilidade técnica. Operações de maior risco, intervenções elétricas, acesso a varas, dimmers ou pontos elevados não farão parte da autonomia dos participantes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="eyebrow">Segurança e acompanhamento</div>
+        <h2>Condições mínimas para o ciclo piloto</h2>
+
+        <ul class="checklist">
+          <li>Autorização institucional para uso do espaço;</li>
+          <li>Autorização do responsável legal do participante menor de idade;</li>
+          <li>Presença de adulto responsável durante todos os encontros;</li>
+          <li>Respeito aos limites de pressão sonora;</li>
+          <li>Proibição de alimentos e bebidas junto aos equipamentos;</li>
+          <li>Inventário básico antes e depois das atividades;</li>
+          <li>Registro de falhas, danos ou ocorrências;</li>
+          <li>Operação técnica conforme normas da instituição;</li>
+          <li>Montagens cenográficas leves e reversíveis;</li>
+          <li>Agenda sujeita à programação oficial do teatro.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="perspectiva-nucleo">
+      <div class="container">
+        <div class="eyebrow">Continuidade condicionada à avaliação</div>
+        <h2>Perspectiva de desenvolvimento do núcleo</h2>
+        <p class="section-intro">
+          A continuidade do núcleo será avaliada a partir dos resultados do ciclo piloto e dependerá das decisões da Cooperativa dos Empreendedores de Belo Horizonte. As possibilidades abaixo não representam etapas já aprovadas.
+        </p>
+        <div class="grid grid-2">
+          <article class="card"><h3>Formação e criação</h3><ul class="role-list"><li>Novos ciclos de ocupação;</li><li>Incorporação de outros cooperados;</li><li>Formação de jovens em tecnologias do espetáculo;</li><li>Desenvolvimento de outras performances;</li><li>Oficinas abertas.</li></ul></article>
+          <article class="card"><h3>Pesquisa e atuação</h3><ul class="role-list"><li>Pesquisa de sonorização, iluminação e cenografia;</li><li>Construção de dispositivos interativos;</li><li>Produção de cadernos técnicos;</li><li>Prestação de serviços artísticos e tecnológicos;</li><li>Apresentação dos resultados em espaços culturais e educacionais.</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="eyebrow">Solicitação</div>
+        <h2>Proposta de autorização para experiência piloto</h2>
+
+        <div class="card">
+          <p>
+            Solicita-se a autorização para utilização orientada do Teatro Professor Ney Soares às terças-feiras, das 14h30 às 16h30, durante oito semanas, para o desenvolvimento do laboratório de criação de <em>A Floresta que Fala</em>.
+          </p>
+          <p>
+            A atividade será realizada por uma equipe inicial de três participantes, com responsabilidades definidas, acompanhamento adulto, registro das ações e respeito à programação e às normas técnicas da instituição.
+          </p>
+          <p>
+            Como contrapartida, será realizada uma performance pública de processo, acompanhada de documentação resumida do percurso de criação.
+          </p>
+
+          <div class="signature" aria-label="Campos para assinatura">
+            <div class="signature-line">Coordenação do projeto</div>
+            <div class="signature-line">Responsável institucional</div>
+            <div class="signature-line">Data</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <span>A Floresta que Fala · Laboratório de arte e tecnologia do espetáculo</span>
+      <span>Documento de proposta · versão inicial</span>
+    </div>
+  </footer>
+</body>
+</html>
