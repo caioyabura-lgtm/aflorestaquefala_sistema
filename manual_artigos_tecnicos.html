@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071812">
+  <meta name="description" content="Manual editorial, técnico e visual dos Cadernos de Experiência do Grupo de Arte e Tecnologia do Espetáculo.">
+  <title>Cadernos de Experiência — Manual editorial e técnico</title>
+  <style>
+    :root{--bg:#071812;--panel:#0d241b;--panel2:#123226;--text:#f5f3e9;--muted:#bdc9bd;--accent:#00ecd3;--gold:#a8b446;--line:rgba(245,243,233,.16);--warn:#ffd071;--max:1120px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:1rem}body{margin:0;color:var(--text);background:radial-gradient(circle at 90% 3%,rgba(0,236,211,.09),transparent 27rem),var(--bg);font:16px/1.65 Arial,Helvetica,sans-serif}a{color:inherit}.container{width:min(var(--max),calc(100% - 2.5rem));margin:auto}.skip{position:fixed;z-index:99;top:.5rem;left:.5rem;padding:.65rem .8rem;color:var(--bg);background:var(--accent);transform:translateY(-180%)}.skip:focus{transform:none}.top{padding:.8rem 0;border-bottom:1px solid var(--line)}.top .container{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.7rem}.top a{padding:.45rem .7rem;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.72rem;text-decoration:none}.top a:hover,.top a:focus-visible,.button:hover,.button:focus-visible{color:var(--bg);background:var(--accent);outline:3px solid var(--gold);outline-offset:2px}.hero{padding:clamp(3.5rem,9vw,7rem) 0 3rem;border-bottom:1px solid var(--line)}.eyebrow,.num{color:var(--accent);font-size:.7rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase}h1,h2,h3{line-height:1.1}h1{max-width:900px;margin:.7rem 0 1rem;font:700 clamp(3rem,8vw,6.5rem)/.92 Georgia,serif;letter-spacing:-.055em}h2{margin:.3rem 0 1rem;font-size:clamp(1.7rem,4vw,2.7rem)}h3{color:var(--gold)}.subtitle{max-width:850px;color:var(--gold);font:clamp(1.1rem,2.4vw,1.55rem) Georgia,serif}.lead{max-width:880px}.meta{color:var(--muted);font-size:.8rem}.index{margin:1.5rem auto;padding:1.2rem;border:1px solid var(--line);border-radius:1rem;background:var(--panel)}.index ol{columns:2}.index a{color:var(--muted);text-underline-offset:.2rem}.index a:hover,.index a:focus-visible{color:var(--accent)}main{padding-bottom:4rem}section{scroll-margin-top:1rem;margin-top:1.2rem;padding:clamp(1.35rem,4vw,2.4rem);border:1px solid var(--line);border-radius:1rem;background:var(--panel)}p{max-width:900px}ul,ol{padding-left:1.3rem}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.card{padding:1rem;border-left:3px solid var(--accent);background:var(--panel2)}.card h3{margin-top:0}.notice{padding:1rem;border:1px solid rgba(168,180,70,.5);border-radius:.7rem;background:rgba(168,180,70,.08)}.warning{border-color:rgba(255,208,113,.5);background:rgba(255,208,113,.07)}.table{overflow-x:auto;border:1px solid var(--line);border-radius:.7rem}table{width:100%;min-width:720px;border-collapse:collapse}th,td{padding:.7rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:var(--gold)}.flow{display:flex;flex-wrap:wrap;gap:.55rem;margin:1rem 0;padding:0;list-style:none}.flow li{display:flex;align-items:center;gap:.55rem;padding:.65rem .75rem;border:1px solid var(--line);border-radius:.6rem;background:var(--panel2)}.flow li:not(:last-child)::after{content:"→";color:var(--accent);font-weight:900}.tree,.prompt{overflow:auto;padding:1rem;border:1px solid var(--line);border-radius:.7rem;color:var(--text);background:#06130f;white-space:pre-wrap;font:14px/1.55 Consolas,"Courier New",monospace}.prompt{max-height:34rem}.button{display:inline-flex;margin:.75rem 0;padding:.7rem 1rem;border:1px solid var(--accent);border-radius:999px;color:var(--bg);background:var(--accent);cursor:pointer;font:700 .8rem Arial}.copy-status{min-height:1.2rem;color:var(--gold);font-size:.8rem}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.field{display:grid;gap:.35rem}.field.full{grid-column:1/-1}.field label{color:var(--gold);font-size:.75rem;font-weight:700}.field input,.field textarea{width:100%;padding:.75rem;border:1px solid var(--line);border-radius:.45rem;color:var(--text);background:var(--bg);font:inherit}.field textarea{min-height:7rem;resize:vertical}.field input:focus-visible,.field textarea:focus-visible{border-color:var(--accent);outline:2px solid var(--accent);outline-offset:2px}.checklist{columns:2}.state{display:inline-block;padding:.25rem .5rem;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.75rem}footer{padding:2rem 0 3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
+    @media(max-width:760px){.grid,.grid.three,.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.index ol,.checklist{columns:1}.flow{display:grid}.flow li{justify-content:space-between}h1{overflow-wrap:anywhere}.responsive-table{min-width:0}.responsive-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.responsive-table,.responsive-table tbody,.responsive-table tr,.responsive-table td{display:block}.responsive-table tr{padding:.5rem;border-bottom:1px solid var(--line)}.responsive-table td{border:0}.responsive-table td::before{display:block;color:var(--gold);content:attr(data-label);font-size:.7rem;font-weight:700}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+    @page{size:A4 portrait;margin:14mm}
+    @media print{body{color:#152019;background:#fff;font-size:10pt}.top,.index,.skip,.button,.copy-status{display:none}.container{width:100%}.hero{padding:0 0 1rem}section{break-inside:avoid;margin:.65rem 0;padding:1rem;background:#fff;border-color:#bbb}.card,.notice{background:#fff;border-color:#999}.tree,.prompt{max-height:none;color:#111;background:#fff;border-color:#999}.field input,.field textarea{color:#111;background:#fff;border-color:#999}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+  <nav class="top" aria-label="Navegação institucional"><div class="container"><a href="producao.html">Produção</a><a href="proposta_teatro_fumec.html">Grupo e proposta</a><a href="manual_sistema_producao.html">Manual do sistema</a></div></nav>
+  <header class="hero"><div class="container"><p class="eyebrow">Documento institucional em elaboração</p><h1>Cadernos de Experiência</h1><p class="subtitle">Manual para registro, organização e publicação das pesquisas do Grupo de Arte e Tecnologia do Espetáculo</p><p class="meta">Versão 0.1 · 20/07/2026</p><p class="lead">Os Cadernos de Experiência constituem o acervo técnico, artístico e histórico do Grupo de Arte e Tecnologia do Espetáculo.</p><p class="lead">Cada artigo registra uma atividade, experimento, processo de fabricação, sessão de estudo, pesquisa de materiais ou procedimento de criação.</p><p class="lead">O objetivo não é apenas relatar o que foi feito, mas organizar conhecimento capaz de ser compreendido, avaliado, aperfeiçoado e, quando apropriado, reproduzido por outras pessoas.</p><p class="lead">Os artigos também contribuem para a memória institucional, a gestão do conhecimento, a transparência e a governança do núcleo no âmbito da cooperativa.</p></div></header>
+  <nav class="container index" aria-labelledby="indice"><h2 id="indice">Índice</h2><ol><li><a href="#principios">Princípios dos artigos</a></li><li><a href="#tipos">Tipos de registro</a></li><li><a href="#estrutura">Estrutura padrão</a></li><li><a href="#imagens">Imagens e legendas</a></li><li><a href="#codigos">Códigos e circuitos</a></li><li><a href="#repositorio">Organização no repositório</a></li><li><a href="#versoes">Controle de versões</a></li><li><a href="#fluxo">Fluxo de produção</a></li><li><a href="#pacote">Pacote mínimo para criação</a></li><li><a href="#prompt">Prompt padrão</a></li><li><a href="#ficha">Ficha rápida</a></li><li><a href="#responsabilidade">Responsabilidade editorial</a></li><li><a href="#exemplos">Exemplos</a></li><li><a href="#relacao">Relação com o núcleo</a></li><li><a href="#indice-artigos">Índice de artigos publicados</a></li></ol></nav>
+  <main id="conteudo" class="container">
+    <section id="principios"><p class="num">01</p><h2>Princípios dos artigos</h2><div class="grid"><article class="card"><h3>Registrar o processo, não apenas o resultado</h3><p>O artigo deve mostrar a pergunta inicial, as decisões, os testes, os erros, as correções e o resultado alcançado.</p></article><article class="card"><h3>Distinguir observação de interpretação</h3><p>Medições e acontecimentos observados devem ser separados de hipóteses, avaliações e interpretações dos participantes.</p></article><article class="card"><h3>Não inventar informações</h3><p>Valores, modelos, datas, componentes, medidas, resultados e referências não confirmados devem ser marcados como informação ausente ou pendente.</p></article><article class="card"><h3>Valorizar erros e limitações</h3><p>Falhas, tentativas frustradas e limitações técnicas são parte do conhecimento produzido e não devem ser ocultadas.</p></article><article class="card"><h3>Proteger participantes e dados pessoais</h3><p>Nomes, imagens, informações pessoais e dados de menores de idade só devem ser publicados com autorização.</p></article><article class="card"><h3>Tornar o conhecimento consultável</h3><p>Cada artigo deve possuir título claro, resumo, palavras-chave, seções bem identificadas, legendas, referências e informações de versão.</p></article><article class="card"><h3>Preservar autoria e colaboração</h3><p>Todas as pessoas que participaram da atividade devem ter suas contribuições registradas de forma adequada.</p></article></div></section>
+    <section id="tipos"><p class="num">02</p><h2>Tipos de registro</h2><div class="grid"><article class="card"><h3>Relato de experimento</h3><p>Testes com sensores, circuitos, materiais, dispositivos, som, luz ou programação.</p></article><article class="card"><h3>Processo de fabricação</h3><p>Cenografia, figurino, costura, peças, mecanismos, gabaritos, estruturas e protótipos.</p></article><article class="card"><h3>Sessão de preparação artística</h3><p>Estudo musical e preparação de ator, cantor, músico, bailarino ou performer.</p></article><article class="card"><h3>Estudo técnico de espaço</h3><p>Acústica, iluminação, palco, projeção, circulação, infraestrutura e operação.</p></article><article class="card"><h3>Estudo de caso</h3><p>Trabalhos reais, como figurinos para grupos de dança, eventos ou projetos artísticos.</p></article><article class="card"><h3>Relatório de atividade</h3><p>Encontros, reuniões, visitas técnicas, oficinas e ciclos de formação.</p></article><article class="card"><h3>Nota técnica</h3><p>Solução específica, escolha de componente, configuração ou procedimento curto.</p></article><article class="card"><h3>Artigo de reflexão</h3><p>Relações entre práticas e conceitos artísticos, técnicos, sociais, cooperativistas ou metodológicos.</p></article></div></section>
+    <section id="estrutura"><p class="num">03</p><h2>Estrutura padrão</h2><ol>
+      <li><strong>Capa:</strong> grupo, título, subtítulo, tipo, autores e participantes, datas da atividade e publicação, código, versão, cooperativa quando autorizada e aviso experimental quando aplicável.</li>
+      <li><strong>Identificação:</strong> código, título, categoria, data, local, responsáveis, participantes, versão e estado — rascunho, revisão, aprovado para publicação ou arquivado.</li>
+      <li><strong>Resumo:</strong> apresentar em aproximadamente 100 a 200 palavras o objetivo, o método, os principais resultados e a relevância da atividade.</li>
+      <li><strong>Palavras-chave:</strong> entre três e seis.</li>
+      <li><strong>Contexto:</strong> motivo, projeto, experiências anteriores e necessidade investigada.</li>
+      <li><strong>Pergunta ou problema inicial:</strong> uma pergunta objetiva, como “Como utilizar um sensor piezoelétrico para captar impactos?”, “Qual resistor oferece maior estabilidade ao circuito testado?”, “Como organizar uma sessão digital para preparação de um performer?” ou “Como produzir vinte figurinos com repetibilidade e adequação ao movimento?”.</li>
+      <li><strong>Objetivos:</strong> objetivo geral e objetivos específicos.</li>
+      <li><strong>Participantes e responsabilidades:</strong> tabela com nome, função, contribuição e autorização de imagem.</li>
+      <li><strong>Materiais, equipamentos e softwares:</strong> item, fabricante ou modelo, quantidade, especificação, origem, condição e observações. Não inventar modelos.</li>
+      <li><strong>Segurança e cuidados:</strong> riscos elétricos, mecânicos, calor, ferramentas, pressão sonora, químicos, ergonomia, menores, supervisão e descarte.</li>
+      <li><strong>Fundamentação técnica ou artística:</strong> conceitos em linguagem acessível e correta; fontes confiáveis identificadas.</li>
+      <li><strong>Planejamento:</strong> hipótese, etapas, responsabilidades, materiais e critérios.</li>
+      <li><strong>Esquema, fluxograma ou mapa:</strong> representação visual sempre que aplicável.</li>
+      <li><strong>Procedimento:</strong> sequência numerada de preparação, montagem, configuração, execução, observação e encerramento.</li>
+      <li><strong>Registro de dados:</strong> medições, configurações, leituras, tempos, valores, arquivos e resultados; distinguir medido, estimado, subjetivo e não verificado.</li>
+      <li><strong>Resultados:</strong> o que funcionou ou não, comportamento, diferenças e resultado do encontro.</li>
+      <li><strong>Problemas e limitações:</strong> falhas, ruídos, componentes, ferramentas, tempo, medição, dúvidas e riscos.</li>
+      <li><strong>Decisões coletivas:</strong> decisão, motivo, participantes e situação — aprovada, provisória, rejeitada ou pendente.</li>
+      <li><strong>Aplicações:</strong> A Floresta que Fala, teatro, música, performers, cenografia, figurino, luz, som, audiovisual, interação, formação e serviços.</li>
+      <li><strong>Próximos passos:</strong> teste, alteração, material, responsável, prioridade e condição.</li>
+      <li><strong>Conclusão:</strong> síntese sem exagerar resultados.</li>
+      <li><strong>Referências:</strong> somente fontes realmente consultadas.</li>
+      <li><strong>Anexos:</strong> código, esquemas, fotografias, telas, materiais, MIDI, roteiros, mapas, tabelas e fichas.</li>
+    </ol><div class="grid"><article class="card"><h3>Circuito interativo</h3><p>Ação física → sensor → circuito → controlador → processamento → software → resposta sonora, luminosa ou mecânica</p></article><article class="card"><h3>Sessão de estudo</h3><p>Música de referência → análise formal → andamento → click track → pistas → trechos → ensaio → avaliação → revisão</p></article></div></section>
+    <section id="imagens"><p class="num">04</p><h2>Imagens, diagramas e legendas</h2><ul class="checklist"><li>usar apenas imagens autorizadas;</li><li>preservar o original;</li><li>criar cópia otimizada;</li><li>usar legenda numerada;</li><li>indicar autoria e data;</li><li>explicar o que demonstra;</li><li>evitar uso decorativo;</li><li>não expor dados desnecessários;</li><li>não mostrar menores sem autorização;</li><li>incluir texto alternativo;</li><li>equilibrar resolução e peso do PDF.</li></ul><p class="notice"><strong>Modelo:</strong> “Figura 1 — Montagem inicial do circuito com sensor piezoelétrico e Arduino. Fotografia: nome do responsável, data.”</p></section>
+    <section id="codigos"><p class="num">05</p><h2>Códigos, circuitos e arquivos técnicos</h2><ul><li>Mostrar no corpo apenas trechos relevantes e oferecer o código completo como anexo ou arquivo separado.</li><li>Informar linguagem, versão, entradas, saídas, bibliotecas, placa ou controlador, alimentação, tensões, versão do código e data.</li><li>Comentar partes essenciais, incluir esquema de ligações e indicar riscos.</li><li>Não apresentar montagem experimental como projeto certificado.</li></ul></section>
+    <section id="repositorio"><p class="num">06</p><h2>Organização no repositório</h2><pre class="tree" aria-label="Exemplo de estrutura de pastas">artigos/
+├── 2026/
+│   ├── ART-001-piezo-impacto/
+│   │   ├── artigo.pdf
+│   │   ├── artigo.html
+│   │   ├── resumo.md
+│   │   ├── imagens/
+│   │   ├── diagramas/
+│   │   ├── codigo/
+│   │   └── anexos/
+│   └── ART-002-sessao-estudo-musical/
+└── index.html</pre><p><strong>Código:</strong> ART-ANO-NÚMERO — ART-2026-001, ART-2026-002, ART-2026-003.</p><p><strong>PDF:</strong> ART-2026-001-piezo-impacto-v01.pdf. <strong>Pasta:</strong> ART-2026-001-piezo-impacto.</p><p class="warning notice">Evitar espaços, acentos, caracteres especiais, nomes como final.pdf ou final2.pdf e sobrescrita de versões anteriores sem registro.</p></section>
+    <section id="versoes"><p class="num">07</p><h2>Controle de versões</h2><div class="table"><table class="responsive-table"><thead><tr><th>Versão</th><th>Data</th><th>Responsável</th><th>Alteração</th><th>Estado</th><th>Aprovação</th></tr></thead><tbody><tr><td data-label="Versão">v0.1</td><td data-label="Data">A registrar</td><td data-label="Responsável">A registrar</td><td data-label="Alteração">Rascunho inicial</td><td data-label="Estado">Rascunho</td><td data-label="Aprovação">Pendente</td></tr><tr><td data-label="Versão">v0.2</td><td data-label="Data">A registrar</td><td data-label="Responsável">A registrar</td><td data-label="Alteração">Revisão técnica</td><td data-label="Estado">Revisão</td><td data-label="Aprovação">Pendente</td></tr><tr><td data-label="Versão">v0.3</td><td data-label="Data">A registrar</td><td data-label="Responsável">A registrar</td><td data-label="Alteração">Revisão editorial</td><td data-label="Estado">Revisão</td><td data-label="Aprovação">Pendente</td></tr><tr><td data-label="Versão">v1.0</td><td data-label="Data">A registrar</td><td data-label="Responsável">A registrar</td><td data-label="Alteração">Primeira versão publicada</td><td data-label="Estado">Publicado</td><td data-label="A registrar</td></tr><tr><td data-label="Versão">v1.1</td><td data-label="Data">A registrar</td><td data-label="Responsável">A registrar</td><td data-label="Alteração">Correção posterior</td><td data-label="Estado">Publicado</td><td data-label="A registrar</td></tr><tr><td data-label="Versão">v2.0</td><td data-label="Data">A registrar</td><td data-label="Responsável">A registrar</td><td data-label="Alteração">Revisão estrutural significativa</td><td data-label="Estado">Publicado</td><td data-label="A registrar</td></tr></tbody></table></div></section>
+    <section id="fluxo"><p class="num">08</p><h2>Fluxo de produção</h2><ol class="flow" aria-label="Linha do tempo editorial"><li>Atividade</li><li>Anotações e arquivos</li><li>Seleção de fotos e dados</li><li>Ficha de experiência</li><li>Rascunho com IA</li><li>Revisão técnica</li><li>Dados e autoria</li><li>Revisão editorial</li><li>Aprovação</li><li>PDF</li><li>Repositório</li><li>Índice geral</li></ol><p class="notice">A inteligência artificial apoia redação, organização e formatação, mas não substitui confirmação dos dados, revisão dos participantes, responsabilidade técnica, autorização de publicação ou decisão institucional.</p></section>
+    <section id="pacote"><p class="num">09</p><h2>Pacote mínimo para criação do artigo</h2><ul class="checklist"><li>link deste manual;</li><li>título provisório;</li><li>data e local;</li><li>nomes e funções;</li><li>objetivo e pergunta;</li><li>materiais e componentes;</li><li>modelos confirmados;</li><li>fotografias e medições;</li><li>esquemas e códigos;</li><li>procedimento e resultados;</li><li>erros e decisões;</li><li>aplicações e próximos passos;</li><li>fontes consultadas;</li><li>autorizações de imagem;</li><li>formato desejado;</li><li>nome e código do arquivo.</li></ul></section>
+    <section id="prompt"><p class="num">10</p><h2>Prompt para gerar um artigo técnico em PDF</h2><p>O texto permanece visível e selecionável para cópia manual quando JavaScript estiver desativado.</p><pre class="prompt" id="prompt-texto">Leia integralmente o manual editorial disponível em:
+
+[COLAR LINK DE manual_artigos_tecnicos.html]
+
+Com base nesse manual e nos materiais fornecidos abaixo, produza um artigo
+técnico completo para os Cadernos de Experiência do Grupo de Arte e
+Tecnologia do Espetáculo.
+
+Não invente dados, modelos, valores, resultados, participantes ou
+referências. Quando uma informação necessária estiver ausente, marque-a
+como 'informação pendente de confirmação'.
+
+Diferencie claramente fatos observados, medições, interpretações e
+hipóteses.
+
+Preserve a autoria e registre a contribuição de cada participante.
+
+Considere segurança, limitações, erros, decisões coletivas, aplicações e
+próximos passos.
+
+O artigo deverá ser entregue em PDF e, quando possível, também em HTML ou
+Markdown editável.
+
+Dados da atividade:
+
+Título provisório:
+Código do artigo:
+Tipo de artigo:
+Data:
+Local:
+Participantes:
+Responsabilidades:
+Contexto:
+Pergunta inicial:
+Objetivo:
+Materiais:
+Equipamentos:
+Softwares:
+Procedimento:
+Medições:
+Resultados:
+Problemas:
+Decisões:
+Aplicações:
+Próximos passos:
+Referências:
+Imagens disponíveis:
+Arquivos anexos:
+Observações adicionais:</pre><button class="button" id="copiar-prompt" type="button">Copiar prompt</button><p class="copy-status" id="status-prompt" role="status" aria-live="polite"></p></section>
+    <section id="ficha"><p class="num">11</p><h2>Modelo de ficha rápida</h2><p>Modelo local: os dados não são salvos no navegador nem enviados a banco de dados.</p><form id="ficha-form" class="form-grid"><div class="field"><label for="f-titulo">Título</label><input id="f-titulo" name="Título"></div><div class="field"><label for="f-data">Data</label><input id="f-data" name="Data" type="date"></div><div class="field"><label for="f-local">Local</label><input id="f-local" name="Local"></div><div class="field"><label for="f-participantes">Participantes</label><input id="f-participantes" name="Participantes"></div><div class="field full"><label for="f-objetivo">Objetivo</label><textarea id="f-objetivo" name="Objetivo"></textarea></div><div class="field full"><label for="f-pergunta">Pergunta</label><textarea id="f-pergunta" name="Pergunta"></textarea></div><div class="field full"><label for="f-materiais">Materiais</label><textarea id="f-materiais" name="Materiais"></textarea></div><div class="field full"><label for="f-procedimento">Procedimento</label><textarea id="f-procedimento" name="Procedimento"></textarea></div><div class="field full"><label for="f-resultados">Resultados</label><textarea id="f-resultados" name="Resultados"></textarea></div><div class="field full"><label for="f-falhas">Falhas</label><textarea id="f-falhas" name="Falhas"></textarea></div><div class="field full"><label for="f-decisoes">Decisões</label><textarea id="f-decisoes" name="Decisões"></textarea></div><div class="field full"><label for="f-aplicacao">Aplicação</label><textarea id="f-aplicacao" name="Aplicação"></textarea></div><div class="field full"><label for="f-proximos">Próximos passos</label><textarea id="f-proximos" name="Próximos passos"></textarea></div><div class="field full"><label for="f-arquivos">Arquivos produzidos</label><textarea id="f-arquivos" name="Arquivos produzidos"></textarea></div></form><button class="button" id="copiar-ficha" type="button">Copiar ficha preenchida</button><p class="copy-status" id="status-ficha" role="status" aria-live="polite"></p></section>
+    <section id="responsabilidade"><p class="num">12</p><h2>Responsabilidade editorial</h2><ul><li>O autor organiza o primeiro registro.</li><li>Os participantes revisam suas contribuições.</li><li>O responsável técnico verifica dados e segurança.</li><li>A coordenação do núcleo revisa coerência e publicação.</li><li>A cooperativa aprova apenas o uso institucional de seu nome, marca e informações, quando necessário.</li><li>Conteúdos envolvendo terceiros respeitam autorizações.</li><li>Documentos inadequados à publicação pública podem permanecer internos.</li></ul><p><span class="state">registro interno</span> <span class="state">em revisão</span> <span class="state">autorizado para publicação</span> <span class="state">publicado</span> <span class="state">substituído</span> <span class="state">arquivado</span></p></section>
+    <section id="exemplos"><p class="num">13</p><h2>Exemplos de artigos</h2><p class="notice">Os cartões apresentam somente possibilidades de título e escopo. Nenhum resultado é presumido.</p><div class="grid"><article class="card"><h3>Captação de impacto com sensores piezoelétricos</h3><p>Escopo: montagem, captação, leituras e aplicações possíveis.</p></article><article class="card"><h3>Escolha de resistores em circuito de proteção</h3><p>Escopo: valores testados, critérios, estabilidade e limitações.</p></article><article class="card"><h3>Arduino como interface para eventos MIDI</h3><p>Escopo: entradas, código, transmissão e software de destino.</p></article><article class="card"><h3>Fluxograma de uma interface interativa</h3><p>Escopo: caminho do gesto até a resposta cênica.</p></article><article class="card"><h3>Sessão digital de estudo para performer</h3><p>Escopo: click, pistas, divisão formal, ensaio e revisão.</p></article><article class="card"><h3>Produção seriada de figurino para dança tradicional</h3><p>Escopo: materiais, modelagem, repetibilidade, movimento e acabamento.</p></article><article class="card"><h3>Estudo de iluminação para uma cena</h3><p>Escopo: objetivo dramatúrgico, posições, testes e decisões.</p></article><article class="card"><h3>Reconhecimento técnico de um espaço teatral</h3><p>Escopo: infraestrutura, circulação, sistemas, riscos e possibilidades.</p></article></div></section>
+    <section id="relacao"><p class="num">14</p><h2>Relação com o núcleo</h2><p>Os artigos não são documentos isolados. Juntos, formam o currículo vivo do Grupo de Arte e Tecnologia do Espetáculo.</p><p>Eles demonstram experiências realizadas, saberes transmitidos, métodos desenvolvidos, responsabilidades assumidas e capacidade de continuidade.</p><p>O conjunto dos artigos poderá subsidiar relatórios institucionais, apresentações à cooperativa, propostas de parceria, projetos culturais, atividades formativas e futuras prestações de serviço.</p></section>
+    <section id="indice-artigos"><p class="num">Área futura</p><h2>Índice de artigos publicados</h2><p class="notice">Nenhum artigo publicado foi cadastrado nesta versão. O índice será preenchido somente após revisão e autorização.</p></section>
+  </main>
+  <footer><div class="container">Este manual orienta a documentação das atividades do Grupo de Arte e Tecnologia do Espetáculo. Sua aplicação deve respeitar autoria, segurança, proteção de dados, autorizações de imagem e processos de governança da cooperativa.</div></footer>
+  <script>
+    async function copiarTexto(texto, status, botao, mensagem) {
+      const original = botao.textContent;
+      try {
+        if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(texto);
+        else {
+          const area = document.createElement("textarea");
+          area.value = texto; area.setAttribute("readonly", ""); area.style.position = "fixed"; area.style.opacity = "0";
+          document.body.appendChild(area); area.select();
+          if (!document.execCommand("copy")) throw new Error("Cópia não disponível");
+          area.remove();
+        }
+        botao.textContent = mensagem; status.textContent = mensagem + ".";
+        setTimeout(() => { botao.textContent = original; status.textContent = ""; }, 2200);
+      } catch (erro) { status.textContent = "Não foi possível copiar automaticamente. Selecione o texto manualmente."; }
+    }
+    document.querySelector("#copiar-prompt").addEventListener("click", () => copiarTexto(document.querySelector("#prompt-texto").textContent.trim(), document.querySelector("#status-prompt"), document.querySelector("#copiar-prompt"), "Prompt copiado"));
+    document.querySelector("#copiar-ficha").addEventListener("click", () => {
+      const campos = [...document.querySelector("#ficha-form").elements].filter(campo => campo.name);
+      const texto = campos.map(campo => `${campo.name}: ${campo.value.trim() || "informação pendente de confirmação"}`).join("\n\n");
+      copiarTexto(texto, document.querySelector("#status-ficha"), document.querySelector("#copiar-ficha"), "Ficha copiada");
+    });
+  </script>
+</body>
+</html>

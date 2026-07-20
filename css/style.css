@@ -170,9 +170,11 @@ button { font: inherit; }
 }
 
 .opening-line {
+  width: 30ch;
+  max-width: 100%;
   margin: 0;
   text-shadow: 0 3px 25px rgba(0, 0, 0, .4);
-  font: 600 clamp(1.7rem, 4vw, 3.5rem) / 1.18 "Fraunces", Georgia, serif;
+  font: 600 clamp(.85rem, 2vw, 1.75rem) / 1.18 "Fraunces", Georgia, serif;
   overflow-wrap: break-word;
 }
 
@@ -224,6 +226,26 @@ button { font: inherit; }
 .footer-right {
   justify-items: end;
   text-align: right;
+}
+
+/* Variante experimental: remove a barra e mantém somente a entrada no canto. */
+.compact-entry .site-footer {
+  right: auto;
+  left: clamp(18px, 4vw, 58px);
+  bottom: clamp(18px, 4vw, 42px);
+  display: block;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.compact-entry .footer-left,
+.compact-entry .footer-right {
+  display: none;
 }
 
 /* Botao de entrada liberado apenas apos recursos e animacao inicial. */
@@ -417,7 +439,7 @@ button { font: inherit; }
   }
 
   .opening-line {
-    font-size: clamp(1.35rem, 6.6vw, 1.82rem);
+    font-size: clamp(.675rem, 3.3vw, .91rem);
   }
 
   .glass-panel {
@@ -450,6 +472,15 @@ button { font: inherit; }
   .enter-button {
     width: min(220px, calc(100vw - 48px));
     min-height: 54px;
+  }
+
+  .compact-entry .site-footer {
+    right: auto;
+    left: 20px;
+    bottom: 20px;
+    display: block;
+    min-height: 0;
+    padding: 0;
   }
 }
 

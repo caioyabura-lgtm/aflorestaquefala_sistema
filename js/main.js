@@ -12,6 +12,7 @@ export const DEBUG = false;
 const MODEL_ROTATION_X = Math.PI / 2;
 const MODEL_ROTATION_Y = 0;
 const canvas = document.querySelector("#forest-canvas");
+const modelPath = canvas.dataset.model || "animacao.glb";
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xc8b88d);
 scene.fog = new THREE.FogExp2(0xc8b88d, 0.0018);
@@ -59,7 +60,7 @@ function installDebugHelpers() {
 
 async function init() {
   try {
-    const gltf = await forest.load("animacao.glb");
+    const gltf = await forest.load(modelPath);
     // O GLB atual não possui câmera e foi exportado no plano X/Z.
     // Só o normalizamos quando o Blender não fornece a direção de arte da câmera.
     forest.alignForZCamera(MODEL_ROTATION_X, MODEL_ROTATION_Y);
